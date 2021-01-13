@@ -1,14 +1,10 @@
 import React from "react"
 import Link from "next/link"
 import Head from "../components/head"
-import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme } from "victory"
+import { VictoryBar, VictoryChart, VictoryAxis, VictoryGroup } from "victory"
 
-const data = [
-  { quarter: 1, earnings: 13000 },
-  { quarter: 2, earnings: 16500 },
-  { quarter: 3, earnings: 14250 },
-  { quarter: 4, earnings: 19000 },
-]
+const data = [{ province: "qc", days: 13 }]
+const data2 = [{ province: "qc", vaccines: 22000 }]
 
 const Home = () => (
   <div>
@@ -17,26 +13,47 @@ const Home = () => (
     <h1>Hello all</h1>
     <p>Thanks for coming to my site!!</p>
     <p>See you in the future!!</p>
-    <VictoryChart domainPadding={20} theme={VictoryTheme.material}>
+
+    {/*  <VictoryAxis dependentAxis
+            domain={[-10, 15]}
+            offsetX={50}
+            orientation="left"
+            standalone={false}
+            style={styles.axisOne}
+    />
+
+    <VictoryAxis dependentAxis
+            domain={[0, 50]}
+            orientation="right"
+            standalone={false}
+            style={styles.axisTwo}
+          />
+
+    */}
+    <VictoryChart>
       <VictoryAxis
-        // tickValues specifies both the number of ticks and where
-        // they are placed on the axis
-        tickValues={[1, 2, 3, 4]}
-        tickFormat={["Quarter 1", "Quarter 2", "Quarter 3", "Quarter 4"]}
+        dependentAxis
+        domain={[0, 100]}
+        orientation="top"
+        standalone={true}
       />
       <VictoryAxis
         dependentAxis
-        // tickFormat specifies how ticks should be displayed
-        tickFormat={(x) => `$${x / 1000}k`}
+        domain={[-10, 50]}
+        maxDomain={{ y: 50 }}
+        orientation="bottom"
+        standalone={true}
       />
-      <VictoryBar
+      <VictoryAxis />
+      <VictoryGroup
         horizontal
-        data={data}
-        // data accessor for x values
-        x="quarter"
-        // data accessor for y values
-        y="earnings"
-      />
+        offset={10}
+        style={{ data: { width: 6 } }}
+        colorScale={["gold", "tomato"]}
+      >
+        <VictoryBar data={[{ x: "qc", y: 50 }]} />
+        <VictoryBar data={[{ x: "qc", y: 5 }]} />
+      </VictoryGroup>
     </VictoryChart>
 
     <style jsx>{`
