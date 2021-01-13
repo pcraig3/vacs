@@ -1,60 +1,61 @@
 import React from "react"
-import Link from "next/link"
 import Head from "../components/head"
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryGroup } from "victory"
 
-const data = [{ province: "qc", days: 13 }]
-const data2 = [{ province: "qc", vaccines: 22000 }]
+const dayOfYear = 13
+const daysInYear = 365
+
+const vaccines = 99510
+const population = 8485000
+
+// round to one digit
+const getPercent = ({ numerator, denominator }) => {
+  const percentage = (numerator / denominator) * 100
+  return Math.round((percentage + Number.EPSILON) * 10) / 10
+}
+
+const dataDays = [
+  { x: "qc", y: getPercent({ numerator: dayOfYear, denominator: daysInYear }) },
+]
+const dataVaccines = [
+  { x: "qc", y: getPercent({ numerator: vaccines, denominator: population }) },
+]
 
 const Home = () => (
   <div>
     <Head title="Home" />
 
-    <h1>Hello all</h1>
-    <p>Thanks for coming to my site!!</p>
-    <p>See you in the future!!</p>
+    <h1>Vaccine tracker</h1>
+    <p>Only for quebec so far</p>
 
-    {/*  <VictoryAxis dependentAxis
-            domain={[-10, 15]}
-            offsetX={50}
-            orientation="left"
-            standalone={false}
-            style={styles.axisOne}
-    />
-
-    <VictoryAxis dependentAxis
-            domain={[0, 50]}
-            orientation="right"
-            standalone={false}
-            style={styles.axisTwo}
-          />
-
-    */}
-    <VictoryChart>
+    <VictoryChart height={150}>
       <VictoryAxis
         dependentAxis
         domain={[0, 100]}
-        orientation="top"
-        standalone={true}
-      />
-      <VictoryAxis
-        dependentAxis
-        domain={[-10, 50]}
-        maxDomain={{ y: 50 }}
+        tickValues={[25, 50, 75, 100]}
         orientation="bottom"
-        standalone={true}
       />
       <VictoryAxis />
       <VictoryGroup
         horizontal
-        offset={10}
-        style={{ data: { width: 6 } }}
-        colorScale={["gold", "tomato"]}
+        offset={20}
+        style={{ data: { width: 10 } }}
+        colorScale={["brown", "tomato", "gold"]}
       >
-        <VictoryBar data={[{ x: "qc", y: 50 }]} />
-        <VictoryBar data={[{ x: "qc", y: 5 }]} />
+        <VictoryBar
+          data={dataDays}
+          labels={({ datum }) => `days in 2021: ${datum.y}%`}
+        />
+        <VictoryBar
+          data={dataVaccines}
+          labels={({ datum }) => `vaccines: ${datum.y}%`}
+        />
       </VictoryGroup>
     </VictoryChart>
+
+    <p>
+      <sub>*you need 2 shots of the vaccine. 😬</sub>
+    </p>
 
     <style jsx>{`
       /* https://dev.to/hankchizljaw/a-modern-css-reset-6p3 */
