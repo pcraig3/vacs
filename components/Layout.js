@@ -1,4 +1,4 @@
-import HTMLHead from "../components/Head"
+import HTMLHead from "../components/head"
 import Header from "../components/Header"
 
 function Layout({ children, title = "Canada Vaccines Tracker" }) {
