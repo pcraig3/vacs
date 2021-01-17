@@ -1,5 +1,6 @@
 import HTMLHead from "../components/head"
 import Header from "../components/Header"
+import { space } from "../styles/_theme"
 
 function Layout({ children, title = "Canada Vaccines Tracker" }) {
   return (
@@ -10,8 +11,8 @@ function Layout({ children, title = "Canada Vaccines Tracker" }) {
       <main>{children}</main>
 
       <style jsx>{`
-        header {
-          border-bottom: 3px solid black;
+        main {
+          padding: ${space.sm} ${space.xs};
         }
       `}</style>
     </div>

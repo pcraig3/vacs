@@ -24,7 +24,7 @@ const colors = {
   QcOrangeAccent: "#E1775A",
 }
 
-// * Labels
+// Labels
 const baseLabelStyles = {
   fontFamily: sansSerif,
   fontSize,
@@ -118,4 +118,15 @@ const theme = {
   },
 }
 
-export { baseLabelStyles, colors, theme }
+// Spacing
+const space = {
+  xxs: "5px",
+  xs: "10px",
+  sm: "15px",
+  md: "20px",
+  lg: "30px",
+  xl: "40px",
+  xxl: "60px",
+}
+
+export { baseLabelStyles, colors, space, theme }

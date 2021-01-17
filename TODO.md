@@ -1,5 +1,8 @@
 # TODO
 
+- Heading
+- About page
+- fonts
 - Fix the styling
 - Headers, sections
 - Data entry for more provinces

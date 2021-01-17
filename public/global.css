@@ -1,5 +1,9 @@
-body {
+html {
   font-size: 100%;
+}
+
+body {
+  font-size: 1.5rem;
   font-family: sans-serif;
   color: black;
 
@@ -10,9 +14,4 @@ body {
 h2 {
   font-size: 5rem;
   font-weight: 400;
-}
-
-p,
-a {
-  font-size: 1.5rem;
 }
