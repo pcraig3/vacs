@@ -11,10 +11,10 @@ import {
 
 import { baseLabelStyles, colors, theme } from "../styles/_theme"
 
-const dayOfYear = 15
+const dayOfYear = 17
 const daysInYear = 365
 
-const vaccines = 127073
+const vaccines = 137856
 const population = 8485000
 
 // round to one digit
@@ -29,52 +29,53 @@ const dataDays = [
     y: getPercent({ numerator: dayOfYear, denominator: daysInYear }),
   },
 ]
-const dataVaccines = [
-  {
-    x: "qc",
-    y: getPercent({ numerator: vaccines, denominator: population }),
-  },
-]
+
+const dataVaccines = {
+  can: [
+    {
+      x: "can",
+      y: getPercent({ numerator: 556681, denominator: 37590000 }),
+    },
+  ],
+  qc: [
+    {
+      x: "qc",
+      y: getPercent({ numerator: vaccines, denominator: population }),
+    },
+  ],
+}
 
 const Home = () => (
-  <Layout title="Canada Vaccines Tracker">
+  <Layout title="Canada Vaccine Tracker">
     <div>
       <section>
         <h2>Canada</h2>
-        <p>Only for quebec so far</p>
+        <p>Tracking the percent of Canada has received a vaccine in 2021.</p>
 
         <div className="chart">
-          <VictoryChart height={150} theme={theme}>
+          <VictoryChart height={140} width={360} theme={theme}>
             <VictoryLegend
-              x={90}
-              y={130}
+              x={50}
+              y={15}
               orientation="horizontal"
               gutter={10}
               style={{
-                border: { stroke: "black" },
+                border: { stroke: "black", strokeWidth: 2 },
                 data: { width: 10, stroke: colors.QcBlueDark, strokeWidth: 1 },
               }}
               colorScale={[colors.QcOrangeAccent, colors.QcBlueLight]}
-              data={[{ name: "Days in 2021" }, { name: "Vaccinations" }]}
+              data={[{ name: "Vaccinations" }, { name: "Days in 2021" }]}
             />
-
-            <VictoryLabel
-              text="Quebec Vaccinations"
-              x={175}
-              y={40}
-              style={baseLabelStyles}
-              textAnchor="middle"
-            />
+            <VictoryAxis />
             <VictoryAxis
               dependentAxis
               domain={[0, 100]}
               tickValues={[25, 50, 75, 100]}
               orientation="bottom"
             />
-            <VictoryAxis />
             <VictoryGroup
               horizontal
-              offset={20}
+              offset={18}
               style={{
                 data: { width: 10, stroke: colors.QcBlueDark, strokeWidth: 1 },
               }}
@@ -86,7 +87,15 @@ const Home = () => (
                   duration: 1500,
                   onLoad: { duration: 500 },
                 }}
-                data={dataDays}
+                data={[
+                  {
+                    x: "can",
+                    y: getPercent({
+                      numerator: dayOfYear,
+                      denominator: daysInYear,
+                    }),
+                  },
+                ]}
                 labels={({ datum }) => `${datum.y}%`}
                 labelComponent={
                   <CustomLabel
@@ -100,7 +109,7 @@ const Home = () => (
                   onLoad: { duration: 500 },
                 }}
                 name="bar-vaccines"
-                data={dataVaccines}
+                data={dataVaccines.can}
                 labels={({ datum }) => `${datum.y}%`}
                 labelComponent={
                   <CustomLabel
@@ -123,41 +132,33 @@ const Home = () => (
       </section>
 
       <section>
-        <h2>Regions</h2>
-        <p>For all the provinces and territores</p>
+        <h2>By region</h2>
+        <p>Vaccinations by percentage of population across Canada.</p>
 
         <div className="chart">
-          <VictoryChart height={150} theme={theme}>
+          <VictoryChart height={140} width={360} theme={theme}>
             <VictoryLegend
-              x={90}
-              y={130}
+              x={50}
+              y={15}
               orientation="horizontal"
               gutter={10}
               style={{
-                border: { stroke: "black" },
+                border: { stroke: "black", strokeWidth: 2 },
                 data: { width: 10, stroke: colors.QcBlueDark, strokeWidth: 1 },
               }}
               colorScale={[colors.QcOrangeAccent, colors.QcBlueLight]}
-              data={[{ name: "Days in 2021" }, { name: "Vaccinations" }]}
+              data={[{ name: "Vaccinations" }, { name: "Days in 2021" }]}
             />
-
-            <VictoryLabel
-              text="Vaccinations across Canada"
-              x={175}
-              y={40}
-              style={baseLabelStyles}
-              textAnchor="middle"
-            />
+            <VictoryAxis />
             <VictoryAxis
               dependentAxis
               domain={[0, 100]}
               tickValues={[25, 50, 75, 100]}
               orientation="bottom"
             />
-            <VictoryAxis />
             <VictoryGroup
               horizontal
-              offset={20}
+              offset={18}
               style={{
                 data: { width: 10, stroke: colors.QcBlueDark, strokeWidth: 1 },
               }}
@@ -183,7 +184,7 @@ const Home = () => (
                   onLoad: { duration: 500 },
                 }}
                 name="bar-vaccines"
-                data={dataVaccines}
+                data={dataVaccines.qc}
                 labels={({ datum }) => `${datum.y}%`}
                 labelComponent={
                   <CustomLabel
@@ -211,8 +212,12 @@ const Home = () => (
         }
 
         section > h2 ~ * {
-          width: 67% !important;
+          width: 67%;
           align-self: flex-end;
+        }
+
+        section > h2 ~ .chart {
+          width: 77.7%;
         }
       `}</style>
     </div>

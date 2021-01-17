@@ -1,6 +1,8 @@
 # TODO
 
 - Heading
+- Red line on the graph
+- Graph all the regions on the homepage
 - About page
 - fonts
 - Fix the styling

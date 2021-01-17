@@ -4,8 +4,8 @@ import { space } from "../styles/_theme"
 function Header() {
   return (
     <header>
-      <div class="logo">
-        <span aria-hidden="true">🍁</span> Canada Vaccines Tracker
+      <div className="logo">
+        <span aria-hidden="true">🍁</span> Canada Vaccine Tracker
       </div>
 
       <nav>
