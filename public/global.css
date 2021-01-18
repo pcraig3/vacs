@@ -6,9 +6,10 @@ body {
   font-size: 1.5rem;
   font-family: "Space Grotesk", serif;
   color: black;
-
   margin: 20px;
   border: black 3px solid;
+
+  min-height: calc(100vh - 40px);
 }
 
 h1,
@@ -19,4 +20,36 @@ h2 {
 
 p {
   font-family: "Piazzolla", serif;
+  margin-bottom: 20px;
+}
+
+a:focus,
+a:hover {
+  outline: 3px solid transparent;
+  color: white !important;
+  background-color: crimson;
+  -webkit-box-shadow: 3px -4px black;
+  box-shadow: 3px -4px black;
+  text-decoration: underline;
+}
+
+a:focus path,
+a:hover path {
+  fill: white;
+}
+
+section {
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+section > h1 ~ *,
+section > h2 ~ * {
+  width: 67%;
+  align-self: flex-end;
+}
+
+section > h2 ~ .chart {
+  width: 77.7%;
 }

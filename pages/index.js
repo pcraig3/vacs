@@ -214,22 +214,7 @@ const Home = () => (
         </div>
       </section>
 
-      <style jsx>{`
-        section {
-          margin-bottom: 40px;
-          display: flex;
-          flex-direction: column;
-        }
-
-        section > h2 ~ * {
-          width: 67%;
-          align-self: flex-end;
-        }
-
-        section > h2 ~ .chart {
-          width: 77.7%;
-        }
-      `}</style>
+      <style jsx>{``}</style>
     </div>
   </Layout>
 )

@@ -1,18 +1,23 @@
 # TODO
 
 - Dockerfile
-- Focus styles / hover styles
-- Red line on the graph
 - About page
 - 404 page
 - Feedback page
+- "Sources" page?
 - Copy API calls
 - App versioning
 - robots
 - Fix the styling
+- Source links
+- Make it the same red
+- Put your name on it somewhere
+- Mobile responsive
 
 # DONE
 
+- Focus styles / hover styles
+- Red line on the graph
 - fonts
 - Graph all the regions on the homepage
 - Data entry for more provinces

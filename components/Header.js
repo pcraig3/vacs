@@ -68,6 +68,10 @@ function Header() {
           display: inline-block;
           margin-left: ${space.sm};
         }
+
+        a {
+          padding: 0 5px;
+        }
       `}</style>
     </header>
   )
