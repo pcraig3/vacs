@@ -1,19 +1,19 @@
-import React from "react"
-import NextHead from "next/head"
-import { string } from "prop-types"
+import React from 'react'
+import NextHead from 'next/head'
+import { string } from 'prop-types'
 
-const defaultDescription = ""
-const defaultOGURL = ""
-const defaultOGImage = ""
+const defaultDescription = ''
+const defaultOGURL = ''
+const defaultOGImage = ''
 
 const Head = (props) => (
-  <NextHead>
+  <NextHead lang="en">
     <meta charSet="UTF-8" />
-    <title>{props.title || ""}</title>
-    <meta
-      name="description"
-      content={props.description || defaultDescription}
-    />
+    <title>{props.title || ''}</title>
+    {process.env.NEXT_PUBLIC_GITHUB_SHA ? (
+      <meta name="keywords" content={`GITHUB_SHA=${process.env.NEXT_PUBLIC_GITHUB_SHA}`} />
+    ) : null}
+    <meta name="description" content={props.description || defaultDescription} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -22,11 +22,8 @@ const Head = (props) => (
     <link rel="manifest" href="/site.webmanifest"></link>
 
     <meta property="og:url" content={props.url || defaultOGURL} />
-    <meta property="og:title" content={props.title || ""} />
-    <meta
-      property="og:description"
-      content={props.description || defaultDescription}
-    />
+    <meta property="og:title" content={props.title || ''} />
+    <meta property="og:description" content={props.description || defaultDescription} />
     <meta name="twitter:site" content={props.url || defaultOGURL} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content={props.ogImage || defaultOGImage} />

@@ -7,6 +7,8 @@
 - "Sources" page?
 - Copy API calls
 - App versioning
+  - Semantic versioning
+  - CHANGELOG
 - robots
 - Fix the styling
 - Source links
@@ -19,6 +21,7 @@
 
 # DONE
 
+- Add git SHA to DOCKERFILE
 - Dockerfile
 - Focus styles / hover styles
 - Red line on the graph
