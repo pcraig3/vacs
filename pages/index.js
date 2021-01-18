@@ -3,7 +3,9 @@ import {
   VictoryBar,
   VictoryChart,
   VictoryGroup,
+  VictoryLabel,
   VictoryLegend,
+  VictoryLine,
 } from "victory"
 
 import Layout from "../components/Layout"
@@ -14,35 +16,18 @@ import { canadaDays, canadaVaccines, regionVaccines } from "../data/canada"
 import { formatNumberWithCommas, getDayOfYear } from "../data"
 import regions from "../data/_regions"
 
-const vaccines = 137856
-const population = 8485000
-
-// round to one digit
-const getPercent = ({ numerator, denominator }) => {
-  const percentage = (numerator / denominator) * 100
-  return Math.round((percentage + Number.EPSILON) * 10) / 10
+const _getVaccinatedTooltip = (abbr) => {
+  return `${formatNumberWithCommas(
+    regions[abbr].vaccines
+  )} vaccinated / ${formatNumberWithCommas(regions[abbr].population)} people`
 }
 
-const dataDays = [
-  {
-    x: "qc",
-    y: getPercent({ numerator: getDayOfYear(), denominator: 365 }),
-  },
-]
+const _getDaysTooltip = () => `${getDayOfYear()} days / 365 days`
 
-const dataVaccines = {
-  can: [
-    {
-      x: "can",
-      y: getPercent({ numerator: 556681, denominator: 37590000 }),
-    },
-  ],
-  qc: [
-    {
-      x: "qc",
-      y: getPercent({ numerator: vaccines, denominator: population }),
-    },
-  ],
+const _getRegionTooltips = (abbr) => {
+  if (abbr === "Days in 2021") return _getDaysTooltip()
+
+  return _getVaccinatedTooltip(abbr)
 }
 
 const Home = () => (
@@ -51,7 +36,8 @@ const Home = () => (
       <section>
         <h2>Canada</h2>
         <p>
-          Tracking the proportion of Canadians have received a vaccine in 2021.
+          Tracking the proportion of Canadians who have received a vaccine in
+          2021.
         </p>
 
         <div className="chart">
@@ -74,6 +60,19 @@ const Home = () => (
               domain={[0, 100]}
               tickValues={[4.9, 25, 50, 75, 100]}
               orientation="bottom"
+            />
+            <VictoryLine
+              style={{
+                data: {
+                  stroke: "red",
+                  strokeWidth: 0.5,
+                  strokeDasharray: "4, 4",
+                },
+                labels: { angle: 0, fill: "red", fontSize: 8, padding: 5 },
+              }}
+              labels={["September 31"]}
+              labelComponent={<VictoryLabel y={80} />}
+              y={() => 75}
             />
             <VictoryGroup
               horizontal
@@ -134,7 +133,12 @@ const Home = () => (
         <p>Vaccinations by percentage of population across Canada.</p>
 
         <div className="chart">
-          <VictoryChart height={400} width={360} theme={theme}>
+          <VictoryChart
+            height={400}
+            width={360}
+            domainPadding={8}
+            theme={theme}
+          >
             <VictoryLegend
               x={50}
               y={15}
@@ -147,35 +151,27 @@ const Home = () => (
               colorScale={[colors.QcOrangeAccent, colors.QcBlueLight]}
               data={[{ name: "Vaccinations" }, { name: "Days in 2021" }]}
             />
-            <VictoryAxis />
+            <VictoryAxis
+              fixLabelOverlap={true}
+              style={{
+                ticks: { size: 3 },
+                tickLabels: { fontSize: 7.5, padding: 2 },
+              }}
+            />
             <VictoryAxis
               dependentAxis
               domain={[0, 100]}
               tickValues={[4.9, 50, 100]}
               orientation="bottom"
             />
+
             <VictoryGroup
               horizontal
               offset={10}
               style={{
                 data: { width: 10, stroke: colors.QcBlueDark, strokeWidth: 1 },
               }}
-              colorScale={[colors.QcBlueLight, colors.QcOrangeAccent]}
             >
-              {/* <VictoryBar
-                name="bar-days"
-                animate={{
-                  duration: 1500,
-                  onLoad: { duration: 500 },
-                }}
-                data={dataDays}
-                labels={({ datum }) => `${datum.y}%`}
-                labelComponent={
-                  <CustomLabel
-                    tooltipLabel={() => `${getDayOfYear()} days / 365 days`}
-                  />
-                }
-              /> */}
               <VictoryBar
                 animate={{
                   duration: 1500,
@@ -184,15 +180,31 @@ const Home = () => (
                 name="bar-vaccines"
                 data={regionVaccines}
                 labels={({ datum }) => `${datum.y}%`}
+                style={{
+                  data: {
+                    fill: ({ datum }) => datum.fill || colors.QcOrangeAccent,
+                  },
+                }}
                 labelComponent={
                   <CustomLabel
-                    tooltipLabel={() =>
-                      `${vaccines} vaccinated / 8,485,000 people`
-                    }
+                    tooltipLabel={(label) => _getRegionTooltips(label.datum.x)}
                   />
                 }
               />
             </VictoryGroup>
+            <VictoryLine
+              style={{
+                data: {
+                  stroke: "red",
+                  strokeWidth: 0.5,
+                  strokeDasharray: "4, 4",
+                },
+                labels: { angle: 0, fill: "red", fontSize: 8, padding: 5 },
+              }}
+              labels={["September 31"]}
+              labelComponent={<VictoryLabel y={342} />}
+              y={() => 75}
+            />
           </VictoryChart>
         </div>
 

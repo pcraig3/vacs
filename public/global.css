@@ -4,14 +4,19 @@ html {
 
 body {
   font-size: 1.5rem;
-  font-family: sans-serif;
+  font-family: "Space Grotesk", serif;
   color: black;
 
   margin: 20px;
   border: black 3px solid;
 }
 
+h1,
 h2 {
   font-size: 5rem;
   font-weight: 400;
+}
+
+p {
+  font-family: "Piazzolla", serif;
 }

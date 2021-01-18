@@ -1,5 +1,5 @@
 // Typography
-const sansSerif = "'Helvetica Neue', 'Helvetica', sans-serif"
+const sansSerif = "'Space Grotesk', sans-serif"
 const letterSpacing = "normal"
 const fontSize = 8
 
