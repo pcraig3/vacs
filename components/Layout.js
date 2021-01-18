@@ -12,7 +12,7 @@ function Layout({ children, title = "Canada Vaccines Tracker" }) {
 
       <style jsx>{`
         main {
-          padding: ${space.sm} ${space.xs};
+          padding: ${space.sm} ${space.sm};
         }
       `}</style>
     </div>
