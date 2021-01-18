@@ -15,6 +15,7 @@
 - Mobile responsive
 - Analytics
 - Domain name
+- Add ESLint
 
 # DONE
 
