@@ -1,7 +1,7 @@
 # TODO
 
-- Dockerfile
-- About page
+- config files
+- About page (?)
 - 404 page
 - Feedback page
 - "Sources" page?
@@ -13,9 +13,12 @@
 - Make it the same red
 - Put your name on it somewhere
 - Mobile responsive
+- Analytics
+- Domain name
 
 # DONE
 
+- Dockerfile
 - Focus styles / hover styles
 - Red line on the graph
 - fonts
