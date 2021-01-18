@@ -1,5 +1,6 @@
 # TODO
 
+- Add ESLint
 - config files
 - About page (?)
 - 404 page
@@ -17,10 +18,11 @@
 - Mobile responsive
 - Analytics
 - Domain name
-- Add ESLint
 
 # DONE
 
+- README
+- Deploy 1 time to Google Cloud
 - Add git SHA to DOCKERFILE
 - Dockerfile
 - Focus styles / hover styles

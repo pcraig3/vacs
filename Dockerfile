@@ -11,18 +11,15 @@ ENV NEXT_PUBLIC_GITHUB_SHA=$GITHUB_SHA_ARG
 RUN mkdir -p /app
 WORKDIR /app
 
-# Installing dependencies
+# Copying source files
 COPY package*.json /app/
 COPY . /app/
 
 # Installing dependencies
-
 RUN npm install --production --silent
-
-# Copying source files
 
 # Building app
 RUN npm run build
 
 EXPOSE 3000
-CMD ["npm", "start"]
+CMD ["npm", "run", "start:production"]

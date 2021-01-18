@@ -11,7 +11,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "PORT=3000 npm run start:production",
+    "start:production": "next start -p $PORT"
   },
   "dependencies": {
     "next": "^10.0.5",
