@@ -3,9 +3,10 @@ import NextHead from 'next/head'
 import { string } from 'prop-types'
 import { GA_TRACKING_ID } from '../config/gtag'
 
-const defaultDescription = ''
-const defaultOGURL = ''
-const defaultOGImage = ''
+const defaultDescription =
+  'Canada Vaccine Tracker charts the progress of vaccinations in Canada over the course of 2021.'
+const defaultOGURL = 'https://canada-vaccine-tracker.ca'
+const defaultOGImage = 'https://canada-vaccine-tracker.ca/android-chrome-512x512.png'
 
 const Head = (props) => (
   <NextHead>

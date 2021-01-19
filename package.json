@@ -1,9 +1,9 @@
 {
-  "name": "can-vacs-tracker",
-  "version": "0.1.0",
-  "description": "vacs tracker: track vaccines distributes vs days of year",
+  "name": "canada-vaccince-tracker",
+  "version": "1.0.0",
+  "description": "vacs for cans: track vaccines distributed vs days of year",
   "main": "pages/index.js",
-  "author": "pcraig3",
+  "author": "@pcraig3",
   "license": "MIT",
   "engines": {
     "node": ">=12.00"

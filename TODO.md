@@ -9,7 +9,7 @@
 - App versioning
   - Semantic versioning
   - CHANGELOG
-- robots.txt: allow crawling
+- Sitemap
 - HTML datetime
 - Last updated (automatic)
 - Mobile responsive
@@ -18,6 +18,7 @@
 
 # DONE
 
+- robots.txt: allow crawling
 - Sources page
   - Source links
 - Methodology page

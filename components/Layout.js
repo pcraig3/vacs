@@ -6,10 +6,10 @@ import HTMLHead from '../components/head'
 import Header from '../components/Header'
 import { colors, space } from '../styles/_theme'
 
-function Layout({ children, title = 'Canada Vaccines Tracker' }) {
+function Layout({ children, title }) {
   return (
     <div className="container">
-      <HTMLHead title={title} />
+      <HTMLHead title={title ? `${title} — Canada Vaccine Tracker` : 'Canada Vaccine Tracker'} />
 
       <Header />
       <main>{children}</main>

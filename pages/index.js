@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 import {
   VictoryAxis,
   VictoryBar,
@@ -31,7 +33,7 @@ const _getRegionTooltips = (abbr) => {
 }
 
 const Home = () => (
-  <Layout title="Canada Vaccine Tracker">
+  <Layout>
     <div>
       <section>
         <h1>
@@ -111,12 +113,13 @@ const Home = () => (
 
         <h3>More info</h3>
         <p className="smalltext">
-          This is a very rough measure at the minute. “Vaccinated Canadians” is different than
-          “vaccines administered”. For a bit more clarity, have a look under Sources.
+          This is currently a very rough metric. “Vaccinated Canadians” is different than “vaccines
+          administered”. Check out{' '}
+          <Link href="/methodologies">
+            <a>methodologies</a>
+          </Link>{' '}
+          for more of a discussion.
         </p>
-        <div>
-          <a href="#">source link</a>
-        </div>
       </section>
 
       <section>
@@ -202,8 +205,8 @@ const Home = () => (
 
         <h3>More info</h3>
         <p className="smalltext">
-          The provinces and territories send updates at different points, so the number of second
-          doses hasn’t yet been incorporated.
+          Some regions have started to administer second doses, while others have not. This graph
+          will change over the next several days as more granular data is released.
         </p>
       </section>
 
