@@ -19,7 +19,7 @@ function Layout({ children, title = 'Canada Vaccines Tracker' }) {
           <a target="_blank">Next.js</a>
         </Link>{' '}
         by{' '}
-        <Link href="https://pcraig3.ca/contact">
+        <Link href="https://twitter.com/pcraig3.ca">
           <a target="_blank">@pcraig3</a>
         </Link>
         .

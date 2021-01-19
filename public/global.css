@@ -16,15 +16,37 @@ body {
   border: black 3px solid;
 }
 
-h1,
 h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+h1,
+section > :first-child {
   font-size: 5rem;
   font-weight: 400;
 }
 
-h3 {
-  margin-top: 1.5rem;
-  margin-bottom: 1rem;
+:not(nav) > ul,
+:not(nav) > ol {
+  margin-bottom: 20px;
+}
+
+p + ul,
+p + ol {
+  margin-top: -10px;
+}
+
+:not(nav) > ul li,
+ol li {
+  margin-bottom: 5px;
 }
 
 p {
@@ -34,6 +56,7 @@ p {
 
 a {
   color: palevioletred;
+  padding: 0 1px;
 }
 
 a:focus,

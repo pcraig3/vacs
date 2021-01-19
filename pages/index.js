@@ -56,7 +56,7 @@ const Home = () => (
             <VictoryAxis
               dependentAxis
               domain={[0, 100]}
-              tickValues={[canadaDays[0].y, 50, 75, 100]}
+              tickValues={[canadaDays[0].y, 50, 70, 100]}
               tickFormat={(t) => `${t}%`}
               orientation="bottom"
             />
@@ -69,9 +69,9 @@ const Home = () => (
                 },
                 labels: { angle: 0, fill: colors.CanadaRed, fontSize: 8, padding: 5 },
               }}
-              labels={['September 31']}
+              labels={['September 13']}
               labelComponent={<VictoryLabel y={80} />}
-              y={() => 75}
+              y={() => 70}
             />
             <VictoryGroup
               horizontal
@@ -152,7 +152,7 @@ const Home = () => (
             <VictoryAxis
               dependentAxis
               domain={[0, 100]}
-              tickValues={[canadaDays[0].y, 50, 75, 100]}
+              tickValues={[canadaDays[0].y, 50, 70, 100]}
               tickFormat={(t) => `${t}%`}
               orientation="bottom"
             />
@@ -191,9 +191,9 @@ const Home = () => (
                 },
                 labels: { angle: 0, fill: colors.CanadaRed, fontSize: 8, padding: 5 },
               }}
-              labels={['September 31']}
+              labels={['September 13']}
               labelComponent={<VictoryLabel y={342} />}
-              y={() => 75}
+              y={() => 70}
             />
           </VictoryChart>
         </div>

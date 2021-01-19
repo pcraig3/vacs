@@ -1,18 +1,16 @@
 # TODO
 
 - Update data for Jan 19
-- "Sources" / methodology page
-- About / feedback page
 - Fix the graphs
   - Weird JS glitch with the graph numbers
   - Make the graph for the "regions" nicer (eg, how many vaccines)
+- Individual pages for provinces
 - Copy API calls
 - App versioning
   - Semantic versioning
   - CHANGELOG
 - robots.txt: allow crawling
 - HTML datetime
-- Source links
 - Last updated (automatic)
 - Mobile responsive
 - Webmaster / search console
@@ -20,6 +18,10 @@
 
 # DONE
 
+- Sources page
+  - Source links
+- Methodology page
+- About / feedback page
 - Mobile responsive MVP
 - Put your name on it somewhere
 - Use the same red for links

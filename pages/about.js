@@ -7,23 +7,63 @@ export default function About() {
       <section>
         <h1>About</h1>
         <p>
-          “We are on track to having every Canadian who wants a vaccine receive one by September,”{' '}
-          <Link href="https://www.thestar.com/politics/federal/2021/01/12/justin-trudeau-says-that-canada-will-have-enough-covid-19-vaccines-for-everyone-by-the-end-of-september.html">
-            <a target="blank">Justin Trudeau said on January 12, 2021</a>
+          <Link href="/methodology">
+            <a>Canada-Vaccine-Tracker dot CA</a>
+          </Link>{' '}
+          is a little hobby project built by{' '}
+          <Link href="https://pcraig3.ca">
+            <a target="_blank">Paul Craig</a>
+          </Link>{' '}
+          basically over 3 nights until 4 am. As such, it’s likely rife with bugs and so far quite
+          limited in functionality. Keeping it small is the intention though:{' '}
+          <Link href="/sources">
+            <a>other vaccine trackers</a>
+          </Link>{' '}
+          already exist, and they are pretty comprehensive.
+        </p>
+        <p>
+          The main goal of this website is to track vaccine distribution in Canada against the
+          inexorable march of time.{' '}
+          <Link href="/methodology">
+            <a>The basic idea</a>
+          </Link>{' '}
+          is that it would be really good if 70% of the population received vaccines by September
+          13th (70% of the way through the year).
+        </p>
+        <p>
+          I think it would be cool incorporate progress over time, as well as to have dedicated
+          pages for provinces and territories, so those will probably show up eventually.
+        </p>
+        <p>
+          If you have constructive compliments,{' '}
+          <Link href="https://pcraig3.ca/contact">
+            <a target="_blank">shoot me an email or something</a>
           </Link>
           .
         </p>
+        <h2>Nuts and bolts</h2>
         <p>
-          Taking that on its face, this website tracks the progress of vaccine distribution against
-          the inexorable march of time.
-        </p>
-        <p>
-          A really good outcome would be 75% of the population receiving vaccines before October 1st
-          (75% of the way through the year).
+          This is a{' '}
+          <Link href="https://nextjs.org/">
+            <a target="_blank">Next.js</a>
+          </Link>{' '}
+          website using{' '}
+          <Link href="/sources">
+            <a>publicly-available data</a>
+          </Link>{' '}
+          about COVID vaccine distribution in Canada. It will be open-sourced pretty soon on GitHub,
+          so you can create your own completely identical version of this site and try to out-
+          <abbr title="search engine optimization">SEO</abbr> me.
         </p>
       </section>
 
-      <style jsx>{``}</style>
+      <style jsx>{`
+        h2 {
+          margin-top: 1rem;
+          font-size: 2.8rem;
+          font-weight: 400;
+        }
+      `}</style>
     </Layout>
   )
 }

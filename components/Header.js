@@ -54,6 +54,16 @@ function Header() {
               <a>About</a>
             </Link>
           </li>
+          <li>
+            <Link href="/methodology">
+              <a>Methodology</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/sources">
+              <a>Sources</a>
+            </Link>
+          </li>
         </ul>
       </nav>
 
@@ -70,7 +80,7 @@ function Header() {
           text-decoration: none;
         }
 
-        ul li {
+        nav ul li {
           display: inline-block;
           margin-left: ${space.sm};
         }
