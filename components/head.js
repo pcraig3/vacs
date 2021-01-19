@@ -16,6 +16,7 @@ const Head = (props) => (
     {process.env.NEXT_PUBLIC_GITHUB_SHA && (
       <meta name="keywords" content={`GITHUB_SHA=${process.env.NEXT_PUBLIC_GITHUB_SHA}`} />
     )}
+    {process.env.VERSION && <meta name="keywords" content={`VERSION=${process.env.VERSION}`} />}
     <meta name="description" content={props.description || defaultDescription} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />

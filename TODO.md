@@ -7,8 +7,7 @@
 - Individual pages for provinces
 - Copy API calls
 - App versioning
-  - Semantic versioning
-  - CHANGELOG
+  - Tag Docker containers
 - Sitemap
 - HTML datetime
 - Last updated (automatic)
@@ -18,6 +17,9 @@
 
 # DONE
 
+- App versioning
+  - Semantic versioning
+  - CHANGELOG
 - robots.txt: allow crawling
 - Sources page
   - Source links
