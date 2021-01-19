@@ -1,18 +1,20 @@
 import React from 'react'
 import NextHead from 'next/head'
 import { string } from 'prop-types'
+import { GA_TRACKING_ID } from '../config/gtag'
 
 const defaultDescription = ''
 const defaultOGURL = ''
 const defaultOGImage = ''
 
 const Head = (props) => (
-  <NextHead lang="en">
+  <NextHead>
     <meta charSet="UTF-8" />
+
     <title>{props.title || ''}</title>
-    {process.env.NEXT_PUBLIC_GITHUB_SHA ? (
+    {process.env.NEXT_PUBLIC_GITHUB_SHA && (
       <meta name="keywords" content={`GITHUB_SHA=${process.env.NEXT_PUBLIC_GITHUB_SHA}`} />
-    ) : null}
+    )}
     <meta name="description" content={props.description || defaultDescription} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -40,6 +42,24 @@ const Head = (props) => (
       href="https://fonts.googleapis.com/css2?family=Piazzolla:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap"
       rel="stylesheet"
     />
+
+    {process.env.NODE_ENV === 'production' && (
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_TRACKING_ID}', {
+              page_path: window.location.pathname,
+            });
+          `,
+          }}
+        />
+      </>
+    )}
   </NextHead>
 )
 

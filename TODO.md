@@ -4,6 +4,7 @@
 - About page (?)
 - Feedback page
 - "Sources" page?
+- Fix the graphs
 - Copy API calls
 - App versioning
   - Semantic versioning
@@ -14,12 +15,12 @@
 - Make it the same red
 - Put your name on it somewhere
 - Mobile responsive
-- Analytics
-- Domain name
 - Webmaster / search console
 
 # DONE
 
+- Domain name
+- Analytics
 - 404 page
 - Add ESLint
 - robots.txt
