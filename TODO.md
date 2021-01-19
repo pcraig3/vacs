@@ -1,8 +1,6 @@
 # TODO
 
 - Update data for Jan 18
-- Add ESLint
-- config files
 - About page (?)
 - 404 page
 - Feedback page
@@ -23,6 +21,7 @@
 
 # DONE
 
+- Add ESLint
 - robots.txt
 - README
 - Deploy 1 time to Google Cloud

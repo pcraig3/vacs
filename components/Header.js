@@ -1,7 +1,9 @@
-import Link from "next/link"
-import { space } from "../styles/_theme"
+import Link from 'next/link'
+import { string } from 'prop-types'
 
-function MapleLeaf({ fill = "#DD2E44" }) {
+import { space } from '../styles/_theme'
+
+function MapleLeaf({ fill = '#DD2E44' }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -10,10 +12,10 @@ function MapleLeaf({ fill = "#DD2E44" }) {
       width="1em"
       height="1em"
       style={{
-        verticalAlign: "-0.125em",
-        msTransform: "rotate(360deg)",
-        WebkitTransform: "rotate(360deg)",
-        transform: "rotate(360deg)",
+        verticalAlign: '-0.125em',
+        msTransform: 'rotate(360deg)',
+        WebkitTransform: 'rotate(360deg)',
+        transform: 'rotate(360deg)',
       }}
       preserveAspectRatio="xMidYMid meet"
       viewBox="0 0 36 36"
@@ -27,6 +29,10 @@ function MapleLeaf({ fill = "#DD2E44" }) {
   )
 }
 
+MapleLeaf.propTypes = {
+  fill: string,
+}
+
 function Header() {
   return (
     <header>
@@ -35,7 +41,7 @@ function Header() {
           <a>
             <span aria-hidden="true">
               <MapleLeaf />
-            </span>{" "}
+            </span>{' '}
             Canada Vaccine Tracker
           </a>
         </Link>

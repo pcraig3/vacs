@@ -12,12 +12,18 @@
     "dev": "next",
     "build": "next build",
     "start": "PORT=3000 npm run start:production",
-    "start:production": "next start -p $PORT"
+    "start:production": "next start -p $PORT",
+    "lint": "eslint pages components"
   },
   "dependencies": {
     "next": "^10.0.5",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "victory": "^35.4.6"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.18.0",
+    "eslint-plugin-react": "^7.22.0"
   }
 }

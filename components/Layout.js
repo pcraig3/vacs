@@ -1,8 +1,10 @@
-import HTMLHead from "../components/head"
-import Header from "../components/Header"
-import { space } from "../styles/_theme"
+import { string, object } from 'prop-types'
 
-function Layout({ children, title = "Canada Vaccines Tracker" }) {
+import HTMLHead from '../components/head'
+import Header from '../components/Header'
+import { space } from '../styles/_theme'
+
+function Layout({ children, title = 'Canada Vaccines Tracker' }) {
   return (
     <div>
       <HTMLHead title={title} />
@@ -17,6 +19,11 @@ function Layout({ children, title = "Canada Vaccines Tracker" }) {
       `}</style>
     </div>
   )
+}
+
+Layout.propTypes = {
+  children: object.isRequired,
+  title: string,
 }
 
 export default Layout
