@@ -17,9 +17,9 @@ import { formatNumberWithCommas, getDayOfYear } from '../data'
 import regions from '../data/_regions'
 
 const _getVaccinatedTooltip = (abbr) => {
-  return `${formatNumberWithCommas(regions[abbr].vaccines)} vaccinated / ${formatNumberWithCommas(
-    regions[abbr].population,
-  )} people`
+  return `${formatNumberWithCommas(
+    regions[abbr].vaccines,
+  )} vaccines used / ${formatNumberWithCommas(regions[abbr].population)} people`
 }
 
 const _getDaysTooltip = () => `${getDayOfYear()} days / 365 days`
@@ -34,38 +34,40 @@ const Home = () => (
   <Layout title="Canada Vaccine Tracker">
     <div>
       <section>
-        <h2>Canada</h2>
-        <p>Tracking the proportion of Canadians who have received a vaccine in 2021.</p>
-
+        <h1>
+          <span className="visuallyHidden">Total vaccines administered in </span>Canada
+        </h1>
+        <p>Number of administered vaccines as a percentage of Canada’s population.</p>
         <div className="chart">
           <VictoryChart height={140} width={360} theme={theme}>
             <VictoryLegend
               x={50}
               y={15}
               orientation="horizontal"
-              gutter={10}
+              gutter={20}
               style={{
                 border: { stroke: 'black', strokeWidth: 2 },
                 data: { width: 10, stroke: colors.QcBlueDark, strokeWidth: 1 },
               }}
               colorScale={[colors.QcOrangeAccent, colors.QcBlueLight]}
-              data={[{ name: 'Vaccinations' }, { name: 'Days in 2021' }]}
+              data={[{ name: 'Vaccinations administered' }, { name: 'Days in 2021' }]}
             />
             <VictoryAxis />
             <VictoryAxis
               dependentAxis
               domain={[0, 100]}
               tickValues={[canadaDays[0].y, 50, 75, 100]}
+              tickFormat={(t) => `${t}%`}
               orientation="bottom"
             />
             <VictoryLine
               style={{
                 data: {
-                  stroke: 'red',
+                  stroke: colors.CanadaRed,
                   strokeWidth: 0.5,
                   strokeDasharray: '4, 4',
                 },
-                labels: { angle: 0, fill: 'red', fontSize: 8, padding: 5 },
+                labels: { angle: 0, fill: colors.CanadaRed, fontSize: 8, padding: 5 },
               }}
               labels={['September 31']}
               labelComponent={<VictoryLabel y={80} />}
@@ -86,10 +88,8 @@ const Home = () => (
                   onLoad: { duration: 500 },
                 }}
                 data={canadaDays}
-                labels={({ datum }) => `${datum.y}%`}
-                labelComponent={
-                  <CustomLabel tooltipLabel={() => `${getDayOfYear()} days / 365 days`} />
-                }
+                labels={({ datum }) => `${getDayOfYear()} days (${datum.y}%)`}
+                labelComponent={<CustomLabel tooltipLabel={() => _getDaysTooltip()} />}
               />
               <VictoryBar
                 animate={{
@@ -98,23 +98,21 @@ const Home = () => (
                 }}
                 name="bar-vaccines"
                 data={canadaVaccines}
-                labels={({ datum }) => `${datum.y}%`}
+                labels={({ datum }) => `613k vaccines (${datum.y}%)`}
                 labelComponent={
-                  <CustomLabel
-                    tooltipLabel={() =>
-                      `${formatNumberWithCommas(
-                        regions.CAN.vaccines,
-                      )} vaccinated / ${formatNumberWithCommas(regions.CAN.population)} people`
-                    }
-                  />
+                  <CustomLabel tooltipLabel={(label) => _getRegionTooltips(label.datum.x)} />
                 }
               />
             </VictoryGroup>
           </VictoryChart>
         </div>
 
-        <p>
-          <sub>*you need 2 shots of the vaccine. 😬</sub>
+        <p>Last updated: Monday at 6:40 pm EST.</p>
+
+        <h3>More info</h3>
+        <p className="smalltext">
+          This is a very rough measure at the minute. “Vaccinated Canadians” is different than
+          “vaccines administered”. For a bit more clarity, have a look under Sources.
         </p>
         <div>
           <a href="#">source link</a>
@@ -122,8 +120,13 @@ const Home = () => (
       </section>
 
       <section>
-        <h2>By region</h2>
-        <p>Vaccinations by percentage of population across Canada.</p>
+        <h2>
+          <span className="visuallyHidden">Total vaccines administered in Canada </span>By region
+        </h2>
+        <p>
+          Number of administered vaccines as a percentage of each of Canada’s provinces and
+          territories.
+        </p>
 
         <div className="chart">
           <VictoryChart height={400} width={360} domainPadding={8} theme={theme}>
@@ -131,13 +134,13 @@ const Home = () => (
               x={50}
               y={15}
               orientation="horizontal"
-              gutter={10}
+              gutter={20}
               style={{
                 border: { stroke: 'black', strokeWidth: 2 },
                 data: { width: 10, stroke: colors.QcBlueDark, strokeWidth: 1 },
               }}
               colorScale={[colors.QcOrangeAccent, colors.QcBlueLight]}
-              data={[{ name: 'Vaccinations' }, { name: 'Days in 2021' }]}
+              data={[{ name: 'Vaccinations administered' }, { name: 'Days in 2021' }]}
             />
             <VictoryAxis
               fixLabelOverlap={true}
@@ -149,7 +152,8 @@ const Home = () => (
             <VictoryAxis
               dependentAxis
               domain={[0, 100]}
-              tickValues={[canadaDays[0].y, 50, 100]}
+              tickValues={[canadaDays[0].y, 50, 75, 100]}
+              tickFormat={(t) => `${t}%`}
               orientation="bottom"
             />
 
@@ -181,11 +185,11 @@ const Home = () => (
             <VictoryLine
               style={{
                 data: {
-                  stroke: 'red',
+                  stroke: colors.CanadaRed,
                   strokeWidth: 0.5,
                   strokeDasharray: '4, 4',
                 },
-                labels: { angle: 0, fill: 'red', fontSize: 8, padding: 5 },
+                labels: { angle: 0, fill: colors.CanadaRed, fontSize: 8, padding: 5 },
               }}
               labels={['September 31']}
               labelComponent={<VictoryLabel y={342} />}
@@ -194,13 +198,20 @@ const Home = () => (
           </VictoryChart>
         </div>
 
-        <p>Some interesting and useful fact, probably.</p>
-        <div>
-          <a href="#">source link</a>
-        </div>
+        <p>Last updated: Monday at 6:40 pm EST.</p>
+
+        <h3>More info</h3>
+        <p className="smalltext">
+          The provinces and territories send updates at different points, so the number of second
+          doses hasn’t yet been incorporated.
+        </p>
       </section>
 
-      <style jsx>{``}</style>
+      <style jsx>{`
+        .chart + p {
+          margin-top: -30px;
+        }
+      `}</style>
     </div>
   </Layout>
 )

@@ -3,7 +3,7 @@ import { string } from 'prop-types'
 
 import { space } from '../styles/_theme'
 
-function MapleLeaf({ fill = '#DD2E44' }) {
+function MapleLeaf({ fill = 'crimson' }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +66,7 @@ function Header() {
         }
 
         .logo a {
-          color: #dd2e44;
+          color: crimson;
           text-decoration: none;
         }
 

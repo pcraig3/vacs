@@ -1,25 +1,29 @@
 # TODO
 
 - Update data for Jan 19
-- About page (?)
-- Feedback page
-- "Sources" page?
+- "Sources" / methodology page
+- About / feedback page
 - Fix the graphs
+  - Weird JS glitch with the graph numbers
+  - Make the graph for the "regions" nicer (eg, how many vaccines)
 - Copy API calls
-- Last updated
 - App versioning
   - Semantic versioning
   - CHANGELOG
 - robots.txt: allow crawling
-- Fix the styling
+- HTML datetime
 - Source links
-- Make it the same red
-- Put your name on it somewhere
+- Last updated (automatic)
 - Mobile responsive
 - Webmaster / search console
+- Everything accessibility
 
 # DONE
 
+- Mobile responsive MVP
+- Put your name on it somewhere
+- Use the same red for links
+- Last updated
 - Update data for Jan 18
 - Domain name
 - Analytics
