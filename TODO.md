@@ -1,5 +1,6 @@
 # TODO
 
+- Update data for Jan 18
 - Add ESLint
 - config files
 - About page (?)
@@ -10,7 +11,7 @@
 - App versioning
   - Semantic versioning
   - CHANGELOG
-- robots
+- robots.txt: allow crawling
 - Fix the styling
 - Source links
 - Make it the same red
@@ -18,9 +19,11 @@
 - Mobile responsive
 - Analytics
 - Domain name
+- Webmaster / search console
 
 # DONE
 
+- robots.txt
 - README
 - Deploy 1 time to Google Cloud
 - Add git SHA to DOCKERFILE
