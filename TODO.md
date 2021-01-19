@@ -1,11 +1,12 @@
 # TODO
 
-- Update data for Jan 18
+- Update data for Jan 19
 - About page (?)
 - Feedback page
 - "Sources" page?
 - Fix the graphs
 - Copy API calls
+- Last updated
 - App versioning
   - Semantic versioning
   - CHANGELOG
@@ -19,6 +20,7 @@
 
 # DONE
 
+- Update data for Jan 18
 - Domain name
 - Analytics
 - 404 page
