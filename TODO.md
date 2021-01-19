@@ -2,7 +2,6 @@
 
 - Update data for Jan 18
 - About page (?)
-- 404 page
 - Feedback page
 - "Sources" page?
 - Copy API calls
@@ -21,6 +20,7 @@
 
 # DONE
 
+- 404 page
 - Add ESLint
 - robots.txt
 - README
