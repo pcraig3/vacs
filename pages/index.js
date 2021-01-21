@@ -15,36 +15,14 @@ import CustomLabel from '../components/CustomLabel'
 
 import { colors, theme } from '../styles/_theme'
 import { canadaDays, canadaVaccines, regionVaccines } from '../data/canada'
-import { formatNumberWithCommas, getDayOfYear, roundToNearestThousand } from '../data'
-import regions from '../data/_regions'
+import {
+  _getDaysLabel,
+  _getVaccinesLabel,
+  _getDaysTooltip,
+  getRegionTooltip,
+} from '../utils/charts'
 
 const LastUpdated = () => <p>Last updated: Wednesday, Jan 20 at 6:33 pm EST.</p>
-
-const _getVaccinesTooltip = (abbr) => {
-  return `${formatNumberWithCommas(
-    regions[abbr].vaccines,
-  )} vaccines used / ${formatNumberWithCommas(regions[abbr].population)} people`
-}
-
-const _getDaysTooltip = () => `${getDayOfYear()} days / 365 days`
-
-const _getRegionTooltips = (abbr) => {
-  if (abbr === 'Days in 2021') return _getDaysTooltip()
-
-  return _getVaccinesTooltip(abbr)
-}
-
-const _getVaccinesLabel = ({ datum }) =>
-  `${roundToNearestThousand(regions[datum.x].vaccines)} vaccines (${datum.y}%)`
-const _getDaysLabel = ({ datum }) => `${getDayOfYear()} days (${datum.y}%)`
-
-/*
-const _getRegionLabel = ({ datum }) => {
-  if (datum.x === 'Days in 2021') return _getDaysLabel({ datum })
-
-  return _getVaccinesLabel({ datum })
-}
-*/
 
 const Home = () => (
   <Layout>
@@ -116,7 +94,7 @@ const Home = () => (
                 data={canadaVaccines}
                 labels={_getVaccinesLabel}
                 labelComponent={
-                  <CustomLabel tooltipLabel={(label) => _getRegionTooltips(label.datum.x)} />
+                  <CustomLabel tooltipLabel={(label) => getRegionTooltip(label.datum.x)} />
                 }
               />
             </VictoryGroup>
@@ -195,7 +173,7 @@ const Home = () => (
                   },
                 }}
                 labelComponent={
-                  <CustomLabel tooltipLabel={(label) => _getRegionTooltips(label.datum.x)} />
+                  <CustomLabel tooltipLabel={(label) => getRegionTooltip(label.datum.x)} />
                 }
               />
             </VictoryGroup>
