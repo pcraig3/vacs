@@ -86,7 +86,9 @@ const theme = {
     style: {
       data: {
         padding,
-        strokeWidth: 0,
+        width: 10,
+        stroke: colors.QcBlueDark,
+        strokeWidth: 1,
       },
       labels: baseLabelStyles,
     },
@@ -94,8 +96,13 @@ const theme = {
   baseProps,
   chart: baseProps,
   legend: {
-    gutter: 10,
+    x: 50,
+    y: 15,
+    orientation: 'horizontal',
+    gutter: 20,
     style: {
+      border: { stroke: 'black', strokeWidth: 2 },
+      data: { width: 10, stroke: colors.QcBlueDark, strokeWidth: 1 },
       labels: baseLabelStyles,
       title: Object.assign({}, baseLabelStyles, { padding: 2 }),
     },

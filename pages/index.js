@@ -1,5 +1,7 @@
 import Link from 'next/link'
 
+import { number } from 'prop-types'
+
 import {
   VictoryAxis,
   VictoryBar,
@@ -11,7 +13,7 @@ import {
 } from 'victory'
 
 import Layout from '../components/Layout'
-import CustomLabel from '../components/CustomLabel'
+import VacsLabel from '../components/VacsLabel'
 
 import { colors, theme } from '../styles/_theme'
 import { canadaDays, canadaVaccines, regionVaccines } from '../data/canada'
@@ -24,6 +26,29 @@ import {
 
 const LastUpdated = () => <p>Last updated: Wednesday, Jan 20 at 6:33 pm EST.</p>
 
+const VacsRedLine = ({ labelY = 80, ...props }) => (
+  <VictoryLine
+    {...props}
+    style={{
+      data: {
+        stroke: colors.CanadaRed,
+        strokeWidth: 0.5,
+        strokeDasharray: '4, 4',
+      },
+      labels: { angle: 0, fill: colors.CanadaRed, fontSize: 8, padding: 5 },
+    }}
+    labels={['September 13']}
+    labelComponent={<VictoryLabel y={labelY} />}
+    y={() => 70}
+  />
+)
+
+VacsRedLine.propTypes = {
+  labelY: number,
+}
+
+const _animateBar = { duration: 1500, onLoad: { duration: 500 } }
+
 const Home = () => (
   <Layout>
     <div>
@@ -35,14 +60,6 @@ const Home = () => (
         <div className="chart">
           <VictoryChart height={140} width={360} theme={theme}>
             <VictoryLegend
-              x={50}
-              y={15}
-              orientation="horizontal"
-              gutter={20}
-              style={{
-                border: { stroke: 'black', strokeWidth: 2 },
-                data: { width: 10, stroke: colors.QcBlueDark, strokeWidth: 1 },
-              }}
               colorScale={[colors.QcOrangeAccent, colors.QcBlueLight]}
               data={[{ name: 'Vaccinations administered' }, { name: 'Days in 2021' }]}
             />
@@ -54,50 +71,32 @@ const Home = () => (
               tickFormat={(t) => `${t}%`}
               orientation="bottom"
             />
-            <VictoryLine
-              style={{
-                data: {
-                  stroke: colors.CanadaRed,
-                  strokeWidth: 0.5,
-                  strokeDasharray: '4, 4',
-                },
-                labels: { angle: 0, fill: colors.CanadaRed, fontSize: 8, padding: 5 },
-              }}
-              labels={['September 13']}
-              labelComponent={<VictoryLabel y={80} />}
-              y={() => 70}
-            />
             <VictoryGroup
               horizontal
               offset={18}
               style={{
-                data: { width: 10, stroke: colors.QcBlueDark, strokeWidth: 1 },
+                data: { width: 10 },
               }}
               colorScale={[colors.QcBlueLight, colors.QcOrangeAccent]}
             >
               <VictoryBar
                 name="bar-days"
-                animate={{
-                  duration: 1500,
-                  onLoad: { duration: 500 },
-                }}
+                animate={_animateBar}
                 data={canadaDays}
                 labels={_getDaysLabel}
-                labelComponent={<CustomLabel tooltipLabel={() => _getDaysTooltip()} />}
+                labelComponent={<VacsLabel tooltipLabel={() => _getDaysTooltip()} />}
               />
               <VictoryBar
-                animate={{
-                  duration: 1500,
-                  onLoad: { duration: 500 },
-                }}
+                animate={_animateBar}
                 name="bar-vaccines"
                 data={canadaVaccines}
                 labels={_getVaccinesLabel}
                 labelComponent={
-                  <CustomLabel tooltipLabel={(label) => getRegionTooltip(label.datum.x)} />
+                  <VacsLabel tooltipLabel={(label) => getRegionTooltip(label.datum.x)} />
                 }
               />
             </VictoryGroup>
+            <VacsRedLine />
           </VictoryChart>
         </div>
 
@@ -126,14 +125,6 @@ const Home = () => (
         <div className="chart">
           <VictoryChart height={400} width={360} domainPadding={8} theme={theme}>
             <VictoryLegend
-              x={50}
-              y={15}
-              orientation="horizontal"
-              gutter={20}
-              style={{
-                border: { stroke: 'black', strokeWidth: 2 },
-                data: { width: 10, stroke: colors.QcBlueDark, strokeWidth: 1 },
-              }}
               colorScale={[colors.QcOrangeAccent, colors.QcBlueLight]}
               data={[{ name: 'Vaccinations administered' }, { name: 'Days in 2021' }]}
             />
@@ -151,45 +142,22 @@ const Home = () => (
               tickFormat={(t) => `${t}%`}
               orientation="bottom"
             />
-
-            <VictoryGroup
+            <VictoryBar
+              animate={_animateBar}
               horizontal
-              offset={10}
-              style={{
-                data: { width: 10, stroke: colors.QcBlueDark, strokeWidth: 1 },
-              }}
-            >
-              <VictoryBar
-                animate={{
-                  duration: 1500,
-                  onLoad: { duration: 500 },
-                }}
-                name="bar-vaccines"
-                data={regionVaccines}
-                labels={({ datum }) => `${datum.y}%`}
-                style={{
-                  data: {
-                    fill: ({ datum }) => datum.fill || colors.QcOrangeAccent,
-                  },
-                }}
-                labelComponent={
-                  <CustomLabel tooltipLabel={(label) => getRegionTooltip(label.datum.x)} />
-                }
-              />
-            </VictoryGroup>
-            <VictoryLine
+              name="bar-vaccines"
+              data={regionVaccines}
+              labels={({ datum }) => `${datum.y}%`}
               style={{
                 data: {
-                  stroke: colors.CanadaRed,
-                  strokeWidth: 0.5,
-                  strokeDasharray: '4, 4',
+                  fill: ({ datum }) => datum.fill || colors.QcOrangeAccent,
                 },
-                labels: { angle: 0, fill: colors.CanadaRed, fontSize: 8, padding: 5 },
               }}
-              labels={['September 13']}
-              labelComponent={<VictoryLabel y={342} />}
-              y={() => 70}
+              labelComponent={
+                <VacsLabel tooltipLabel={(label) => getRegionTooltip(label.datum.x)} />
+              }
             />
+            <VacsRedLine labelY={342} />
           </VictoryChart>
         </div>
 

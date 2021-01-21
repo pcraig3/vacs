@@ -3,7 +3,7 @@ import { func } from 'prop-types'
 
 import { VictoryLabel, VictoryTooltip } from 'victory'
 
-class CustomLabel extends React.Component {
+class VacsLabel extends React.Component {
   static defaultEvents = VictoryTooltip.defaultEvents
 
   render() {
@@ -22,9 +22,9 @@ class CustomLabel extends React.Component {
   }
 }
 
-CustomLabel.propTypes = {
+VacsLabel.propTypes = {
   text: func,
   tooltipLabel: func,
 }
 
-export default CustomLabel
+export default VacsLabel
