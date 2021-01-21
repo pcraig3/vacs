@@ -4,8 +4,8 @@ import * as gtag from '../config/gtag'
 
 import { func, object } from 'prop-types'
 
-import '../public/reset.css'
-import '../public/global.css'
+import '../styles/reset.css'
+import '../styles/global.css'
 
 function MyApp({ Component, pageProps }) {
   if (process.env.NODE_ENV === 'production') {
