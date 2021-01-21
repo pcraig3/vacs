@@ -7,19 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## [1.1.0] - 2021-01-21
+
 ### Added
 
 - Unit tests
 - Github Actions to run tests
 - Test instructions in README
+- Added an MVP sitemap
 
 ### Updated
 
 - Data from Wednesday, Jan 20
 - "About" page knows about github
 - Change the graph to show how many people have received vaccines (rather than total vaccines used)
+  - Update methodology page with more true facts stated
 - Update Canadian population numbers to Q4 (instead of realtime)
-- Update sources with link to Stats Can
+  - Update sources with link to Stats Can
 
 ## [1.0.2] - 2021-01-19
 
