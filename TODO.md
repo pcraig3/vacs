@@ -11,7 +11,6 @@
 - Copy API calls
 - App versioning
   - Tag Docker containers
-- Sitemap
 - HTML datetime
 - Last updated (automatic)
 - Mobile responsive
@@ -20,6 +19,7 @@
 
 # DONE
 
+- Sitemap
 - Measure other stuff: number of people received one dose
 - Fix the graphs
   - Graph efficiencies
