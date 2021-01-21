@@ -7,7 +7,7 @@ export default function About() {
       <section>
         <h1>About</h1>
         <p>
-          <Link href="/methodology">
+          <Link href="/">
             <a>Canada-Vaccine-Tracker dot CA</a>
           </Link>{' '}
           is a little hobby project built by{' '}
