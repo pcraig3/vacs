@@ -1,5 +1,5 @@
 {
-  "name": "canada-vaccince-tracker",
+  "name": "canada-vaccine-tracker",
   "version": "1.0.2",
   "description": "vacs for cans: track vaccines distributed vs days of year",
   "main": "pages/index.js",
@@ -13,7 +13,8 @@
     "build": "next build",
     "start": "PORT=3000 npm run start:production",
     "start:production": "next start -p $PORT",
-    "lint": "eslint pages components"
+    "lint": "eslint pages components",
+    "test": "jest"
   },
   "dependencies": {
     "next": "^10.0.5",
@@ -23,7 +24,9 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
+    "babel-jest": "^26.6.3",
     "eslint": "^7.18.0",
-    "eslint-plugin-react": "^7.22.0"
+    "eslint-plugin-react": "^7.22.0",
+    "jest": "^26.6.3"
   }
 }

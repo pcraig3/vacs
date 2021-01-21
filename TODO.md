@@ -17,6 +17,7 @@
 
 # DONE
 
+- Add some initial tests
 - Update data for Jan 20
 - Update data for Jan 19
 - App versioning

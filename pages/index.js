@@ -15,7 +15,7 @@ import CustomLabel from '../components/CustomLabel'
 
 import { colors, theme } from '../styles/_theme'
 import { canadaDays, canadaVaccines, regionVaccines } from '../data/canada'
-import { formatNumberWithCommas, getDayOfYear } from '../data'
+import { formatNumberWithCommas, getDayOfYear, roundToNearestThousand } from '../data'
 import regions from '../data/_regions'
 
 const LastUpdated = () => <p>Last updated: Wednesday, Jan 20 at 6:33 pm EST.</p>
@@ -34,9 +34,8 @@ const _getRegionTooltips = (abbr) => {
   return _getVaccinesTooltip(abbr)
 }
 
-const _roundToNearestThousand = (number) => `${Math.round(number / 1000)}k`
 const _getVaccinesLabel = ({ datum }) =>
-  `${_roundToNearestThousand(regions[datum.x].vaccines)} vaccines (${datum.y}%)`
+  `${roundToNearestThousand(regions[datum.x].vaccines)} vaccines (${datum.y}%)`
 const _getDaysLabel = ({ datum }) => `${getDayOfYear()} days (${datum.y}%)`
 
 /*
