@@ -18,7 +18,7 @@ import { canadaDays, canadaVaccines, regionVaccines } from '../data/canada'
 import { formatNumberWithCommas, getDayOfYear } from '../data'
 import regions from '../data/_regions'
 
-const LastUpdated = () => <p>Last updated: Tuesday, Jan 19 at 3:36 pm EST.</p>
+const LastUpdated = () => <p>Last updated: Wednesday, Jan 20 at 6:33 pm EST.</p>
 
 const _getVaccinatedTooltip = (abbr) => {
   return `${formatNumberWithCommas(
@@ -102,7 +102,7 @@ const Home = () => (
                 }}
                 name="bar-vaccines"
                 data={canadaVaccines}
-                labels={({ datum }) => `646k vaccines (${datum.y}%)`}
+                labels={({ datum }) => `696k vaccines (${datum.y}%)`}
                 labelComponent={
                   <CustomLabel tooltipLabel={(label) => _getRegionTooltips(label.datum.x)} />
                 }

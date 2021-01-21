@@ -1,6 +1,6 @@
 # TODO
 
-- Update data for Jan 20
+- Update data for Jan 21
 - Fix the graphs
   - Weird JS glitch with the graph numbers
   - Make the graph for the "regions" nicer (eg, how many vaccines)
@@ -17,6 +17,7 @@
 
 # DONE
 
+- Update data for Jan 20
 - Update data for Jan 19
 - App versioning
   - Semantic versioning
