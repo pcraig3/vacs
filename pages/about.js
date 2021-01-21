@@ -14,8 +14,8 @@ export default function About() {
           <Link href="https://pcraig3.ca">
             <a target="_blank">Paul Craig</a>
           </Link>{' '}
-          basically over 3 nights until 4 am. As such, it’s likely rife with bugs and so far quite
-          limited in functionality. Keeping it small is the intention though:{' '}
+          basically over 3 nights until 4:30 am. As such, it’s likely rife with bugs and so far
+          quite limited in functionality. Keeping it small is the intention though:{' '}
           <Link href="/sources">
             <a>other vaccine trackers</a>
           </Link>{' '}
@@ -51,8 +51,11 @@ export default function About() {
           <Link href="/sources">
             <a>publicly-available data</a>
           </Link>{' '}
-          about COVID vaccine distribution in Canada. It will be open-sourced pretty soon on GitHub,
-          so you can create your own completely identical version of this site and try to out-
+          about COVID vaccine distribution in Canada.{' '}
+          <Link href="https://github.com/pcraig3/vacs">
+            <a target="_blank">It’s fork-able on GitHub</a>
+          </Link>
+          , so you can create your own completely identical version of this site and try to out-
           <abbr title="search engine optimization">SEO</abbr> me.
         </p>
       </section>

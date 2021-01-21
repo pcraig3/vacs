@@ -21,15 +21,22 @@ export default function About() {
         </ul>
         <p>
           They mostly agree with each other, although when there are small discrepancies between
-          them, I prefer the COVID-19 Tracker data.
+          them, I prefer COVID-19 Tracker.
         </p>
         <p>
-          I’m updating my data manually a couple times per day, but a near-term ambition is to query
-          it directly from{' '}
+          I’m updating my data manually once per day, but a near-term ambition is to query it
+          directly from{' '}
           <Link href="https://api.covid19tracker.ca/docs/1.0/overview">
             <a target="blank">the COVID19Tracker.ca API</a>
           </Link>{' '}
           so it will always be current.
+        </p>
+        <p>
+          For population data, I am using Statistics Canada’s{' '}
+          <Link href="https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1710000901">
+            <a target="blank">Population estimate for Q4 2020</a>
+          </Link>
+          .
         </p>
       </section>
     </Layout>

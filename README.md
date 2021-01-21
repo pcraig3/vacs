@@ -1,6 +1,6 @@
 # Canada Vaccine Tracker
 
-This is a tiny little [Next.js](https://expressjs.com/) app to track the percentage of vaccines distributed in Canada over time. The data is kept (mostly) up to date with what is on [CTV.ca's Coronavirus vaccine tracker](https://www.ctvnews.ca/health/coronavirus/coronavirus-vaccine-tracker-how-many-people-in-canada-have-received-shots-1.5247509). It will eventually be fully up to date, but don't cash that cheque just yet.
+This is a tiny little [Next.js](https://expressjs.com/) app to track the percentage of vaccines distributed in Canada over time. The data is kept (mostly) up to date with what is on [COVID-19 Tracker Canada's Vaccination page](https://covid19tracker.ca/vaccinationtracker.html). It will eventually be fully up to date (eg, API calls instead of manual updates) but don't cash that cheque just yet.
 
 ## Getting started
 
@@ -35,7 +35,9 @@ On a Mac, press `Control` + `C` to quit the running application.
 ### Run tests with npm
 
 ```bash
-# TODO
+# run unit tests
+npm test
+
 # run linting
 npm run lint
 ```
@@ -54,9 +56,9 @@ The container should be running at [http://localhost:3000/](http://localhost:300
 
 On a Mac, press `Control` + `C` to quit the running docker container.
 
-### Push to Cloud Run
+## Deploy to Cloud Run
 
-Obviously you can't push your stuff to my Cloud Run, but if somehow you were interested in putting up a copycat version, these steps will work.
+Obviously you can't push your stuff to _my_ Cloud Run, but if somehow you were interested in putting up a copycat version, these steps will work.
 
 ```bash
 # build and upload a container

@@ -5,13 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## Unreleased
+
+### Added
+
+- Unit tests
+- Github Actions to run tests
+- Test instructions in README
+
+### Updated
+
+- Data from Wednesday, Jan 20
+- "About" page knows about github
+- Update Canadian population numbers to Q4 (instead of realtime)
+- Update sources with link to Stats Can
+
 ## [1.0.2] - 2021-01-19
 
 ### Updated
 
 - Data from Tuesday, Jan 19
 - Last updated is a component now
-
 
 ## [1.0.1] - 2021-01-19
 

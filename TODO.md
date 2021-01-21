@@ -1,9 +1,14 @@
 # TODO
 
 - Update data for Jan 21
+- Measure other stuff: number of people received one dose
 - Fix the graphs
+  - Graph efficiencies
   - Weird JS glitch with the graph numbers
   - Make the graph for the "regions" nicer (eg, how many vaccines)
+  - Add some kind of text alternative for the graphs
+  - Data tables?
+  - Graphs are crap on mobile
 - Individual pages for provinces
 - Copy API calls
 - App versioning
