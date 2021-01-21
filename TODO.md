@@ -1,9 +1,7 @@
 # TODO
 
 - Update data for Jan 21
-- Measure other stuff: number of people received one dose
 - Fix the graphs
-  - Graph efficiencies
   - Weird JS glitch with the graph numbers
   - Make the graph for the "regions" nicer (eg, how many vaccines)
   - Add some kind of text alternative for the graphs
@@ -22,6 +20,9 @@
 
 # DONE
 
+- Measure other stuff: number of people received one dose
+- Fix the graphs
+  - Graph efficiencies
 - Add some initial tests
 - Update data for Jan 20
 - Update data for Jan 19

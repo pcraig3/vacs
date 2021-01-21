@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Data from Wednesday, Jan 20
 - "About" page knows about github
+- Change the graph to show how many people have received vaccines (rather than total vaccines used)
 - Update Canadian population numbers to Q4 (instead of realtime)
 - Update sources with link to Stats Can
 

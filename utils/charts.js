@@ -5,10 +5,13 @@ import regions from '../data/_regions'
 /*
   Labels
 */
-const _getDaysLabel = ({ datum }) => `${getDayOfYear()} days (${datum.y}%)`
+const getDaysLabel = ({ datum }) => `${getDayOfYear()} days (${datum.y}%)`
 
-const _getVaccinesLabel = ({ datum }) =>
-  `${roundToNearestThousand(regions[datum.x].vaccines)} vaccines (${datum.y}%)`
+const getVaccinesLabel = ({ datum }) =>
+  `${roundToNearestThousand(regions[datum.x].vaccines)} partly/fully vaccinated (${datum.y}%)`
+
+const getFullLabel = ({ datum }) =>
+  `${roundToNearestThousand(regions[datum.x].full)} fully vaccinated (${datum.y}%)`
 
 /*
   Tooltips
@@ -16,15 +19,29 @@ const _getVaccinesLabel = ({ datum }) =>
 const _getVaccinesTooltip = (abbr) => {
   return `${formatNumberWithCommas(
     regions[abbr].vaccines,
-  )} vaccines used / ${formatNumberWithCommas(regions[abbr].population)} people`
+  )} received vaccine / ${formatNumberWithCommas(regions[abbr].population)} people`
 }
 
-const _getDaysTooltip = () => `${getDayOfYear()} days / 365 days`
+const getFullTooltip = (abbr) => {
+  return `${formatNumberWithCommas(regions[abbr].full)} fully vaccinated / ${formatNumberWithCommas(
+    regions[abbr].population,
+  )} people`
+}
+
+const getDaysTooltip = () => `${getDayOfYear()} days / 365 days`
 
 const getRegionTooltip = (abbr) => {
-  if (abbr === 'Days in 2021') return _getDaysTooltip()
+  if (abbr === 'Days in 2021') return getDaysTooltip()
 
   return _getVaccinesTooltip(abbr)
 }
 
-export { _getDaysLabel, _getVaccinesLabel, _getDaysTooltip, _getVaccinesTooltip, getRegionTooltip }
+export {
+  getDaysLabel,
+  getFullLabel,
+  getVaccinesLabel,
+  getDaysTooltip,
+  getFullTooltip,
+  _getVaccinesTooltip,
+  getRegionTooltip,
+}
