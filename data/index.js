@@ -11,10 +11,7 @@ const getPercent = ({ numerator, denominator }) => {
 const getDayOfYear = () => {
   var now = new Date()
   var start = new Date(now.getFullYear(), 0, 0)
-  var diff =
-    now -
-    start +
-    (start.getTimezoneOffset() - now.getTimezoneOffset()) * 60 * 1000
+  var diff = now - start + (start.getTimezoneOffset() - now.getTimezoneOffset()) * 60 * 1000
   var oneDay = 1000 * 60 * 60 * 24
   return Math.floor(diff / oneDay)
 }
@@ -23,7 +20,6 @@ const getDayOfYear = () => {
  * Adds commas to large numbers. 111222333 -> 111,222,333
  * @param {number} number a number to return formatted with commas
  */
-const formatNumberWithCommas = (number) =>
-  number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+const formatNumberWithCommas = (number) => number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 
 export { formatNumberWithCommas, getPercent, getDayOfYear }

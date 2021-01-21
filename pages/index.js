@@ -20,7 +20,7 @@ import regions from '../data/_regions'
 
 const LastUpdated = () => <p>Last updated: Wednesday, Jan 20 at 6:33 pm EST.</p>
 
-const _getVaccinatedTooltip = (abbr) => {
+const _getVaccinesTooltip = (abbr) => {
   return `${formatNumberWithCommas(
     regions[abbr].vaccines,
   )} vaccines used / ${formatNumberWithCommas(regions[abbr].population)} people`
@@ -31,8 +31,21 @@ const _getDaysTooltip = () => `${getDayOfYear()} days / 365 days`
 const _getRegionTooltips = (abbr) => {
   if (abbr === 'Days in 2021') return _getDaysTooltip()
 
-  return _getVaccinatedTooltip(abbr)
+  return _getVaccinesTooltip(abbr)
 }
+
+const _roundToNearestThousand = (number) => `${Math.round(number / 1000)}k`
+const _getVaccinesLabel = ({ datum }) =>
+  `${_roundToNearestThousand(regions[datum.x].vaccines)} vaccines (${datum.y}%)`
+const _getDaysLabel = ({ datum }) => `${getDayOfYear()} days (${datum.y}%)`
+
+/*
+const _getRegionLabel = ({ datum }) => {
+  if (datum.x === 'Days in 2021') return _getDaysLabel({ datum })
+
+  return _getVaccinesLabel({ datum })
+}
+*/
 
 const Home = () => (
   <Layout>
@@ -92,7 +105,7 @@ const Home = () => (
                   onLoad: { duration: 500 },
                 }}
                 data={canadaDays}
-                labels={({ datum }) => `${getDayOfYear()} days (${datum.y}%)`}
+                labels={_getDaysLabel}
                 labelComponent={<CustomLabel tooltipLabel={() => _getDaysTooltip()} />}
               />
               <VictoryBar
@@ -102,7 +115,7 @@ const Home = () => (
                 }}
                 name="bar-vaccines"
                 data={canadaVaccines}
-                labels={({ datum }) => `696k vaccines (${datum.y}%)`}
+                labels={_getVaccinesLabel}
                 labelComponent={
                   <CustomLabel tooltipLabel={(label) => _getRegionTooltips(label.datum.x)} />
                 }
