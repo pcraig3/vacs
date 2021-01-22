@@ -19,7 +19,7 @@ function Layout({ children, title }) {
           <a target="_blank">Next.js</a>
         </Link>{' '}
         by{' '}
-        <Link href="https://twitter.com/pcraig3.ca">
+        <Link href="https://twitter.com/pcraig3">
           <a target="_blank">@pcraig3</a>
         </Link>
         .
