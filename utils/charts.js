@@ -8,7 +8,7 @@ import regions from '../data/_regions'
 const getDaysLabel = ({ datum }) => `${getDayOfYear()} days (${datum.y}%)`
 
 const getVaccinesLabel = ({ datum }) =>
-  `${roundToNearestThousand(regions[datum.x].vaccines)} partly/fully vaccinated (${datum.y}%)`
+  `${roundToNearestThousand(regions[datum.x].vaccines)} received vaccine (${datum.y}%)`
 
 const getFullLabel = ({ datum }) =>
   `${roundToNearestThousand(regions[datum.x].full)} fully vaccinated (${datum.y}%)`

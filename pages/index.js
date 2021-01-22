@@ -28,7 +28,7 @@ import {
 
 const LastUpdated = () => (
   <p>
-    Last updated: Thursday, Jan 21 at 5:47 pm EST.
+    Last updated: Friday, Jan 22 at 6:01 pm EST.
     <style jsx>{`
       margin-top: -40px;
       margin-bottom: 40px;
