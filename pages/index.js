@@ -1,30 +1,15 @@
 import Link from 'next/link'
 
-import { number } from 'prop-types'
-
-import {
-  VictoryAxis,
-  VictoryBar,
-  VictoryChart,
-  VictoryGroup,
-  VictoryLabel,
-  VictoryLegend,
-  VictoryLine,
-} from 'victory'
+import { VictoryAxis, VictoryBar, VictoryChart, VictoryLegend } from 'victory'
 
 import Layout from '../components/Layout'
-import VacsLabel from '../components/VacsLabel'
+import VacsLabel from '../components/charts/VacsLabel'
+import VacsVaccinesDaysChart from '../components/charts/VacsVaccinesDaysChart'
+import VacsRedLine from '../components/charts/VacsRedLine'
 
-import { colors, theme } from '../styles/_theme'
+import { animateBar, colors, theme } from '../styles/_theme'
 import { canadaDays, canadaVaccines, canadaFull, regionVaccines } from '../data/canada'
-import {
-  getDaysLabel,
-  getFullLabel,
-  getVaccinesLabel,
-  getDaysTooltip,
-  getFullTooltip,
-  getRegionTooltip,
-} from '../utils/charts'
+import { getRegionTooltip } from '../utils/charts'
 
 const LastUpdated = () => (
   <p>
@@ -37,94 +22,6 @@ const LastUpdated = () => (
   </p>
 )
 
-const VacsRedLine = ({ labelY = 80, ...props }) => (
-  <VictoryLine
-    {...props}
-    style={{
-      data: {
-        stroke: colors.CanadaRed,
-        strokeWidth: 0.5,
-        strokeDasharray: '4, 4',
-      },
-      labels: { angle: 0, fill: colors.CanadaRed, fontSize: 8, padding: 5 },
-    }}
-    labels={['September 13']}
-    labelComponent={<VictoryLabel y={labelY} />}
-    y={() => 70}
-  />
-)
-
-VacsRedLine.propTypes = {
-  labelY: number,
-}
-
-const _animateBar = { duration: 1500, onLoad: { duration: 500 } }
-
-const TimeCasesChart = () => (
-  <figure>
-    <figcaption>
-      <p>
-        Comparing the percentage of Canadians who have received vaccines vs the number of days
-        passed in 2021
-      </p>
-      <p className="smalltext">
-        (We’re hoping for{' '}
-        <Link href="/methodology">
-          <a>~70% of Canadians vaccinated by September 13</a>
-        </Link>
-        .)
-      </p>
-    </figcaption>
-    <div className="chart">
-      <VictoryChart height={154} width={360} theme={theme}>
-        <VictoryLegend
-          colorScale={[colors.QcOrangeAccent, colors.QcBlueLight]}
-          data={[{ name: 'Canadians vaccinated*' }, { name: 'Days in 2021' }]}
-        />
-        <VictoryAxis />
-        <VictoryAxis
-          dependentAxis
-          domain={[0, 100]}
-          tickValues={[canadaDays[0].y, 50, 70, 100]}
-          tickFormat={(t) => `${t}%`}
-          orientation="bottom"
-        />
-        <VictoryGroup
-          horizontal
-          offset={18}
-          style={{
-            data: { width: 10 },
-          }}
-          colorScale={[colors.QcBlueLight, colors.QcOrangeAccent]}
-        >
-          <VictoryBar
-            name="bar-days"
-            animate={_animateBar}
-            data={canadaDays}
-            labels={getDaysLabel}
-            labelComponent={<VacsLabel tooltipLabel={() => getDaysTooltip()} />}
-          />
-          <VictoryBar
-            animate={_animateBar}
-            name="bar-vaccines"
-            data={canadaVaccines}
-            labels={getVaccinesLabel}
-            labelComponent={<VacsLabel tooltipLabel={(label) => getRegionTooltip(label.datum.x)} />}
-          />
-          <VictoryBar
-            animate={_animateBar}
-            name="bar-two"
-            data={canadaFull}
-            labels={getFullLabel}
-            labelComponent={<VacsLabel tooltipLabel={(label) => getFullTooltip(label.datum.x)} />}
-          />
-        </VictoryGroup>
-        <VacsRedLine />
-      </VictoryChart>
-    </div>
-  </figure>
-)
-
 const Home = () => (
   <Layout>
     <div>
@@ -132,7 +29,25 @@ const Home = () => (
         <h1>
           <span className="visuallyHidden">Total vaccines administered in </span>Canada
         </h1>
-        <TimeCasesChart />
+        <VacsVaccinesDaysChart
+          data={{
+            days: canadaDays,
+            vaccines: canadaVaccines,
+            full: canadaFull,
+          }}
+        >
+          <p>
+            Comparing the percentage of Canadians who have received vaccines vs the number of days
+            passed in 2021
+          </p>
+          <p className="smalltext">
+            (We’re hoping for{' '}
+            <Link href="/methodology">
+              <a>~70% of Canadians vaccinated by September 13</a>
+            </Link>
+            .)
+          </p>
+        </VacsVaccinesDaysChart>
         <LastUpdated />
 
         <h3>
@@ -183,7 +98,7 @@ const Home = () => (
               orientation="bottom"
             />
             <VictoryBar
-              animate={_animateBar}
+              animate={animateBar}
               horizontal
               name="bar-vaccines"
               data={regionVaccines}

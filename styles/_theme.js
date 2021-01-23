@@ -44,6 +44,9 @@ const strokeDasharray = '10, 5'
 const strokeLinecap = 'round'
 const strokeLinejoin = 'round'
 
+// Animate
+const animateBar = { duration: 1500, onLoad: { duration: 500 } }
+
 const theme = {
   axis: Object.assign(
     {
@@ -143,4 +146,4 @@ const space = {
   xxl: '60px',
 }
 
-export { baseLabelStyles, colors, space, theme }
+export { baseLabelStyles, colors, space, theme, animateBar }
