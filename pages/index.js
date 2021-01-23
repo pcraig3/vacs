@@ -60,6 +60,71 @@ VacsRedLine.propTypes = {
 
 const _animateBar = { duration: 1500, onLoad: { duration: 500 } }
 
+const TimeCasesChart = () => (
+  <figure>
+    <figcaption>
+      <p>
+        Comparing the percentage of Canadians who have received vaccines vs the number of days
+        passed in 2021
+      </p>
+      <p className="smalltext">
+        (We’re hoping for{' '}
+        <Link href="/methodology">
+          <a>~70% of Canadians vaccinated by September 13</a>
+        </Link>
+        .)
+      </p>
+    </figcaption>
+    <div className="chart">
+      <VictoryChart height={154} width={360} theme={theme}>
+        <VictoryLegend
+          colorScale={[colors.QcOrangeAccent, colors.QcBlueLight]}
+          data={[{ name: 'Canadians vaccinated*' }, { name: 'Days in 2021' }]}
+        />
+        <VictoryAxis />
+        <VictoryAxis
+          dependentAxis
+          domain={[0, 100]}
+          tickValues={[canadaDays[0].y, 50, 70, 100]}
+          tickFormat={(t) => `${t}%`}
+          orientation="bottom"
+        />
+        <VictoryGroup
+          horizontal
+          offset={18}
+          style={{
+            data: { width: 10 },
+          }}
+          colorScale={[colors.QcBlueLight, colors.QcOrangeAccent]}
+        >
+          <VictoryBar
+            name="bar-days"
+            animate={_animateBar}
+            data={canadaDays}
+            labels={getDaysLabel}
+            labelComponent={<VacsLabel tooltipLabel={() => getDaysTooltip()} />}
+          />
+          <VictoryBar
+            animate={_animateBar}
+            name="bar-vaccines"
+            data={canadaVaccines}
+            labels={getVaccinesLabel}
+            labelComponent={<VacsLabel tooltipLabel={(label) => getRegionTooltip(label.datum.x)} />}
+          />
+          <VictoryBar
+            animate={_animateBar}
+            name="bar-two"
+            data={canadaFull}
+            labels={getFullLabel}
+            labelComponent={<VacsLabel tooltipLabel={(label) => getFullTooltip(label.datum.x)} />}
+          />
+        </VictoryGroup>
+        <VacsRedLine />
+      </VictoryChart>
+    </div>
+  </figure>
+)
+
 const Home = () => (
   <Layout>
     <div>
@@ -67,59 +132,7 @@ const Home = () => (
         <h1>
           <span className="visuallyHidden">Total vaccines administered in </span>Canada
         </h1>
-        <p>Percentage of Canadians who have received vaccines</p>
-        <div className="chart">
-          <VictoryChart height={154} width={360} theme={theme}>
-            <VictoryLegend
-              colorScale={[colors.QcOrangeAccent, colors.QcBlueLight]}
-              data={[{ name: 'Canadians vaccinated*' }, { name: 'Days in 2021' }]}
-            />
-            <VictoryAxis />
-            <VictoryAxis
-              dependentAxis
-              domain={[0, 100]}
-              tickValues={[canadaDays[0].y, 50, 70, 100]}
-              tickFormat={(t) => `${t}%`}
-              orientation="bottom"
-            />
-            <VictoryGroup
-              horizontal
-              offset={18}
-              style={{
-                data: { width: 10 },
-              }}
-              colorScale={[colors.QcBlueLight, colors.QcOrangeAccent]}
-            >
-              <VictoryBar
-                name="bar-days"
-                animate={_animateBar}
-                data={canadaDays}
-                labels={getDaysLabel}
-                labelComponent={<VacsLabel tooltipLabel={() => getDaysTooltip()} />}
-              />
-              <VictoryBar
-                animate={_animateBar}
-                name="bar-vaccines"
-                data={canadaVaccines}
-                labels={getVaccinesLabel}
-                labelComponent={
-                  <VacsLabel tooltipLabel={(label) => getRegionTooltip(label.datum.x)} />
-                }
-              />
-              <VictoryBar
-                animate={_animateBar}
-                name="bar-two"
-                data={canadaFull}
-                labels={getFullLabel}
-                labelComponent={
-                  <VacsLabel tooltipLabel={(label) => getFullTooltip(label.datum.x)} />
-                }
-              />
-            </VictoryGroup>
-            <VacsRedLine />
-          </VictoryChart>
-        </div>
-
+        <TimeCasesChart />
         <LastUpdated />
 
         <h3>
