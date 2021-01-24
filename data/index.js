@@ -1,32 +1,56 @@
-/**
- * Adds commas to large numbers. 111222333 -> 111,222,333
- * @param {number} number a number to return formatted with commas
- */
-const formatNumberWithCommas = (number) => number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+import { getPercent, getDayOfYear } from '../utils/data'
+import regions from './_regions'
 
-/**
- * Returns the day of the year. Jan 3rd -> 3. Feb 3rd -> 34
- * https://stackoverflow.com/questions/8619879/javascript-calculate-the-day-of-the-year-1-366
- */
-const getDayOfYear = () => {
-  var now = new Date()
-  var start = new Date(now.getFullYear(), 0, 0)
-  var diff = now - start + (start.getTimezoneOffset() - now.getTimezoneOffset()) * 60 * 1000
-  var oneDay = 1000 * 60 * 60 * 24
-  return Math.floor(diff / oneDay)
+const getDaysData = ({ abbr = 'CAN' }) => [
+  {
+    x: regions[abbr].abbr,
+    y: getPercent({ numerator: getDayOfYear(), denominator: 365 }),
+  },
+]
+
+const getVaccinesData = ({ abbr = 'CAN' }) => [
+  {
+    x: regions[abbr].abbr,
+    y: getPercent({
+      numerator: regions[abbr].vaccines,
+      denominator: regions[abbr].population,
+    }),
+  },
+]
+
+const getFullData = ({ abbr = 'CAN' }) => [
+  {
+    x: regions[abbr].abbr,
+    y: getPercent({
+      numerator: regions[abbr].full,
+      denominator: regions[abbr].population,
+    }),
+  },
+]
+
+const _getDataForRegions = (regions) => {
+  const regionsMinusCanada = Object.keys(regions).filter((abbr) => abbr !== 'CAN')
+
+  return regionsMinusCanada.map((abbr) => {
+    return {
+      x: abbr,
+      y: getPercent({
+        numerator: regions[abbr].vaccines,
+        denominator: regions[abbr].population,
+      }),
+    }
+  })
 }
 
-// round to one digit
-const getPercent = ({ numerator, denominator }) => {
-  const percentage = (numerator / denominator) * 100
-  return Math.round((percentage + Number.EPSILON) * 10) / 10
-}
+const regionVaccines = _getDataForRegions(regions)
+regionVaccines.push({
+  x: 'Days in 2021',
+  y: getPercent({ numerator: getDayOfYear(), denominator: 365 }),
+  fill: '#b9cde0',
+})
 
-/**
- * Returns numbers rounded to the nearest thousand and prepended by "k"
- * 111600 -> 112k
- * @param {number} number
- */
-const roundToNearestThousand = (number) => `${Math.round(number / 1000)}k`
+regionVaccines.sort(function (a, b) {
+  return b.y - a.y
+})
 
-export { formatNumberWithCommas, getDayOfYear, getPercent, roundToNearestThousand }
+export { getDaysData, getFullData, getVaccinesData, regionVaccines }

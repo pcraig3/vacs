@@ -1,5 +1,5 @@
-import { getDayOfYear } from '../data'
-import { formatNumberWithCommas, roundToNearestThousand } from '../data'
+import { getDayOfYear } from './data'
+import { formatNumberWithCommas, roundToNearestThousand } from './data'
 import regions from '../data/_regions'
 
 /*

@@ -8,7 +8,7 @@ import VacsVaccinesDaysChart from '../components/charts/VacsVaccinesDaysChart'
 import VacsRedLine from '../components/charts/VacsRedLine'
 
 import { animateBar, colors, theme } from '../styles/_theme'
-import { canadaDays, canadaVaccines, canadaFull, regionVaccines } from '../data/canada'
+import { getDaysData, getFullData, getVaccinesData, regionVaccines } from '../data'
 import { getRegionTooltip } from '../utils/charts'
 
 const LastUpdated = () => (
@@ -22,6 +22,8 @@ const LastUpdated = () => (
   </p>
 )
 
+const abbr = 'CAN'
+
 const Home = () => (
   <Layout>
     <div>
@@ -31,9 +33,9 @@ const Home = () => (
         </h1>
         <VacsVaccinesDaysChart
           data={{
-            days: canadaDays,
-            vaccines: canadaVaccines,
-            full: canadaFull,
+            days: getDaysData({ abbr }),
+            vaccines: getVaccinesData({ abbr }),
+            full: getFullData({ abbr }),
           }}
         >
           <p>
@@ -93,7 +95,7 @@ const Home = () => (
             <VictoryAxis
               dependentAxis
               domain={[0, 100]}
-              tickValues={[canadaDays[0].y, 50, 70, 100]}
+              tickValues={[getDaysData(abbr)[0].y, 50, 70, 100]}
               tickFormat={(t) => `${t}%`}
               orientation="bottom"
             />

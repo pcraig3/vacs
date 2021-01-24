@@ -24,3 +24,5 @@ const VacsRedLine = ({ labelY = 80, ...props }) => (
 VacsRedLine.propTypes = {
   labelY: number,
 }
+
+export default VacsRedLine

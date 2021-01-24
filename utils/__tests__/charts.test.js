@@ -1,4 +1,4 @@
-import { getDayOfYear, formatNumberWithCommas, roundToNearestThousand } from '../../data'
+import { getDayOfYear, formatNumberWithCommas, roundToNearestThousand } from '../data'
 import regions from '../../data/_regions'
 import { getDaysLabel, getVaccinesLabel, getDaysTooltip, _getVaccinesTooltip } from '../charts'
 
@@ -11,7 +11,7 @@ describe('test _getDaysLabel', () => {
 describe('test _getVaccinesLabel', () => {
   test('returns current vaccines for Canada and a y value', () => {
     expect(getVaccinesLabel({ datum: { x: 'CAN', y: '10' } })).toEqual(
-      `${roundToNearestThousand(regions['CAN'].vaccines)} partly/fully vaccinated (10%)`,
+      `${roundToNearestThousand(regions['CAN'].vaccines)} received vaccine (10%)`,
     )
   })
 })

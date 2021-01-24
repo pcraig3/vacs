@@ -1,4 +1,4 @@
-import { getPercent, formatNumberWithCommas, roundToNearestThousand } from '../index'
+import { getPercent, formatNumberWithCommas, roundToNearestThousand } from '../data'
 
 const valsPercent = [
   { in: [1000, 2000], out: 50 },

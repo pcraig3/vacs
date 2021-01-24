@@ -13,7 +13,7 @@
     "build": "next build",
     "start": "PORT=3000 npm run start:production",
     "start:production": "next start -p $PORT",
-    "lint": "eslint pages components",
+    "lint": "eslint pages components utils data config",
     "test": "jest"
   },
   "dependencies": {

@@ -3,7 +3,9 @@ import Link from 'next/link'
 import { string } from 'prop-types'
 
 import Layout from '../../components/Layout'
+import VacsVaccinesDaysChart from '../../components/charts/VacsVaccinesDaysChart'
 import _regions from '../../data/_regions'
+import { getDaysData, getFullData, getVaccinesData } from '../../data'
 
 const Province = ({ abbr }) => {
   return (
@@ -14,6 +16,25 @@ const Province = ({ abbr }) => {
             Province: {abbr}
             {/* <span className="visuallyHidden">Total vaccines administered in </span>Canada */}
           </h1>
+          <VacsVaccinesDaysChart
+            data={{
+              days: getDaysData({ abbr }),
+              vaccines: getVaccinesData({ abbr }),
+              full: getFullData({ abbr }),
+            }}
+          >
+            <p>
+              Comparing the percentage of Canadians who have received vaccines vs the number of days
+              passed in 2021
+            </p>
+            <p className="smalltext">
+              (We’re hoping for{' '}
+              <Link href="/methodology">
+                <a>~70% of Canadians vaccinated by September 13</a>
+              </Link>
+              .)
+            </p>
+          </VacsVaccinesDaysChart>
 
           <h3>
             <span aria-hidden="true">*</span>More info
@@ -42,33 +63,21 @@ Province.propTypes = {
   abbr: string,
 }
 
-// This function gets called at build time
 export async function getStaticPaths() {
-  // Call an external API endpoint to get posts
+  // get all region abbreviations
   const abbrs = Object.keys(_regions)
 
-  // Get the paths we want to pre-render based on posts
+  // Get the paths we want to pre-render based on region abbrs
   const paths = abbrs.map((abbr) => ({
     params: { abbr },
   }))
 
-  // We'll pre-render only these paths at build time.
+  // Pre-render only these paths at build time.
   // { fallback: false } means other routes should 404.
   return { paths, fallback: false }
 }
 
 export async function getStaticProps({ params }) {
-  console.log(params)
-  if (!params.abbr) params['abbr'] = 'AB'
-
-  /*
-  if (!data) {
-    return {
-      notFound: true,
-    }
-  }
-  */
-
   return {
     props: { abbr: params.abbr }, // will be passed to the page component as props
   }
