@@ -1,6 +1,10 @@
 # TODO
 
-- Update data for Jan 23
+- Update data for Jan 24
+- Province pages
+  - Update the text
+  - Is there some province specific promises or something?
+  - Province selector
 - Fix the graphs
   - Weird JS glitch with the graph numbers
   - Make the graph for the "regions" nicer (eg, how many vaccines)
@@ -15,10 +19,16 @@
 - Last updated (automatic)
 - Mobile responsive
 - Webmaster / search console
+  - Province pages
 - Everything accessibility
 
 # DONE
 
+- Webmaster / search console
+- Update data for Jan 23
+- Province pages
+  - Their own pages
+  - Their own graphs
 - Update data for Jan 22
 - Update data for Jan 21
 - Sitemap
