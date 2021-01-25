@@ -27,7 +27,12 @@ const VacsVaccinesDaysChart = ({
           colorScale={[colors.QcOrangeAccent, colors.QcBlueLight]}
           data={[{ name: `${demonym} vaccinated*` }, { name: 'Days in 2021' }]}
         />
-        <VictoryAxis />
+        <VictoryAxis
+          style={{
+            ticks: { size: 3 },
+            tickLabels: { fontSize: 7.5, padding: 2 },
+          }}
+        />
         <VictoryAxis
           dependentAxis
           domain={[0, 100]}

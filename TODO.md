@@ -15,10 +15,6 @@
 - App versioning
   - Tag Docker containers
 - Last updated (automatic)
-- Mobile responsive
-  - MVP graphs
-  - Borders
-  - Font sizes
 - Webmaster / search console
   - Province pages
 - Everything accessibility
@@ -28,10 +24,6 @@
 - Check the pages and README after updates
 - Province pages
   - Province selector
-- Mobile responsive
-  - MVP graphs
-  - Borders
-  - Font sizes
 - Webmaster / search console
   - Province pages
 
@@ -39,6 +31,9 @@
 
 - Mobile responsive
   - Top menu
+  - MVP graphs
+  - Borders
+  - Font sizes
 - HTML datetime
 - Update data for Jan 24
 - Province pages

@@ -59,10 +59,15 @@ function Links() {
       <style jsx>{`
         list-style-type: none;
 
+        li {
+          margin-bottom: ${space.xs};
+        }
+
         @media only screen and (min-width: 600px) {
           li {
             display: inline-block;
             margin-left: ${space.sm};
+            margin-bottom: 0;
           }
         }
       `}</style>
@@ -112,7 +117,7 @@ function Header() {
         }
 
         a {
-          padding: 0 5px;
+          padding: 0 ${space.xxs};
         }
 
         nav {
@@ -122,7 +127,6 @@ function Header() {
 
         summary {
           cursor: pointer;
-          margin-bottom: 10px;
 
           // the little arrow disappears in firefox unless this is set explicitly
           display: list-item;
@@ -143,6 +147,12 @@ function Header() {
         @media only screen and (max-width: 600px) {
           nav {
             flex-shrink: 0;
+          }
+        }
+
+        @media only screen and (max-width: 380px) {
+          header {
+            flex-direction: column;
           }
         }
       `}</style>
