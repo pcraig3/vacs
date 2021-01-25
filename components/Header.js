@@ -33,6 +33,47 @@ MapleLeaf.propTypes = {
   fill: string,
 }
 
+function Links() {
+  return (
+    <ul>
+      <li>
+        <Link href="/regions">
+          <a>All regions</a>
+        </Link>
+      </li>
+      <li>
+        <Link href="/about">
+          <a>About</a>
+        </Link>
+      </li>
+      <li>
+        <Link href="/methodology">
+          <a>Methodology</a>
+        </Link>
+      </li>
+      <li>
+        <Link href="/sources">
+          <a>Sources</a>
+        </Link>
+      </li>
+      <style jsx>{`
+        list-style-type: none;
+
+        @media only screen and (min-width: 600px) {
+          li {
+            display: inline-block;
+            margin-left: ${space.sm};
+          }
+        }
+      `}</style>
+    </ul>
+  )
+}
+
+Links.propTypes = {
+  _className: string,
+}
+
 function Header() {
   return (
     <header>
@@ -48,28 +89,13 @@ function Header() {
       </div>
 
       <nav>
-        <ul>
-          <li>
-            <Link href="/regions">
-              <a>All regions</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/about">
-              <a>About</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/methodology">
-              <a>Methodology</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/sources">
-              <a>Sources</a>
-            </Link>
-          </li>
-        </ul>
+        <Links />
+        <details>
+          <summary>
+            <span>Menu</span>
+          </summary>
+          <Links />
+        </details>
       </nav>
 
       <style jsx>{`
@@ -85,13 +111,39 @@ function Header() {
           text-decoration: none;
         }
 
-        nav ul li {
-          display: inline-block;
-          margin-left: ${space.sm};
-        }
-
         a {
           padding: 0 5px;
+        }
+
+        nav {
+          text-align: right;
+          flex: auto;
+        }
+
+        summary {
+          cursor: pointer;
+          margin-bottom: 10px;
+
+          // the little arrow disappears in firefox unless this is set explicitly
+          display: list-item;
+          text-decoration: underline;
+        }
+
+        summary:focus,
+        summary:hover {
+          outline: 0 !important;
+        }
+
+        summary:focus > span,
+        summary:hover > span {
+          outline: 2px solid palevioletred;
+          outline-offset: 2px;
+        }
+
+        @media only screen and (max-width: 600px) {
+          nav {
+            flex-shrink: 0;
+          }
         }
       `}</style>
     </header>

@@ -16,15 +16,29 @@
   - Tag Docker containers
 - Last updated (automatic)
 - Mobile responsive
-  - Graphs
-  - Top menu
+  - MVP graphs
   - Borders
+  - Font sizes
 - Webmaster / search console
   - Province pages
 - Everything accessibility
 
+# For "release"
+
+- Check the pages and README after updates
+- Province pages
+  - Province selector
+- Mobile responsive
+  - MVP graphs
+  - Borders
+  - Font sizes
+- Webmaster / search console
+  - Province pages
+
 # DONE
 
+- Mobile responsive
+  - Top menu
 - HTML datetime
 - Update data for Jan 24
 - Province pages

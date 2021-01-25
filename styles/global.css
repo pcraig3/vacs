@@ -109,6 +109,30 @@ section {
   }
 }
 
+@media only screen and (max-width: 600px) {
+  header > nav > ul {
+    display: none;
+  }
+
+  header > nav > details {
+    display: inline-block;
+  }
+
+  header > nav > details > ul[class] {
+    margin-top: 15px;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  header > nav > ul {
+    display: inline-block;
+  }
+
+  header > nav > details {
+    display: none;
+  }
+}
+
 .smalltext {
   font-size: 1.25rem;
   margin-bottom: 10px;
