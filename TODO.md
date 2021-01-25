@@ -15,15 +15,11 @@
 - App versioning
   - Tag Docker containers
 - Last updated (automatic)
-- Webmaster / search console
-  - Province pages
 - Everything accessibility
 
 # For "release"
 
 - Check the pages and README after updates
-- Webmaster / search console
-  - Province pages
 
 # DONE
 
@@ -46,6 +42,7 @@
 - Update data for Jan 22
 - Update data for Jan 21
 - Sitemap
+  - Province pages
 - Measure other stuff: number of people received one dose
 - Fix the graphs
   - Graph efficiencies

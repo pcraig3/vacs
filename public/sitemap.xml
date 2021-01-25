@@ -9,25 +9,109 @@
 
 <url>
   <loc>https://canada-vaccine-tracker.ca/</loc>
-  <lastmod>2021-01-21T10:41:27+00:00</lastmod>
+  <lastmod>2021-01-25T12:48:01+00:00</lastmod>
+  <priority>1.00</priority>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://canada-vaccine-tracker.ca/regions</loc>
+  <lastmod>2021-01-25T12:48:01+00:00</lastmod>
+  <priority>1.00</priority>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://canada-vaccine-tracker.ca/regions/AB</loc>
+  <lastmod>2021-01-25T12:48:01+00:00</lastmod>
+  <priority>1.00</priority>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://canada-vaccine-tracker.ca/regions/BC</loc>
+  <lastmod>2021-01-25T12:48:01+00:00</lastmod>
+  <priority>1.00</priority>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://canada-vaccine-tracker.ca/regions/MB</loc>
+  <lastmod>2021-01-25T12:48:01+00:00</lastmod>
+  <priority>1.00</priority>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://canada-vaccine-tracker.ca/regions/NB</loc>
+  <lastmod>2021-01-25T12:48:01+00:00</lastmod>
+  <priority>1.00</priority>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://canada-vaccine-tracker.ca/regions/NL</loc>
+  <lastmod>2021-01-25T12:48:01+00:00</lastmod>
+  <priority>1.00</priority>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://canada-vaccine-tracker.ca/regions/NS</loc>
+  <lastmod>2021-01-25T12:48:01+00:00</lastmod>
+  <priority>1.00</priority>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://canada-vaccine-tracker.ca/regions/NT</loc>
+  <lastmod>2021-01-25T12:48:01+00:00</lastmod>
+  <priority>1.00</priority>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://canada-vaccine-tracker.ca/regions/NU</loc>
+  <lastmod>2021-01-25T12:48:01+00:00</lastmod>
+  <priority>1.00</priority>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://canada-vaccine-tracker.ca/regions/ON</loc>
+  <lastmod>2021-01-25T12:48:01+00:00</lastmod>
+  <priority>1.00</priority>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://canada-vaccine-tracker.ca/regions/PE</loc>
+  <lastmod>2021-01-25T12:48:01+00:00</lastmod>
+  <priority>1.00</priority>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://canada-vaccine-tracker.ca/regions/QC</loc>
+  <lastmod>2021-01-25T12:48:01+00:00</lastmod>
+  <priority>1.00</priority>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://canada-vaccine-tracker.ca/regions/SK</loc>
+  <lastmod>2021-01-25T12:48:01+00:00</lastmod>
+  <priority>1.00</priority>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://canada-vaccine-tracker.ca/regions/YT</loc>
+  <lastmod>2021-01-25T12:48:01+00:00</lastmod>
   <priority>1.00</priority>
   <changefreq>daily</changefreq>
 </url>
 <url>
   <loc>https://canada-vaccine-tracker.ca/about</loc>
-  <lastmod>2021-01-21T10:41:27+00:00</lastmod>
+  <lastmod>2021-01-25T12:48:01+00:00</lastmod>
   <priority>0.80</priority>
   <changefreq>daily</changefreq>
 </url>
 <url>
   <loc>https://canada-vaccine-tracker.ca/methodology</loc>
-  <lastmod>2021-01-21T10:41:27+00:00</lastmod>
+  <lastmod>2021-01-25T12:48:01+00:00</lastmod>
   <priority>0.80</priority>
   <changefreq>daily</changefreq>
 </url>
 <url>
   <loc>https://canada-vaccine-tracker.ca/sources</loc>
-  <lastmod>2021-01-21T10:41:27+00:00</lastmod>
+  <lastmod>2021-01-25T12:48:01+00:00</lastmod>
   <priority>0.80</priority>
   <changefreq>daily</changefreq>
 </url>
