@@ -29,8 +29,8 @@ const Home = () => (
           }}
         >
           <p>
-            Comparing the percentage of Canadians who have received vaccines vs the number of days
-            passed in 2021.
+            Comparing the percentage of Canadians who have received vaccines <em>vs.</em> the
+            percentage of days passed in 2021.
           </p>
           <p className="smalltext">
             (We’re hoping for{' '}
@@ -70,7 +70,14 @@ const Home = () => (
           <figcaption>
             <p>
               Percentage of Canadians who have received vaccines across all provinces and
-              territories.
+              territories <em>vs.</em> the percentage of days passed in 2021.
+            </p>
+            <p className="smalltext">
+              (Or, choose{' '}
+              <Link href="/regions">
+                <a>a specific region in Canada</a>
+              </Link>
+              .)
             </p>
           </figcaption>
           <div className="chart">

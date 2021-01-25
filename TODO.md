@@ -22,8 +22,6 @@
 # For "release"
 
 - Check the pages and README after updates
-- Province pages
-  - Province selector
 - Webmaster / search console
   - Province pages
 
