@@ -65,48 +65,53 @@ const Home = () => (
         <h2>
           <span className="visuallyHidden">Vaccine recipients in Canada </span>By region
         </h2>
-        <p>
-          Percentage of Canadians who have received vaccines across all provinces and territories.
-        </p>
 
-        <div className="chart">
-          <VictoryChart height={400} width={360} domainPadding={8} theme={theme}>
-            <VictoryLegend
-              colorScale={[colors.QcOrangeAccent, colors.QcBlueLight]}
-              data={[{ name: 'Canadians vaccinated*' }, { name: 'Days in 2021' }]}
-            />
-            <VictoryAxis
-              fixLabelOverlap={true}
-              style={{
-                ticks: { size: 3 },
-                tickLabels: { fontSize: 7.5, padding: 2 },
-              }}
-            />
-            <VictoryAxis
-              dependentAxis
-              domain={[0, 100]}
-              tickValues={[getDaysData(abbr)[0].y, 50, 70, 100]}
-              tickFormat={(t) => `${t}%`}
-              orientation="bottom"
-            />
-            <VictoryBar
-              animate={animateBar}
-              horizontal
-              name="bar-vaccines"
-              data={regionVaccines}
-              labels={({ datum }) => `${datum.y}%`}
-              style={{
-                data: {
-                  fill: ({ datum }) => datum.fill || colors.QcOrangeAccent,
-                },
-              }}
-              labelComponent={
-                <VacsLabel tooltipLabel={(label) => getRegionTooltip(label.datum.x)} />
-              }
-            />
-            <VacsRedLine labelY={342} />
-          </VictoryChart>
-        </div>
+        <figure>
+          <figcaption>
+            <p>
+              Percentage of Canadians who have received vaccines across all provinces and
+              territories.
+            </p>
+          </figcaption>
+          <div className="chart">
+            <VictoryChart height={400} width={360} domainPadding={8} theme={theme}>
+              <VictoryLegend
+                colorScale={[colors.QcOrangeAccent, colors.QcBlueLight]}
+                data={[{ name: 'Canadians vaccinated*' }, { name: 'Days in 2021' }]}
+              />
+              <VictoryAxis
+                fixLabelOverlap={true}
+                style={{
+                  ticks: { size: 3 },
+                  tickLabels: { fontSize: 7.5, padding: 2 },
+                }}
+              />
+              <VictoryAxis
+                dependentAxis
+                domain={[0, 100]}
+                tickValues={[getDaysData(abbr)[0].y, 50, 70, 100]}
+                tickFormat={(t) => `${t}%`}
+                orientation="bottom"
+              />
+              <VictoryBar
+                animate={animateBar}
+                horizontal
+                name="bar-vaccines"
+                data={regionVaccines}
+                labels={({ datum }) => `${datum.y}%`}
+                style={{
+                  data: {
+                    fill: ({ datum }) => datum.fill || colors.QcOrangeAccent,
+                  },
+                }}
+                labelComponent={
+                  <VacsLabel tooltipLabel={(label) => getRegionTooltip(label.datum.x)} />
+                }
+              />
+              <VacsRedLine labelY={342} />
+            </VictoryChart>
+          </div>
+        </figure>
 
         <LastUpdated />
 
