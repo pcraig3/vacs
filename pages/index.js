@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { VictoryAxis, VictoryBar, VictoryChart, VictoryLegend } from 'victory'
 
 import Layout from '../components/Layout'
+import LastUpdated from '../components/LastUpdated'
 import VacsLabel from '../components/charts/VacsLabel'
 import VacsVaccinesDaysChart from '../components/charts/VacsVaccinesDaysChart'
 import VacsRedLine from '../components/charts/VacsRedLine'
@@ -10,17 +11,6 @@ import VacsRedLine from '../components/charts/VacsRedLine'
 import { animateBar, colors, theme } from '../styles/_theme'
 import { getDaysData, getFullData, getVaccinesData, regionVaccines } from '../data'
 import { getRegionTooltip } from '../utils/charts'
-
-const LastUpdated = () => (
-  <p>
-    Last updated: Sunday, Jan 24 at 10:53 am EST.
-    <style jsx>{`
-      margin-top: -40px;
-      margin-bottom: 40px;
-      z-index: 1;
-    `}</style>
-  </p>
-)
 
 const abbr = 'CAN'
 
@@ -40,7 +30,7 @@ const Home = () => (
         >
           <p>
             Comparing the percentage of Canadians who have received vaccines vs the number of days
-            passed in 2021
+            passed in 2021.
           </p>
           <p className="smalltext">
             (We’re hoping for{' '}

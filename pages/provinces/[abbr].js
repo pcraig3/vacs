@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { string } from 'prop-types'
 
 import Layout from '../../components/Layout'
+import LastUpdated from '../../components/LastUpdated'
 import VacsVaccinesDaysChart from '../../components/charts/VacsVaccinesDaysChart'
 import _regions from '../../data/_regions'
 import { getDaysData, getFullData, getVaccinesData } from '../../data'
@@ -26,7 +27,7 @@ const Province = ({ abbr }) => {
           >
             <p>
               Comparing the percentage of {_regions[abbr].demonym} who have received vaccines vs the
-              number of days passed in 2021
+              number of days passed in 2021.
             </p>
             <p className="smalltext">
               (We’re hoping for{' '}
@@ -36,6 +37,7 @@ const Province = ({ abbr }) => {
               .)
             </p>
           </VacsVaccinesDaysChart>
+          <LastUpdated />
 
           <h3>
             <span aria-hidden="true">*</span>More info

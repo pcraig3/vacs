@@ -1,9 +1,11 @@
 # TODO
 
+- Check the pages and README after updates
 - Update data for Jan 25
 - Province pages
-  - Is there some province specific promises or something?
+  - Are there some province specific commitments?
   - Province selector
+  - Actual province selection page
 - Fix the graphs
   - Weird JS glitch with the graph numbers
   - Make the graph for the "regions" nicer (eg, how many vaccines)
@@ -13,18 +15,22 @@
 - Copy API calls
 - App versioning
   - Tag Docker containers
-- HTML datetime
 - Last updated (automatic)
 - Mobile responsive
+  - Graphs
+  - Top menu
+  - Borders
 - Webmaster / search console
   - Province pages
 - Everything accessibility
 
 # DONE
 
+- HTML datetime
 - Update data for Jan 24
 - Province pages
   - Update the text
+  - Last updated
 - Webmaster / search console
 - Update data for Jan 23
 - Province pages
