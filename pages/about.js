@@ -15,10 +15,16 @@ export default function About() {
           <Link href="https://pcraig3.ca">
             <a target="_blank">Paul Craig</a>
           </Link>{' '}
-          basically over 3 nights until 4:30 am. As such, it’s likely rife with bugs and so far
-          quite limited in functionality. Keeping it small is the intention though:{' '}
-          <Link href="/sources">
-            <a>other vaccine trackers</a>
+          basically over four and a half nights until 4:30 am. As such, it’s likely rife with bugs
+          and at present pretty limited in functionality. Keeping it small is the intention though:{' '}
+          <Link href="https://covid19tracker.ca/vaccinationtracker.html">
+            <a target="blank">other</a>
+          </Link>{' '}
+          <Link href="https://globalnews.ca/news/7583050/covid-19-vaccine-tracker-coronavirus-canada/">
+            <a target="blank">vaccine</a>
+          </Link>{' '}
+          <Link href="https://www.cbc.ca/news/canada/track-vaccinations-across-canada-1.5870573">
+            <a>trackers</a>
           </Link>{' '}
           already exist, and they are pretty comprehensive.
         </p>
@@ -28,19 +34,18 @@ export default function About() {
           <Link href="/methodology">
             <a>The basic idea</a>
           </Link>{' '}
-          is that it would be really good if 70% of the population received vaccines by September
-          13th (70% of the way through the year).
+          is that it would be really good if ~70% of the population received vaccines by September
+          13th (~70% of the way through the year).
         </p>
         <p>
-          I think it would be cool incorporate progress over time, as well as to have dedicated
-          pages for provinces and territories, so those will probably show up eventually.
+          It would be cool to incorporate progress over time, (eg, are we ramping up?) so probably
+          that will show up eventually.
         </p>
         <p>
-          If you have constructive compliments,{' '}
           <Link href="https://pcraig3.ca/contact">
-            <a target="_blank">shoot me an email or something</a>
-          </Link>
-          .
+            <a target="_blank">Shoot me an email or something</a>
+          </Link>{' '}
+          if you have any feedback .
         </p>
         <h2>Nuts and bolts</h2>
         <p>

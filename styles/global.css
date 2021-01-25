@@ -53,6 +53,14 @@ section > :first-child {
   font-weight: 400;
 }
 
+@media only screen and (max-width: 600px) {
+  h1,
+  section > :first-child {
+    font-size: 3.2rem;
+    margin-bottom: 10px;
+  }
+}
+
 :not(nav) > ul,
 :not(nav) > ol {
   margin-bottom: 20px;

@@ -24,9 +24,9 @@ export default function Methodology() {
           .”
         </p>
         <p>
-          September 13 is 70% of the way through a year, which lines up pretty well with when
-          Trudeau said that vaccines should be generally available. It seems to me that we would be
-          in really good shape if 70% of Canadians were vaccinated by mid-September.
+          September 13 is ~70% of the way through a year, which lines up pretty well with when
+          Trudeau said vaccines should be generally available. It seems to me that we would be in
+          really good shape if around 70% of Canadians were vaccinated by mid-September.
         </p>
         <h2>People vs doses</h2>
         <p>

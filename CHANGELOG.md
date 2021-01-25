@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## [1.2.0] - 2021-01-25
+
+### Added
+
+- Create pages for individual provinces and territories
+- Create page for listing/selecting all available regions
+- Add details/summary collapsible top menu
+
+### Updated
+
+- Add new pages to sitemap
+- LastUpdated is a component now
+- Update mobile styling for font sizes and graphs
+
 ## [1.1.0] - 2021-01-21
 
 ### Added
