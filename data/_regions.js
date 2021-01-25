@@ -4,6 +4,7 @@
 export default {
   CAN: {
     name: 'Canada',
+    demonym: 'Canadians',
     abbr: 'CAN',
     population: 38008005,
     vaccines: 718481,
@@ -11,6 +12,7 @@ export default {
   },
   AB: {
     name: 'Alberta',
+    demonym: 'Albertans',
     abbr: 'AB',
     population: 4428112,
     vaccines: 91535,
@@ -18,6 +20,7 @@ export default {
   },
   BC: {
     name: 'British Columbia',
+    demonym: 'British Columbians',
     abbr: 'BC',
     population: 5145851,
     vaccines: 108364,
@@ -25,6 +28,7 @@ export default {
   },
   MB: {
     name: 'Manitoba',
+    demonym: 'Manitobans',
     abbr: 'MB',
     population: 1379584,
     vaccines: 24158,
@@ -32,6 +36,7 @@ export default {
   },
   NB: {
     name: 'New Brunswick',
+    demonym: 'New Brunswickers',
     abbr: 'NB',
     population: 781315,
     vaccines: 7869,
@@ -39,6 +44,7 @@ export default {
   },
   NL: {
     name: 'Newfoundland and Labrador',
+    demonym: 'Newfoundlanders',
     abbr: 'NL',
     population: 520998,
     vaccines: 7054,
@@ -46,6 +52,7 @@ export default {
   },
   NS: {
     name: 'Nova Scotia',
+    demonym: 'Nova Scotians',
     abbr: 'NS',
     population: 979115,
     vaccines: 7870,
@@ -53,6 +60,7 @@ export default {
   },
   NT: {
     name: 'Northwest Territories',
+    demonym: 'Northerners',
     abbr: 'NT',
     population: 45074,
     vaccines: 1893,
@@ -60,6 +68,8 @@ export default {
   },
   NU: {
     name: 'Nunavut',
+    demonym: 'Nunavummiuq',
+    // demonym_singular: 'Nunavummiut',
     abbr: 'NU',
     population: 39285,
     vaccines: 3822,
@@ -67,6 +77,7 @@ export default {
   },
   ON: {
     name: 'Ontario',
+    demonym: 'Ontarians',
     abbr: 'ON',
     population: 14733119,
     vaccines: 218239,
@@ -74,6 +85,7 @@ export default {
   },
   PE: {
     name: 'Prince Edward Island',
+    demonym: 'Islanders',
     abbr: 'PE',
     population: 159713,
     vaccines: 4726,
@@ -81,6 +93,7 @@ export default {
   },
   QC: {
     name: 'Quebec',
+    demonym: 'Quebecers',
     abbr: 'QC',
     population: 8575779,
     vaccines: 210252,
@@ -88,6 +101,7 @@ export default {
   },
   SK: {
     name: 'Saskatchewan',
+    demonym: 'Saskatchewanians',
     abbr: 'SK',
     population: 1177884,
     vaccines: 28969,
@@ -95,6 +109,7 @@ export default {
   },
   YT: {
     name: 'Yukon',
+    demonym: 'Yukoners',
     abbr: 'YT',
     population: 42176,
     vaccines: 3730,

@@ -25,11 +25,11 @@ const LastUpdated = () => (
 const abbr = 'CAN'
 
 const Home = () => (
-  <Layout>
+  <Layout title={`Vaccine recipients in Canada`}>
     <div>
       <section>
         <h1>
-          <span className="visuallyHidden">Total vaccines administered in </span>Canada
+          <span className="visuallyHidden">Vaccine recipients in </span>Canada
         </h1>
         <VacsVaccinesDaysChart
           data={{
@@ -45,7 +45,7 @@ const Home = () => (
           <p className="smalltext">
             (We’re hoping for{' '}
             <Link href="/methodology">
-              <a>~70% of Canadians vaccinated by September 13</a>
+              <a>~70% vaccinated by September 13</a>
             </Link>
             .)
           </p>
@@ -73,7 +73,7 @@ const Home = () => (
 
       <section>
         <h2>
-          <span className="visuallyHidden">Total vaccines administered in Canada </span>By region
+          <span className="visuallyHidden">Vaccine recipients in Canada </span>By region
         </h2>
         <p>
           Percentage of Canadians who have received vaccines across all provinces and territories.

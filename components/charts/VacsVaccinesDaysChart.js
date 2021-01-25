@@ -1,4 +1,4 @@
-import { array, object, oneOfType, shape } from 'prop-types'
+import { array, object, oneOfType, shape, string } from 'prop-types'
 
 import { VictoryAxis, VictoryBar, VictoryChart, VictoryGroup, VictoryLegend } from 'victory'
 
@@ -14,14 +14,18 @@ import {
   getRegionTooltip,
 } from '../../utils/charts'
 
-const VacsVaccinesDaysChart = ({ children, data: { days, vaccines, full } }) => (
+const VacsVaccinesDaysChart = ({
+  children,
+  data: { days, vaccines, full },
+  demonym = 'Canadians',
+}) => (
   <figure>
     <figcaption>{children}</figcaption>
     <div className="chart">
       <VictoryChart height={154} width={360} theme={theme}>
         <VictoryLegend
           colorScale={[colors.QcOrangeAccent, colors.QcBlueLight]}
-          data={[{ name: 'Canadians vaccinated*' }, { name: 'Days in 2021' }]}
+          data={[{ name: `${demonym} vaccinated*` }, { name: 'Days in 2021' }]}
         />
         <VictoryAxis />
         <VictoryAxis
@@ -74,6 +78,7 @@ VacsVaccinesDaysChart.propTypes = {
     full: array,
     vaccines: array,
   }),
+  demonym: string,
 }
 
 export default VacsVaccinesDaysChart

@@ -9,12 +9,12 @@ import { getDaysData, getFullData, getVaccinesData } from '../../data'
 
 const Province = ({ abbr }) => {
   return (
-    <Layout>
+    <Layout title={`Vaccine recipients in ${_regions[abbr].name}`}>
       <div>
         <section>
           <h1>
-            Province: {abbr}
-            {/* <span className="visuallyHidden">Total vaccines administered in </span>Canada */}
+            <span className="visuallyHidden">Vaccine recipients in </span>
+            {_regions[abbr].name}
           </h1>
           <VacsVaccinesDaysChart
             data={{
@@ -22,15 +22,16 @@ const Province = ({ abbr }) => {
               vaccines: getVaccinesData({ abbr }),
               full: getFullData({ abbr }),
             }}
+            demonym={_regions[abbr].demonym}
           >
             <p>
-              Comparing the percentage of Canadians who have received vaccines vs the number of days
-              passed in 2021
+              Comparing the percentage of {_regions[abbr].demonym} who have received vaccines vs the
+              number of days passed in 2021
             </p>
             <p className="smalltext">
               (We’re hoping for{' '}
               <Link href="/methodology">
-                <a>~70% of Canadians vaccinated by September 13</a>
+                <a>~70% vaccinated by September 13</a>
               </Link>
               .)
             </p>
@@ -45,9 +46,9 @@ const Province = ({ abbr }) => {
             partially effective, and indicates how quickly we are dispensing vaccines.
           </p>
           <p className="smalltext">
-            The smaller number tracks how many Canadians have received both doses. The larger number
-            tracks how many Canadians have received at least 1 dose. For a more thorough write-up,
-            check out the{' '}
+            The smaller number tracks how many people in {_regions[abbr].name} have received both
+            doses. The larger number tracks how many people in {_regions[abbr].name} have received
+            at least 1 dose. For a more thorough write-up, check out the{' '}
             <Link href="/methodology">
               <a>Methodology</a>
             </Link>

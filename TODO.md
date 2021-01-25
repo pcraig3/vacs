@@ -2,7 +2,6 @@
 
 - Update data for Jan 24
 - Province pages
-  - Update the text
   - Is there some province specific promises or something?
   - Province selector
 - Fix the graphs
@@ -11,7 +10,6 @@
   - Add some kind of text alternative for the graphs
   - Data tables?
   - Graphs are crap on mobile
-- Individual pages for provinces
 - Copy API calls
 - App versioning
   - Tag Docker containers
@@ -24,6 +22,8 @@
 
 # DONE
 
+- Province pages
+  - Update the text
 - Webmaster / search console
 - Update data for Jan 23
 - Province pages
