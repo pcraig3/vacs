@@ -1,6 +1,6 @@
 # TODO
 
-- Update data for Jan 24
+- Update data for Jan 25
 - Province pages
   - Is there some province specific promises or something?
   - Province selector
@@ -22,6 +22,7 @@
 
 # DONE
 
+- Update data for Jan 24
 - Province pages
   - Update the text
 - Webmaster / search console

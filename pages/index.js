@@ -13,7 +13,7 @@ import { getRegionTooltip } from '../utils/charts'
 
 const LastUpdated = () => (
   <p>
-    Last updated: Saturday, Jan 23 at 1:31 pm EST.
+    Last updated: Sunday, Jan 24 at 10:53 am EST.
     <style jsx>{`
       margin-top: -40px;
       margin-bottom: 40px;
