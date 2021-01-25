@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 import Layout from '../components/Layout'
 
-export default function About() {
+export default function Sources() {
   return (
     <Layout title="Sources">
       <section>

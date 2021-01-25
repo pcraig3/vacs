@@ -5,7 +5,6 @@
 - Province pages
   - Are there some province specific commitments?
   - Province selector
-  - Actual province selection page
 - Fix the graphs
   - Weird JS glitch with the graph numbers
   - Make the graph for the "regions" nicer (eg, how many vaccines)
@@ -31,6 +30,7 @@
 - Province pages
   - Update the text
   - Last updated
+  - Actual province selection page
 - Webmaster / search console
 - Update data for Jan 23
 - Province pages

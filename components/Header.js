@@ -50,6 +50,11 @@ function Header() {
       <nav>
         <ul>
           <li>
+            <Link href="/regions">
+              <a>All regions</a>
+            </Link>
+          </li>
+          <li>
             <Link href="/about">
               <a>About</a>
             </Link>

@@ -8,7 +8,7 @@ import VacsVaccinesDaysChart from '../../components/charts/VacsVaccinesDaysChart
 import _regions from '../../data/_regions'
 import { getDaysData, getFullData, getVaccinesData } from '../../data'
 
-const Province = ({ abbr }) => {
+const Region = ({ abbr }) => {
   return (
     <Layout title={`Vaccine recipients in ${_regions[abbr].name}`}>
       <div>
@@ -62,7 +62,7 @@ const Province = ({ abbr }) => {
   )
 }
 
-Province.propTypes = {
+Region.propTypes = {
   abbr: string,
 }
 
@@ -86,4 +86,4 @@ export async function getStaticProps({ params }) {
   }
 }
 
-export default Province
+export default Region
