@@ -1,7 +1,6 @@
 # TODO
 
-- Check the pages and README after updates
-- Update data for Jan 25
+- Update data for Jan 26
 - Province pages
   - Are there some province specific commitments?
   - Province selector
@@ -17,12 +16,10 @@
 - Last updated (automatic)
 - Everything accessibility
 
-# For "release"
-
-- Check the pages and README after updates
-
 # DONE
 
+- Update data for Jan 25
+- Check the pages and README after updates
 - Mobile responsive
   - Top menu
   - MVP graphs
