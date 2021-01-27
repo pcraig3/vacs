@@ -1,6 +1,6 @@
 # TODO
 
-- Update data for Jan 26
+- Update data for Jan 28
 - Province pages
   - Are there some province specific commitments?
   - Province selector
@@ -18,6 +18,8 @@
 
 # DONE
 
+- Update data for Jan 27
+- Update data for Jan 26
 - Update data for Jan 25
 - Check the pages and README after updates
 - Mobile responsive

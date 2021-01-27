@@ -1,6 +1,6 @@
 import { format } from 'date-fns'
 
-const lastUpdatedUTC = '2021-01-25T23:46:00Z'
+const lastUpdatedUTC = '2021-01-27T19:44:00Z'
 
 const getTimeZone = () => {
   // https://stackoverflow.com/a/30407960
