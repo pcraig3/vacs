@@ -1,6 +1,6 @@
 {
   "name": "canada-vaccine-tracker",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "vacs for cans: track vaccines distributed vs days of year",
   "main": "pages/index.js",
   "author": "paul@pcraig3.ca",

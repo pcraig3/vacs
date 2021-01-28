@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## [1.2.1] - 2021-01-28
+
+### Added
+
+- Added an "update" script so that we can very easily update the data
+
+### Updated
+
+- Changed data format in data/_regions.js
+  - Now it is a JSON file that we can generate on the fly
+- LastUpdated component accepts a datetime, defaulting to global "last_updated"
+
+
 ## [1.2.0] - 2021-01-25
 
 ### Added

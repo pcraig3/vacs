@@ -11,13 +11,18 @@
   - Data tables?
   - Graphs are crap on mobile
 - Copy API calls
+  - Call vaccines API on pageload
+  - Call lastUpdated on pageload
 - App versioning
   - Tag Docker containers
-- Last updated (automatic)
 - Everything accessibility
 
 # DONE
 
+- Copy API calls
+  - Match API format
+  - Write script to update static data from API
+  - Last updated (automatic)
 - Update data for Jan 27
 - Update data for Jan 26
 - Update data for Jan 25
