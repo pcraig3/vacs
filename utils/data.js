@@ -2,7 +2,10 @@
  * Adds commas to large numbers. 111222333 -> 111,222,333
  * @param {number} number a number to return formatted with commas
  */
-const formatNumberWithCommas = (number) => number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+const formatNumberWithCommas = (number) => {
+  if (number) return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+  return 0
+}
 
 /**
  * Returns the day of the year. Jan 3rd -> 3. Feb 3rd -> 34

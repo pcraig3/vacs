@@ -38,7 +38,7 @@ const Region = ({ abbr }) => {
               .)
             </p>
           </VacsVaccinesDaysChart>
-          <LastUpdated />
+          <LastUpdated datetime={_regions[abbr].date} />
 
           <h3>
             <span aria-hidden="true">*</span>More info
