@@ -1,0 +1,87 @@
+{
+  "CAN": {
+    "population": 38008005,
+    "name": "Canada",
+    "demonym": "Canadians",
+    "abbr": "CAN"
+  },
+  "ON": {
+    "population": 14733119,
+    "name": "Ontario",
+    "demonym": "Ontarians",
+    "abbr": "ON"
+  },
+  "QC": {
+    "population": 8575779,
+    "name": "Quebec",
+    "demonym": "Quebecers",
+    "abbr": "QC"
+  },
+  "NS": {
+    "population": 979115,
+    "name": "Nova Scotia",
+    "demonym": "Nova Scotians",
+    "abbr": "NS"
+  },
+  "NB": {
+    "population": 781315,
+    "name": "New Brunswick",
+    "demonym": "New Brunswickers",
+    "abbr": "NB"
+  },
+  "MB": {
+    "population": 1379584,
+    "name": "Manitoba",
+    "demonym": "Manitobans",
+    "abbr": "MB"
+  },
+  "BC": {
+    "population": 5145851,
+    "name": "British Columbia",
+    "demonym": "British Columbians",
+    "abbr": "BC"
+  },
+  "PE": {
+    "population": 159713,
+    "name": "Prince Edward Island",
+    "demonym": "Islanders",
+    "abbr": "PE"
+  },
+  "SK": {
+    "population": 1177884,
+    "name": "Saskatchewan",
+    "demonym": "Saskatchewanians",
+    "abbr": "SK"
+  },
+  "AB": {
+    "population": 4428112,
+    "name": "Alberta",
+    "demonym": "Albertans",
+    "abbr": "AB"
+  },
+  "NL": {
+    "population": 520998,
+    "name": "Newfoundland and Labrador",
+    "demonym": "Newfoundlanders",
+    "abbr": "NL"
+  },
+  "NT": {
+    "population": 45074,
+    "name": "Northwest Territories",
+    "demonym": "Northerners",
+    "abbr": "NT"
+  },
+  "YT": {
+    "total_received_vaccine": 5170,
+    "population": 42176,
+    "name": "Yukon",
+    "demonym": "Yukoners",
+    "abbr": "YT"
+  },
+  "NU": {
+    "population": 39285,
+    "name": "Nunavut",
+    "demonym": "Nunavummiuq",
+    "abbr": "NU"
+  }
+}

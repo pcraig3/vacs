@@ -10,60 +10,16 @@
     "demonym": "Canadians",
     "abbr": "CAN"
   },
-  "ON": {
-    "province": "ON",
+  "AB": {
+    "province": "AB",
     "date": "2021-01-27",
-    "total_vaccinations": 305330,
-    "total_vaccinated": 96459,
-    "total_received_vaccine": 208871,
-    "population": 14733119,
-    "name": "Ontario",
-    "demonym": "Ontarians",
-    "abbr": "ON"
-  },
-  "QC": {
-    "province": "QC",
-    "date": "2021-01-27",
-    "total_vaccinations": 229219,
-    "total_vaccinated": null,
-    "total_received_vaccine": 229219,
-    "population": 8575779,
-    "name": "Quebec",
-    "demonym": "Quebecers",
-    "abbr": "QC"
-  },
-  "NS": {
-    "province": "NS",
-    "date": "2021-01-27",
-    "total_vaccinations": 12286,
-    "total_vaccinated": 2709,
-    "total_received_vaccine": 9577,
-    "population": 979115,
-    "name": "Nova Scotia",
-    "demonym": "Nova Scotians",
-    "abbr": "NS"
-  },
-  "NB": {
-    "province": "NB",
-    "date": "2021-01-27",
-    "total_vaccinations": 14257,
-    "total_vaccinated": 2839,
-    "total_received_vaccine": 11418,
-    "population": 781315,
-    "name": "New Brunswick",
-    "demonym": "New Brunswickers",
-    "abbr": "NB"
-  },
-  "MB": {
-    "province": "MB",
-    "date": "2021-01-27",
-    "total_vaccinations": 33361,
-    "total_vaccinated": 5087,
-    "total_received_vaccine": 28274,
-    "population": 1379584,
-    "name": "Manitoba",
-    "demonym": "Manitobans",
-    "abbr": "MB"
+    "total_vaccinations": 101123,
+    "total_vaccinated": 11362,
+    "total_received_vaccine": 89761,
+    "population": 4428112,
+    "name": "Alberta",
+    "demonym": "Albertans",
+    "abbr": "AB"
   },
   "BC": {
     "province": "BC",
@@ -76,38 +32,27 @@
     "demonym": "British Columbians",
     "abbr": "BC"
   },
-  "PE": {
-    "province": "PE",
+  "MB": {
+    "province": "MB",
     "date": "2021-01-27",
-    "total_vaccinations": 7117,
-    "total_vaccinated": 1892,
-    "total_received_vaccine": 5225,
-    "population": 159713,
-    "name": "Prince Edward Island",
-    "demonym": "Islanders",
-    "abbr": "PE"
+    "total_vaccinations": 33361,
+    "total_vaccinated": 5087,
+    "total_received_vaccine": 28274,
+    "population": 1379584,
+    "name": "Manitoba",
+    "demonym": "Manitobans",
+    "abbr": "MB"
   },
-  "SK": {
-    "province": "SK",
+  "NB": {
+    "province": "NB",
     "date": "2021-01-27",
-    "total_vaccinations": 34615,
-    "total_vaccinated": 4180,
-    "total_received_vaccine": 30435,
-    "population": 1177884,
-    "name": "Saskatchewan",
-    "demonym": "Saskatchewanians",
-    "abbr": "SK"
-  },
-  "AB": {
-    "province": "AB",
-    "date": "2021-01-27",
-    "total_vaccinations": 101123,
-    "total_vaccinated": 11362,
-    "total_received_vaccine": 89761,
-    "population": 4428112,
-    "name": "Alberta",
-    "demonym": "Albertans",
-    "abbr": "AB"
+    "total_vaccinations": 14257,
+    "total_vaccinated": 2839,
+    "total_received_vaccine": 11418,
+    "population": 781315,
+    "name": "New Brunswick",
+    "demonym": "New Brunswickers",
+    "abbr": "NB"
   },
   "NL": {
     "province": "NL",
@@ -120,6 +65,17 @@
     "demonym": "Newfoundlanders",
     "abbr": "NL"
   },
+  "NS": {
+    "province": "NS",
+    "date": "2021-01-27",
+    "total_vaccinations": 12286,
+    "total_vaccinated": 2709,
+    "total_received_vaccine": 9577,
+    "population": 979115,
+    "name": "Nova Scotia",
+    "demonym": "Nova Scotians",
+    "abbr": "NS"
+  },
   "NT": {
     "province": "NT",
     "date": "2021-01-27",
@@ -131,17 +87,6 @@
     "demonym": "Northerners",
     "abbr": "NT"
   },
-  "YT": {
-    "province": "YT",
-    "date": "2021-01-27",
-    "total_vaccinations": 5170,
-    "total_vaccinated": null,
-    "total_received_vaccine": 5170,
-    "population": 42176,
-    "name": "Yukon",
-    "demonym": "Yukoners",
-    "abbr": "YT"
-  },
   "NU": {
     "province": "NU",
     "date": "2021-01-27",
@@ -152,5 +97,60 @@
     "name": "Nunavut",
     "demonym": "Nunavummiuq",
     "abbr": "NU"
+  },
+  "ON": {
+    "province": "ON",
+    "date": "2021-01-27",
+    "total_vaccinations": 305330,
+    "total_vaccinated": 96459,
+    "total_received_vaccine": 208871,
+    "population": 14733119,
+    "name": "Ontario",
+    "demonym": "Ontarians",
+    "abbr": "ON"
+  },
+  "PE": {
+    "province": "PE",
+    "date": "2021-01-27",
+    "total_vaccinations": 7117,
+    "total_vaccinated": 1892,
+    "total_received_vaccine": 5225,
+    "population": 159713,
+    "name": "Prince Edward Island",
+    "demonym": "Islanders",
+    "abbr": "PE"
+  },
+  "QC": {
+    "province": "QC",
+    "date": "2021-01-27",
+    "total_vaccinations": 229219,
+    "total_vaccinated": null,
+    "total_received_vaccine": 229219,
+    "population": 8575779,
+    "name": "Quebec",
+    "demonym": "Quebecers",
+    "abbr": "QC"
+  },
+  "SK": {
+    "province": "SK",
+    "date": "2021-01-27",
+    "total_vaccinations": 34615,
+    "total_vaccinated": 4180,
+    "total_received_vaccine": 30435,
+    "population": 1177884,
+    "name": "Saskatchewan",
+    "demonym": "Saskatchewanians",
+    "abbr": "SK"
+  },
+  "YT": {
+    "province": "YT",
+    "date": "2021-01-27",
+    "total_vaccinations": 5170,
+    "total_vaccinated": null,
+    "total_received_vaccine": 5170,
+    "population": 42176,
+    "name": "Yukon",
+    "demonym": "Yukoners",
+    "abbr": "YT"
   }
 }
