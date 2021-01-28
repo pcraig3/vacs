@@ -1,6 +1,6 @@
 # TODO
 
-- Update data for Jan 28
+- Update data for Jan 31
 - Province pages
   - Are there some province specific commitments?
   - Province selector
@@ -10,7 +10,7 @@
   - Add some kind of text alternative for the graphs
   - Data tables?
   - Graphs are crap on mobile
-- Copy API calls
+- API calls
   - Call vaccines API on pageload
   - Call lastUpdated on pageload
 - App versioning
@@ -19,7 +19,8 @@
 
 # DONE
 
-- Copy API calls
+- Update data for Jan 30
+- API calls
   - Match API format
   - Write script to update static data from API
   - Last updated (automatic)
