@@ -73,9 +73,26 @@ const sortByKey = (data) => {
 fetch(api)
   .then((r) => r.json())
   .then((data) => {
+    // TODO: Last updated is something we can check in provinces
+    const lastUpdateISO = new Date(data.last_updated + ' CST')
+    const lastUpdatedDate = data.last_updated.substring(0, 10)
+
+    fs.writeFileSync(
+      'data/_lastUpdated.json',
+      JSON.stringify({ last_updated: lastUpdateISO }, null, 2),
+    )
+    console.log('wrote to data/_lastUpdated.json')
+
     let out = getRegions(data)
     out = sortByKey(out)
     out = Object.assign(getCanada(data), out)
+
+    // add more specific date if "date" key looks like the same day as last_updated
+    Object.keys(out).forEach((key) => {
+      if (out[key]['date'] === lastUpdatedDate) {
+        out[key]['date'] = lastUpdateISO
+      }
+    })
 
     fs.writeFileSync(`data/${filename}`, JSON.stringify(out, null, 2))
     console.log(`wrote to data/${filename}`)
