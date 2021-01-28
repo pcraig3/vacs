@@ -5,8 +5,9 @@ import { string } from 'prop-types'
 import Layout from '../../components/Layout'
 import LastUpdated from '../../components/LastUpdated'
 import VacsVaccinesDaysChart from '../../components/charts/VacsVaccinesDaysChart'
-import _regions from '../../data/_regions'
 import { getDaysData, getFullData, getVaccinesData } from '../../data'
+
+const _regions = require('../../data/_regions.json')
 
 const Region = ({ abbr }) => {
   return (

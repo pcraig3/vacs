@@ -1,5 +1,6 @@
 import { getPercent, getDayOfYear } from '../utils/data'
-import regions from './_regions'
+
+const regions = require('./_regions.json')
 
 const getDaysData = ({ abbr = 'CAN' }) => [
   {
@@ -12,7 +13,7 @@ const getVaccinesData = ({ abbr = 'CAN' }) => [
   {
     x: regions[abbr].abbr,
     y: getPercent({
-      numerator: regions[abbr].vaccines,
+      numerator: regions[abbr].total_received_vaccine,
       denominator: regions[abbr].population,
     }),
   },
@@ -22,7 +23,7 @@ const getFullData = ({ abbr = 'CAN' }) => [
   {
     x: regions[abbr].abbr,
     y: getPercent({
-      numerator: regions[abbr].full,
+      numerator: regions[abbr].total_vaccinated,
       denominator: regions[abbr].population,
     }),
   },
@@ -35,7 +36,7 @@ const _getDataForRegions = (regions) => {
     return {
       x: abbr,
       y: getPercent({
-        numerator: regions[abbr].vaccines,
+        numerator: regions[abbr].total_received_vaccine,
         denominator: regions[abbr].population,
       }),
     }
