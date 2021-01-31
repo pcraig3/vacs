@@ -13,6 +13,10 @@ const mergeData = ({ abbr = 'CAN', data }) => {
   const regions = require('./_regions.json')
 
   if (data) {
+    if (Array.isArray(data)) {
+      data = data.find((region) => region.province === abbr)
+    }
+
     let {
       total_vaccinated = regions[abbr].total_vaccinated,
       total_vaccinations = regions[abbr].total_vaccinations,

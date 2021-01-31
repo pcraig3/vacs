@@ -1,33 +1,38 @@
 import Link from 'next/link'
 
 import { string } from 'prop-types'
+import fetch from 'unfetch'
+import useSWR from 'swr'
 
 import Layout from '../../components/Layout'
 import LastUpdated from '../../components/LastUpdated'
 import VacsVaccinesDaysChart from '../../components/charts/VacsVaccinesDaysChart'
-import { getDaysData, getFullData, getVaccinesData } from '../../data'
+import { mergeData } from '../../data'
 
-const _regions = require('../../data/_regions.json')
+const fetcher = (url) => fetch(url).then((r) => r.json())
 
 const Region = ({ abbr }) => {
+  // when data comes back it looks like { data: [{ province: ON, ... }, { ... }, ...], last_updated: "datetime" }
+  let { data: { data: [..._data] = [], last_updated: lastUpdated } = {} } = useSWR(
+    'https://api.covid19tracker.ca/summary/split',
+    fetcher,
+  )
+
+  // set to empty object if empty array
+  _data = _data.length === 0 ? {} : _data
+  const regionData = mergeData({ abbr, data: _data })
+
   return (
-    <Layout title={`Vaccine recipients in ${_regions[abbr].name}`}>
+    <Layout title={`Vaccine recipients in ${regionData.name}`}>
       <div>
         <section>
           <h1>
             <span className="visuallyHidden">Vaccine recipients in </span>
-            {_regions[abbr].name}
+            {regionData.name}
           </h1>
-          <VacsVaccinesDaysChart
-            data={{
-              days: getDaysData({ abbr }),
-              vaccines: getVaccinesData({ abbr }),
-              full: getFullData({ abbr }),
-            }}
-            demonym={_regions[abbr].demonym}
-          >
+          <VacsVaccinesDaysChart data={regionData}>
             <p>
-              Comparing the percentage of {_regions[abbr].demonym} who have received vaccines vs the
+              Comparing the percentage of {regionData.demonym} who have received vaccines vs the
               number of days passed in 2021.
             </p>
             <p className="smalltext">
@@ -38,7 +43,7 @@ const Region = ({ abbr }) => {
               .)
             </p>
           </VacsVaccinesDaysChart>
-          <LastUpdated datetime={_regions[abbr].date} />
+          <LastUpdated datetime={lastUpdated} />
 
           <h3>
             <span aria-hidden="true">*</span>More info
@@ -49,9 +54,9 @@ const Region = ({ abbr }) => {
             partially effective, and indicates how quickly we are dispensing vaccines.
           </p>
           <p className="smalltext">
-            The smaller number tracks how many people in {_regions[abbr].name} have received both
-            doses. The larger number tracks how many people in {_regions[abbr].name} have received
-            at least 1 dose. For a more thorough write-up, check out the{' '}
+            The smaller number tracks how many people in {regionData.name} have received both doses.
+            The larger number tracks how many people in {regionData.name} have received at least 1
+            dose. For a more thorough write-up, check out the{' '}
             <Link href="/methodology">
               <a>Methodology</a>
             </Link>
@@ -69,7 +74,7 @@ Region.propTypes = {
 
 export async function getStaticPaths() {
   // get all region abbreviations
-  const abbrs = Object.keys(_regions)
+  const abbrs = Object.keys(require('../../data/_regions.json'))
 
   // Get the paths we want to pre-render based on region abbrs
   const paths = abbrs.map((abbr) => ({
