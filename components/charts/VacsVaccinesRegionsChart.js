@@ -1,5 +1,3 @@
-import fetch from 'unfetch'
-import useSWR from 'swr'
 import { array, object, oneOfType } from 'prop-types'
 
 import { VictoryAxis, VictoryBar, VictoryChart, VictoryLegend } from 'victory'
@@ -11,15 +9,7 @@ import { getRegionTooltip } from '../../utils/charts'
 
 import { getDaysData, getRegionVaccines } from '../../data'
 
-const fetcher = (url) => fetch(url).then((r) => r.json())
-
-const VacsVaccinesRegionsChart = ({ children }) => {
-  // when data comes back it looks like { data: [{ }], last_updated: "datetime" }
-  let { data: { data: [..._data] = [] } = {} } = useSWR(
-    'https://api.covid19tracker.ca/summary/split',
-    fetcher,
-  )
-
+const VacsVaccinesRegionsChart = ({ children, data }) => {
   return (
     <figure>
       <figcaption>{children}</figcaption>
@@ -47,7 +37,7 @@ const VacsVaccinesRegionsChart = ({ children }) => {
             animate={animateBar}
             horizontal
             name="bar-vaccines"
-            data={getRegionVaccines({ data: _data })}
+            data={getRegionVaccines({ data })}
             labels={({ datum }) => `${datum.y}%`}
             style={{
               data: {
@@ -56,7 +46,7 @@ const VacsVaccinesRegionsChart = ({ children }) => {
             }}
             labelComponent={
               <VacsLabel
-                tooltipLabel={(label) => getRegionTooltip({ abbr: label.datum.x, data: _data })}
+                tooltipLabel={(label) => getRegionTooltip({ abbr: label.datum.x, data })}
               />
             }
           />
@@ -69,6 +59,7 @@ const VacsVaccinesRegionsChart = ({ children }) => {
 
 VacsVaccinesRegionsChart.propTypes = {
   children: oneOfType([array, object]).isRequired,
+  data: object,
 }
 
 export default VacsVaccinesRegionsChart

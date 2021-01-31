@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
-import fetch from 'unfetch'
-import useSWR from 'swr'
+import fetch from 'node-fetch'
+import { array, object, string } from 'prop-types'
 
 import Layout from '../components/Layout'
 import LastUpdated from '../components/LastUpdated'
@@ -10,17 +10,10 @@ import VacsVaccinesRegionsChart from '../components/charts/VacsVaccinesRegionsCh
 
 import { mergeData } from '../data'
 
-const fetcher = (url) => fetch(url).then((r) => r.json())
 const abbr = 'CAN'
 
-const Home = () => {
-  // when data comes back it looks like { data: [{ }], last_updated: "datetime" }
-  let { data: { data: [_data] = [], last_updated: lastUpdated } = {} } = useSWR(
-    'https://api.covid19tracker.ca/summary',
-    fetcher,
-  )
-
-  const regionData = mergeData({ abbr, data: _data })
+const Home = ({ canadaData, regionsData, lastUpdated }) => {
+  canadaData = mergeData({ abbr, canadaData })
 
   return (
     <Layout title={`Vaccine recipients in Canada`}>
@@ -29,7 +22,7 @@ const Home = () => {
           <h1>
             <span className="visuallyHidden">Vaccine recipients in </span>Canada
           </h1>
-          <VacsVaccinesDaysChart data={regionData} abbr={abbr}>
+          <VacsVaccinesDaysChart data={canadaData} abbr={abbr}>
             <p>
               Comparing the percentage of Canadians who have received vaccines <em>vs.</em> the
               percentage of days passed in 2021.
@@ -68,7 +61,7 @@ const Home = () => {
             <span className="visuallyHidden">Vaccine recipients in Canada </span>By region
           </h2>
 
-          <VacsVaccinesRegionsChart>
+          <VacsVaccinesRegionsChart data={regionsData}>
             <p>
               Percentage of Canadians who have received vaccines across all provinces and
               territories <em>vs.</em> the percentage of days passed in 2021.
@@ -81,7 +74,6 @@ const Home = () => {
               .)
             </p>
           </VacsVaccinesRegionsChart>
-
           <LastUpdated datetime={lastUpdated} />
 
           <h3>
@@ -100,6 +92,30 @@ const Home = () => {
       </div>
     </Layout>
   )
+}
+
+Home.propTypes = {
+  canadaData: object,
+  regionsData: array,
+  lastUpdated: string,
+}
+
+// This gets called on every request
+export async function getServerSideProps() {
+  // get data for all of Canada
+  // when data comes back it looks like { data: [{ }], last_updated: "datetime" }
+  const { data: [canadaData] = [], last_updated: lastUpdated } = await fetch(
+    'https://api.covid19tracker.ca/summary',
+  ).then((response) => response.json())
+
+  // get data for different regions in Canada
+  // when data comes back it looks like { data: [{ }, { }, { }, ...], last_updated: "datetime" }
+  const { data: [...regionsData] = [] } = await fetch(
+    'https://api.covid19tracker.ca/summary/split',
+  ).then((response) => response.json())
+
+  // Pass data to the page via props
+  return { props: { canadaData, regionsData, lastUpdated } }
 }
 
 export default Home
