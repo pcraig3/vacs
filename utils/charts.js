@@ -1,6 +1,8 @@
 import { getDayOfYear } from './data'
 import { formatNumberWithCommas, roundToNearestThousand } from './data'
 
+const regions = require('../data/_regions.json')
+
 /*
   Labels
 */
@@ -18,7 +20,7 @@ const getFullLabel = ({ total_vaccinated }) => {
 /*
   Tooltips
 */
-const _getVaccinesTooltip = ({ population, total_received_vaccine }) => {
+const _getVaccinesTooltip = ({ population, total_received_vaccine = 0 }) => {
   return `${formatNumberWithCommas(
     total_received_vaccine,
   )} received vaccine / ${formatNumberWithCommas(population)} people`
@@ -32,10 +34,20 @@ const getFullTooltip = ({ population, total_vaccinated }) => {
 
 const getDaysTooltip = () => `${getDayOfYear()} days / 365 days`
 
-const getRegionTooltip = (data) => {
-  if (data.abbr === 'Days in 2021') return getDaysTooltip()
+const getRegionTooltip = ({ abbr, data }) => {
+  if (abbr === 'Days in 2021') return getDaysTooltip()
 
-  return _getVaccinesTooltip(data)
+  data = data || []
+  const population = regions[abbr].population
+  const {
+    total_vaccinations = regions[abbr].total_vaccinations,
+    total_vaccinated = regions[abbr].total_vaccinated,
+  } = data.length ? data.find((r) => r.province === abbr) : {}
+
+  return _getVaccinesTooltip({
+    population,
+    total_received_vaccine: total_vaccinations - total_vaccinated,
+  })
 }
 
 export {

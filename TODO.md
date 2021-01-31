@@ -10,9 +10,6 @@
   - Add some kind of text alternative for the graphs
   - Data tables?
   - Graphs are crap on mobile
-- API calls
-  - Call vaccines API on pageload
-  - Call lastUpdated on pageload
 - App versioning
   - Tag Docker containers
 - Everything accessibility
@@ -24,6 +21,8 @@
   - Match API format
   - Write script to update static data from API
   - Last updated (automatic)
+  - Call vaccines API on pageload
+  - Call lastUpdated on pageload
 - Update data for Jan 27
 - Update data for Jan 26
 - Update data for Jan 25

@@ -1,14 +1,5 @@
 import { getPercent, getDayOfYear } from '../utils/data'
 
-const regions = require('./_regions.json')
-
-const getDaysData = ({ abbr = 'CAN' }) => [
-  {
-    x: abbr,
-    y: getPercent({ numerator: getDayOfYear(), denominator: 365 }),
-  },
-]
-
 const mergeData = ({ abbr = 'CAN', data }) => {
   const regions = require('./_regions.json')
 
@@ -23,14 +14,21 @@ const mergeData = ({ abbr = 'CAN', data }) => {
     } = data
 
     Object.assign(regions[abbr], {
-      total_vaccinated,
-      total_vaccinations,
+      total_vaccinated: parseInt(total_vaccinated, 10),
+      total_vaccinations: parseInt(total_vaccinations, 10),
       total_received_vaccine: total_vaccinations - total_vaccinated,
     })
   }
 
   return regions[abbr]
 }
+
+const getDaysData = ({ abbr = 'CAN' }) => [
+  {
+    x: abbr,
+    y: getPercent({ numerator: getDayOfYear(), denominator: 365 }),
+  },
+]
 
 const getVaccinesData = ({ abbr = 'CAN', data }) => {
   return [
@@ -56,8 +54,14 @@ const getFullData = ({ abbr = 'CAN', data }) => {
   ]
 }
 
-const _getDataForRegions = (regions) => {
+const _getDataForRegions = ({ data: apiRegions = [] }) => {
+  const regions = require('./_regions.json')
   const regionsMinusCanada = Object.keys(regions).filter((abbr) => abbr !== 'CAN')
+
+  apiRegions.map((r) => {
+    let { province: abbr, total_vaccinations, total_vaccinated } = r
+    regions[abbr]['total_received_vaccine'] = total_vaccinations - total_vaccinated
+  })
 
   return regionsMinusCanada.map((abbr) => {
     return {
@@ -70,16 +74,20 @@ const _getDataForRegions = (regions) => {
   })
 }
 
-const regionVaccines = _getDataForRegions(regions)
+const getRegionVaccines = ({ data }) => {
+  let regionsData = _getDataForRegions({ data })
 
-regionVaccines.push({
-  x: 'Days in 2021',
-  y: getPercent({ numerator: getDayOfYear(), denominator: 365 }),
-  fill: '#b9cde0',
-})
+  regionsData.push({
+    x: 'Days in 2021',
+    y: getPercent({ numerator: getDayOfYear(), denominator: 365 }),
+    fill: '#b9cde0',
+  })
 
-regionVaccines.sort(function (a, b) {
-  return b.y - a.y
-})
+  regionsData.sort(function (a, b) {
+    return b.y - a.y
+  })
 
-export { getDaysData, getFullData, getVaccinesData, regionVaccines, mergeData }
+  return regionsData
+}
+
+export { getDaysData, getFullData, getVaccinesData, getRegionVaccines, mergeData }
