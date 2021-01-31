@@ -1,5 +1,9 @@
 # TODO
 
+- Fix the front page
+  - Link to regions
+  - Link to "more info" at the bottom
+- Create a "data" page
 - Update data for Jan 31
 - Province pages
   - Are there some province specific commitments?
@@ -9,6 +13,7 @@
   - Make the graph for the "regions" nicer (eg, how many vaccines)
   - Add some kind of text alternative for the graphs
   - Data tables?
+  - Pan and zoom?
   - Graphs are crap on mobile
 - App versioning
   - Tag Docker containers

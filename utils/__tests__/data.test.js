@@ -21,7 +21,7 @@ const valsCommas = [
   { in: 1000, out: '1,000' },
   { in: 123456, out: '123,456' },
   { in: 500, out: '500' },
-  { in: 0, out: '0' },
+  { in: 0, out: 0 },
   { in: 'string', out: 'string' },
   { in: '1000', out: '1,000' },
 ]
