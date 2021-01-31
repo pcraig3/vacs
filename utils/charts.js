@@ -14,7 +14,11 @@ const getVaccinesLabel = ({ total_received_vaccine }) => {
 }
 
 const getFullLabel = ({ total_vaccinated }) => {
-  return ({ datum }) => `${roundToNearestThousand(total_vaccinated)} fully vaccinated (${datum.y}%)`
+  return ({ datum }) => {
+    if (!total_vaccinated) return 'No data'
+
+    return `${roundToNearestThousand(total_vaccinated)} fully vaccinated (${datum.y}%)`
+  }
 }
 
 /*
@@ -27,6 +31,8 @@ const _getVaccinesTooltip = ({ population, total_received_vaccine = 0 }) => {
 }
 
 const getFullTooltip = ({ population, total_vaccinated }) => {
+  if (!total_vaccinated) return 'Yep, still no data'
+
   return `${formatNumberWithCommas(total_vaccinated)} fully vaccinated / ${formatNumberWithCommas(
     population,
   )} people`
