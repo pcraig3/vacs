@@ -59,7 +59,7 @@ const VacsVaccinesRegionsChart = ({ children, data }) => {
 
 VacsVaccinesRegionsChart.propTypes = {
   children: oneOfType([array, object]).isRequired,
-  data: object,
+  data: array,
 }
 
 export default VacsVaccinesRegionsChart

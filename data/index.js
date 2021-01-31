@@ -14,8 +14,8 @@ const mergeData = ({ abbr = 'CAN', data }) => {
     } = data
 
     Object.assign(regions[abbr], {
-      total_vaccinated: parseInt(total_vaccinated, 10),
-      total_vaccinations: parseInt(total_vaccinations, 10),
+      total_vaccinated: parseInt(total_vaccinated || 0, 10),
+      total_vaccinations: parseInt(total_vaccinations || 0, 10),
       total_received_vaccine: total_vaccinations - total_vaccinated,
     })
   }

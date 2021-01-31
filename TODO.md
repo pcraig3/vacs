@@ -4,7 +4,6 @@
   - Link to regions
   - Link to "more info" at the bottom
 - Create a "data" page
-- Update data for Jan 31
 - Province pages
   - Are there some province specific commitments?
   - Province selector
@@ -21,8 +20,9 @@
 
 # DONE
 
-- Update data for Jan 30
+- Update data for Jan 31
 - API calls
+  - bug: API calls were blocked because of CORS header
   - Match API format
   - Write script to update static data from API
   - Last updated (automatic)

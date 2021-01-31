@@ -23,12 +23,11 @@ export default function Sources() {
           </li>
         </ol>
         <p>
-          I’m updating my data manually once per day, but a near-term ambition is to query it
-          directly from{' '}
+          The vaccine data is updated in real-time using the{' '}
           <Link href="https://api.covid19tracker.ca/docs/1.0/overview">
-            <a target="blank">the COVID19Tracker.ca API</a>
+            <a target="blank">COVID19Tracker.ca API</a>
           </Link>{' '}
-          so it will always be current.
+          so it should always be current.
         </p>
       </section>
     </Layout>

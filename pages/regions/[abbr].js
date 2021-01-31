@@ -1,26 +1,17 @@
 import Link from 'next/link'
 
-import { string } from 'prop-types'
-import fetch from 'unfetch'
-import useSWR from 'swr'
+import { array, string } from 'prop-types'
+import fetch from 'node-fetch'
 
 import Layout from '../../components/Layout'
 import LastUpdated from '../../components/LastUpdated'
 import VacsVaccinesDaysChart from '../../components/charts/VacsVaccinesDaysChart'
 import { mergeData } from '../../data'
 
-const fetcher = (url) => fetch(url).then((r) => r.json())
-
-const Region = ({ abbr }) => {
-  // when data comes back it looks like { data: [{ province: ON, ... }, { ... }, ...], last_updated: "datetime" }
-  let { data: { data: [..._data] = [], last_updated: lastUpdated } = {} } = useSWR(
-    'https://api.covid19tracker.ca/summary/split',
-    fetcher,
-  )
-
-  // set to empty object if empty array
-  _data = _data.length === 0 ? {} : _data
-  const regionData = mergeData({ abbr, data: _data })
+const Region = ({ abbr, data = [], lastUpdated }) => {
+  // if empty array, set to empty object
+  data = data.length === 0 ? {} : data
+  const regionData = mergeData({ abbr, data })
 
   return (
     <Layout title={`Vaccine recipients in ${regionData.name}`}>
@@ -70,26 +61,28 @@ const Region = ({ abbr }) => {
 
 Region.propTypes = {
   abbr: string,
+  data: array,
+  lastUpdated: string,
 }
 
-export async function getStaticPaths() {
-  // get all region abbreviations
-  const abbrs = Object.keys(require('../../data/_regions.json'))
+// This gets called on every request
+export async function getServerSideProps(context) {
+  const { params: { abbr } = {} } = context
+  const abbrs = Object.keys(require('../../data/_regions.json')).filter((abbr) => abbr !== 'CAN')
 
-  // Get the paths we want to pre-render based on region abbrs
-  const paths = abbrs.map((abbr) => ({
-    params: { abbr },
-  }))
-
-  // Pre-render only these paths at build time.
-  // { fallback: false } means other routes should 404.
-  return { paths, fallback: false }
-}
-
-export async function getStaticProps({ params }) {
-  return {
-    props: { abbr: params.abbr }, // will be passed to the page component as props
+  // if !params or params.abbr not in expected params (case-sensitive), then 404
+  if (!abbr || !abbrs.includes(abbr)) {
+    return { notFound: true }
   }
+
+  // get data for different regions in Canada
+  // when data comes back it looks like { data: [{ }, { }, { }, ...], last_updated: "datetime" }
+  const { data: [...regionsData] = [], last_updated: lastUpdated } = await fetch(
+    'https://api.covid19tracker.ca/summary/split',
+  ).then((response) => response.json())
+
+  // Pass data to the page via props
+  return { props: { abbr, data: regionsData, lastUpdated } }
 }
 
 export default Region

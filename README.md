@@ -1,6 +1,6 @@
 # Canada Vaccine Tracker
 
-This is a tiny little [Next.js](https://expressjs.com/) app to track the percentage of Canadians who have received vaccines over time. The data is kept (mostly) up to date with what is on [COVID-19 Tracker Canada's Vaccination page](https://covid19tracker.ca/vaccinationtracker.html). It will eventually be fully up to date (eg, API calls instead of manual updates) but don't cash that cheque just yet.
+This is a tiny little [Next.js](https://expressjs.com/) app to track the percentage of Canadians who have received vaccines over time. The data synced with what is on [COVID-19 Tracker Canada's Vaccination page](https://covid19tracker.ca/vaccinationtracker.html). The data is pulled in using [their API](https://api.covid19tracker.ca/docs/1.0/overview).
 
 Check it out @ [canada-vaccine-tracker.ca/](https://canada-vaccine-tracker.ca/) 😎
 
