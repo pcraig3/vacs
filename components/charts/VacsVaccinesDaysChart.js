@@ -1,5 +1,5 @@
 import React from 'react'
-
+import withSizes from 'react-sizes'
 import { array, object, oneOfType, shape, string, number } from 'prop-types'
 
 import {
@@ -29,14 +29,14 @@ class VacsVaccinesDaysChart extends React.Component {
   constructor() {
     super()
     this.state = {}
+    this.getWidth = this.getWidth.bind(this)
   }
 
-  handleZoom(domain) {
-    this.setState({ selectedDomain: domain })
-  }
-
-  handleBrush(domain) {
-    this.setState({ zoomDomain: domain })
+  getWidth({ isXs, isSm, isMd }) {
+    if (isXs) return 180
+    if (isSm) return 210
+    if (isMd) return 260
+    return 280
   }
 
   render() {
@@ -47,7 +47,7 @@ class VacsVaccinesDaysChart extends React.Component {
         <div className="chart">
           <VictoryChart
             height={120}
-            width={280}
+            width={this.getWidth(this.props)}
             theme={theme}
             containerComponent={
               <VictoryContainer
@@ -124,4 +124,11 @@ VacsVaccinesDaysChart.propTypes = {
   }),
 }
 
-export default VacsVaccinesDaysChart
+const mapSizesToProps = ({ width }) => ({
+  isXs: width > 1 && width < 380,
+  isSm: width >= 380 && width < 600,
+  isMd: width >= 600 && width < 900,
+  isLg: width >= 900,
+})
+
+export default withSizes(mapSizesToProps)(VacsVaccinesDaysChart)
