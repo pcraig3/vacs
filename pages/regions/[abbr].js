@@ -6,6 +6,8 @@ import fetch from 'node-fetch'
 import Layout from '../../components/Layout'
 import LastUpdated from '../../components/LastUpdated'
 import VacsVaccinesDaysChart from '../../components/charts/VacsVaccinesDaysChart'
+import MeasuringVaccinated from '../../components/MeasuringVaccinated'
+
 import { mergeData } from '../../data'
 
 const Region = ({ abbr, data = [], lastUpdated }) => {
@@ -36,23 +38,7 @@ const Region = ({ abbr, data = [], lastUpdated }) => {
           </VacsVaccinesDaysChart>
           <LastUpdated datetime={lastUpdated} />
 
-          <h3>
-            <span aria-hidden="true">*</span>More info
-          </h3>
-          <p className="smalltext">
-            “Vaccinated” is a little ambiguous. Both vaccines currently used in Canada require 2
-            doses (several weeks apart) to be fully effective. However, receiving 1 dose is
-            partially effective, and indicates how quickly we are dispensing vaccines.
-          </p>
-          <p className="smalltext">
-            The smaller number tracks how many people in {regionData.name} have received both doses.
-            The larger number tracks how many people in {regionData.name} have received at least 1
-            dose. For a more thorough write-up, check out the{' '}
-            <Link href="/methodology">
-              <a>Methodology</a>
-            </Link>
-            .
-          </p>
+          <MeasuringVaccinated demonym={regionData.demonym} />
         </section>
       </div>
     </Layout>

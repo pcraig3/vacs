@@ -2,6 +2,7 @@ import { string } from 'prop-types'
 import { format } from 'date-fns'
 
 const lastUpdated = require('../data/_lastUpdated.json').last_updated
+import { space } from '../styles/_theme'
 
 const getTimeZone = () => {
   // https://stackoverflow.com/a/30407960
@@ -26,8 +27,7 @@ const LastUpdated = ({ datetime = lastUpdated }) => {
         {format(new Date(datetime), formatString)} {formatString !== timeFormat && getTimeZone()}
       </time>
       <style jsx>{`
-        margin-top: -40px;
-        margin-bottom: 40px;
+        margin-top: -${space.xl};
         z-index: 1;
       `}</style>
     </p>

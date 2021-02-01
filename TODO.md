@@ -1,15 +1,11 @@
 # TODO
 
-- Fix the front page
-  - Link to regions
-  - Link to "more info" at the bottom
 - Create a "data" page
 - Province pages
   - Are there some province specific commitments?
   - Province selector
 - Fix the graphs
   - Weird JS glitch with the graph numbers
-  - Make the graph for the "regions" nicer (eg, how many vaccines)
   - Add some kind of text alternative for the graphs
   - Data tables?
   - Pan and zoom?
@@ -20,6 +16,9 @@
 
 # DONE
 
+- Fix the front page
+  - Link to regions
+  - Link to "more info" at the bottom
 - Update data for Jan 31
 - API calls
   - bug: API calls were blocked because of CORS header
