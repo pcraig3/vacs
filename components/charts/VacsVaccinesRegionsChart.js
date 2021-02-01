@@ -1,6 +1,6 @@
 import { array, object, oneOfType } from 'prop-types'
 
-import { VictoryAxis, VictoryBar, VictoryChart, VictoryLegend } from 'victory'
+import { VictoryAxis, VictoryBar, VictoryChart, VictoryContainer, VictoryLegend } from 'victory'
 
 import VacsRedLine from './VacsRedLine'
 import VacsLabel from './VacsLabel'
@@ -14,18 +14,25 @@ const VacsVaccinesRegionsChart = ({ children, data }) => {
     <figure>
       <figcaption>{children}</figcaption>
       <div className="chart">
-        <VictoryChart height={400} width={360} domainPadding={8} theme={theme}>
+        <VictoryChart
+          height={350}
+          width={280}
+          domainPadding={10}
+          theme={theme}
+          containerComponent={
+            <VictoryContainer
+              style={{
+                userSelect: 'auto',
+                touchAction: 'auto',
+              }}
+            />
+          }
+        >
           <VictoryLegend
             colorScale={[colors.QcOrangeAccent, colors.QcBlueLight]}
             data={[{ name: 'Canadians vaccinated*' }, { name: 'Days in 2021' }]}
           />
-          <VictoryAxis
-            fixLabelOverlap={true}
-            style={{
-              ticks: { size: 3 },
-              tickLabels: { fontSize: 7.5, padding: 2 },
-            }}
-          />
+          <VictoryAxis fixLabelOverlap={true} />
           <VictoryAxis
             dependentAxis
             domain={[0, 100]}
@@ -41,6 +48,7 @@ const VacsVaccinesRegionsChart = ({ children, data }) => {
             labels={({ datum }) => `${datum.y}%`}
             style={{
               data: {
+                width: 10,
                 fill: ({ datum }) => datum.fill || colors.QcOrangeAccent,
               },
             }}
@@ -50,7 +58,7 @@ const VacsVaccinesRegionsChart = ({ children, data }) => {
               />
             }
           />
-          <VacsRedLine labelY={342} />
+          <VacsRedLine labelY={253} />
         </VictoryChart>
       </div>
     </figure>

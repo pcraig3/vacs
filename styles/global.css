@@ -128,8 +128,8 @@ section {
 @media only screen and (max-width: 600px) {
   section > h1 ~ figure > .chart,
   section > h2 ~ figure > .chart {
-    width: 122%;
-    margin-left: -9%;
+    width: 93%;
+    margin-left: 7%;
   }
 
   .hide-on-mobile {
@@ -151,8 +151,8 @@ section {
   /* Graphs are 1 column on med screens */
   section > h1 ~ figure > .chart,
   section > h2 ~ figure > .chart {
-    width: 180%;
-    margin-left: -62%;
+    width: 138%;
+    margin-left: -38%;
   }
 
   .aside {
@@ -171,13 +171,17 @@ section {
   }
 }
 
-/* For big screens: Graphs are 2/3 column */
+/* for big screens: Graphs are 2/3 column  */
 @media only screen and (min-width: 900px) {
   section > h1 ~ figure > .chart,
   section > h2 ~ figure > .chart {
-    width: 130%;
-    margin-left: -17.5%;
+    width: 100%;
+    margin-left: 0;
   }
+}
+
+.chart .VictoryContainer > svg {
+  overflow: visible;
 }
 
 @media only screen and (max-width: 900px) {

@@ -4,7 +4,7 @@ import { VictoryLabel, VictoryLine } from 'victory'
 
 import { colors } from '../../styles/_theme'
 
-const VacsRedLine = ({ labelY = 80, ...props }) => (
+const VacsRedLine = ({ labelY = 83, ...props }) => (
   <VictoryLine
     {...props}
     style={{

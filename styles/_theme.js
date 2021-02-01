@@ -8,7 +8,12 @@ const padding = 8
 const baseProps = {
   width: 350,
   height: 350,
-  padding: 50,
+  padding: {
+    top: 35,
+    bottom: 25,
+    left: 0,
+    right: 10,
+  },
 }
 
 // Colors
@@ -72,7 +77,7 @@ const theme = {
         },
         ticks: {
           fill: 'transparent',
-          size: 5,
+          size: 3,
           stroke: colors.darkGrey,
           strokeWidth: 1,
           strokeLinecap,
@@ -80,6 +85,8 @@ const theme = {
         },
         tickLabels: Object.assign({}, baseLabelStyles, {
           fill: colors.black,
+          fontSize: 7.5,
+          padding: 3,
         }),
       },
     },
@@ -99,8 +106,8 @@ const theme = {
   baseProps,
   chart: baseProps,
   legend: {
-    x: 50,
-    y: 15,
+    x: 0,
+    y: 7,
     orientation: 'horizontal',
     gutter: 20,
     style: {

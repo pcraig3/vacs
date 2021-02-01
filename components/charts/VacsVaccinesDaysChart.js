@@ -1,6 +1,15 @@
+import React from 'react'
+
 import { array, object, oneOfType, shape, string, number } from 'prop-types'
 
-import { VictoryAxis, VictoryBar, VictoryChart, VictoryGroup, VictoryLegend } from 'victory'
+import {
+  VictoryAxis,
+  VictoryBar,
+  VictoryChart,
+  VictoryContainer,
+  VictoryGroup,
+  VictoryLegend,
+} from 'victory'
 
 import VacsRedLine from './VacsRedLine'
 import VacsLabel from './VacsLabel'
@@ -16,64 +25,87 @@ import {
 
 import { getDaysData, getFullData, getVaccinesData } from '../../data'
 
-const VacsVaccinesDaysChart = ({ children, abbr, data }) => {
-  return (
-    <figure>
-      <figcaption>{children}</figcaption>
-      <div className="chart">
-        <VictoryChart height={154} width={360} theme={theme}>
-          <VictoryLegend
-            colorScale={[colors.QcOrangeAccent, colors.QcBlueLight]}
-            data={[{ name: `${data.demonym} vaccinated*` }, { name: 'Days in 2021' }]}
-          />
-          <VictoryAxis
-            style={{
-              ticks: { size: 3 },
-              tickLabels: { fontSize: 7.5, padding: 2 },
-            }}
-          />
-          <VictoryAxis
-            dependentAxis
-            domain={[0, 100]}
-            tickValues={[getDaysData({ abbr })[0].y, 50, 70, 100]}
-            tickFormat={(t) => `${t}%`}
-            orientation="bottom"
-          />
-          <VictoryGroup
-            horizontal
-            offset={18}
-            style={{
-              data: { width: 10 },
-            }}
-            colorScale={[colors.QcBlueLight, colors.QcOrangeAccent]}
+class VacsVaccinesDaysChart extends React.Component {
+  constructor() {
+    super()
+    this.state = {}
+  }
+
+  handleZoom(domain) {
+    this.setState({ selectedDomain: domain })
+  }
+
+  handleBrush(domain) {
+    this.setState({ zoomDomain: domain })
+  }
+
+  render() {
+    const { children, abbr, data } = this.props
+    return (
+      <figure>
+        <figcaption>{children}</figcaption>
+        <div className="chart">
+          <VictoryChart
+            height={120}
+            width={280}
+            theme={theme}
+            containerComponent={
+              <VictoryContainer
+                style={{
+                  userSelect: 'auto',
+                  touchAction: 'auto',
+                }}
+              />
+            }
           >
-            <VictoryBar
-              name="bar-days"
-              animate={animateBar}
-              data={getDaysData({ abbr })}
-              labels={getDaysLabel}
-              labelComponent={<VacsLabel tooltipLabel={() => getDaysTooltip()} />}
+            <VictoryLegend
+              colorScale={[colors.QcOrangeAccent, colors.QcBlueLight]}
+              data={[{ name: `${data.demonym} vaccinated*` }, { name: 'Days in 2021' }]}
             />
-            <VictoryBar
-              animate={animateBar}
-              name="bar-vaccines"
-              data={getVaccinesData({ abbr, data })}
-              labels={getVaccinesLabel(data)}
-              labelComponent={<VacsLabel tooltipLabel={() => getRegionTooltip(data)} />}
+            <VictoryAxis />
+            <VictoryAxis
+              dependentAxis
+              domain={[0, 100]}
+              tickValues={[getDaysData({ abbr })[0].y, 50, 70, 100]}
+              tickFormat={(t) => `${t}%`}
+              orientation="bottom"
             />
-            <VictoryBar
-              animate={animateBar}
-              name="bar-full"
-              data={getFullData({ abbr, data })}
-              labels={getFullLabel(data)}
-              labelComponent={<VacsLabel tooltipLabel={() => getFullTooltip(data)} />}
-            />
-          </VictoryGroup>
-          <VacsRedLine />
-        </VictoryChart>
-      </div>
-    </figure>
-  )
+            <VictoryGroup
+              horizontal
+              offset={18}
+              style={{
+                data: { width: 10 },
+              }}
+              colorScale={[colors.QcBlueLight, colors.QcOrangeAccent]}
+            >
+              <VictoryBar
+                name="bar-days"
+                animate={animateBar}
+                data={getDaysData({ abbr })}
+                labels={getDaysLabel}
+                labelComponent={<VacsLabel tooltipLabel={() => getDaysTooltip()} />}
+              />
+              <VictoryBar
+                animate={animateBar}
+                name="bar-vaccines"
+                data={getVaccinesData({ abbr, data })}
+                labels={getVaccinesLabel(data)}
+                labelComponent={<VacsLabel tooltipLabel={() => getRegionTooltip(data)} />}
+              />
+              <VictoryBar
+                animate={animateBar}
+                name="bar-full"
+                data={getFullData({ abbr, data })}
+                labels={getFullLabel(data)}
+                labelComponent={<VacsLabel tooltipLabel={() => getFullTooltip(data)} />}
+              />
+            </VictoryGroup>
+            <VacsRedLine />
+          </VictoryChart>
+        </div>
+      </figure>
+    )
+  }
 }
 
 VacsVaccinesDaysChart.propTypes = {
