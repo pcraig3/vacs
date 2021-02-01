@@ -17,6 +17,10 @@ const LastUpdated = ({ datetime = lastUpdated }) => {
   if (datetime.length === 10) {
     datetime = `${datetime}T12:00:00Z`
     formatString = timeFormat
+  } else {
+    // eg "2021-01-31 23:35:49"
+    const [_d, _t] = datetime.split(' ')
+    datetime = `${_d}T${_t}-0600`
   }
 
   return (
