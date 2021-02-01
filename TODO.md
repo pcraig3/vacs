@@ -12,9 +12,11 @@
 - App versioning
   - Tag Docker containers
 - Everything accessibility
+- Logging
 
 # DONE
 
+- Vanity URL
 - Fix the front page
   - Link to regions
   - Link to "more info" at the bottom

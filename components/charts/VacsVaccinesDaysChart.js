@@ -13,7 +13,7 @@ import {
 
 import VacsRedLine from './VacsRedLine'
 import VacsLabel from './VacsLabel'
-import { animateBar, colors, theme } from '../../styles/_theme'
+import { animateBar, colors, getTheme } from '../../styles/_theme'
 import {
   getDaysLabel,
   getFullLabel,
@@ -30,13 +30,42 @@ class VacsVaccinesDaysChart extends React.Component {
     super()
     this.state = {}
     this.getWidth = this.getWidth.bind(this)
+    this.getThemeProps = this.getThemeProps.bind(this)
   }
 
   getWidth({ isXs, isSm, isMd }) {
     if (isXs) return 180
-    if (isSm) return 210
+    if (isSm) return 220
     if (isMd) return 260
     return 280
+  }
+
+  getThemeProps({ isXs, isSm, isMd }) {
+    const height = 120
+    if (isXs)
+      return {
+        width: 180,
+        height: 140,
+        fontSize: 10,
+        padding: {
+          top: 55,
+          left: 5,
+        },
+        legend: { orientation: 'vertical', x: 5 },
+      }
+    if (isSm)
+      return {
+        width: 220,
+        height: 140,
+        fontSize: 9,
+        padding: {
+          top: 55,
+          left: 5,
+        },
+        legend: { orientation: 'vertical', x: 5 },
+      }
+    if (isMd) return { width: 260, height, fontSize: 9 }
+    return { width: 280, height, fontSize: 8 }
   }
 
   render() {
@@ -46,9 +75,7 @@ class VacsVaccinesDaysChart extends React.Component {
         <figcaption>{children}</figcaption>
         <div className="chart">
           <VictoryChart
-            height={120}
-            width={this.getWidth(this.props)}
-            theme={theme}
+            theme={getTheme(this.getThemeProps(this.props))}
             containerComponent={
               <VictoryContainer
                 style={{
@@ -124,11 +151,12 @@ VacsVaccinesDaysChart.propTypes = {
   }),
 }
 
+// sizes are different than breakpoints because graphs are awful
 const mapSizesToProps = ({ width }) => ({
-  isXs: width > 1 && width < 380,
-  isSm: width >= 380 && width < 600,
-  isMd: width >= 600 && width < 900,
-  isLg: width >= 900,
+  isXs: width > 1 && width < 350,
+  isSm: width >= 350 && width < 550,
+  isMd: width >= 550 && width < 800,
+  isLg: width >= 800,
 })
 
 export default withSizes(mapSizesToProps)(VacsVaccinesDaysChart)

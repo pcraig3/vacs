@@ -4,7 +4,7 @@ import { VictoryAxis, VictoryBar, VictoryChart, VictoryContainer, VictoryLegend 
 
 import VacsRedLine from './VacsRedLine'
 import VacsLabel from './VacsLabel'
-import { animateBar, colors, theme } from '../../styles/_theme'
+import { animateBar, colors, getTheme } from '../../styles/_theme'
 import { getRegionTooltip } from '../../utils/charts'
 
 import { getDaysData, getRegionVaccines } from '../../data'
@@ -18,7 +18,7 @@ const VacsVaccinesRegionsChart = ({ children, data }) => {
           height={350}
           width={280}
           domainPadding={10}
-          theme={theme}
+          theme={getTheme()}
           containerComponent={
             <VictoryContainer
               style={{
