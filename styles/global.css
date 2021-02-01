@@ -51,6 +51,7 @@ h1,
 section > :first-child {
   font-size: 5rem;
   font-weight: 400;
+  margin-bottom: 0;
 }
 
 @media only screen and (max-width: 600px) {
@@ -112,13 +113,23 @@ section {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  position: relative;
 }
 
+/* for small screens */
 @media only screen and (max-width: 600px) {
   section > h1 ~ figure > .chart,
   section > h2 ~ figure > .chart {
     width: 122%;
     margin-left: -9%;
+  }
+
+  .hide-on-mobile {
+    display: none;
+  }
+
+  .hide-on-desktop {
+    display: initial;
   }
 }
 
@@ -135,9 +146,24 @@ section {
     width: 180%;
     margin-left: -62%;
   }
+
+  .aside {
+    width: 28%;
+    position: absolute;
+    left: 0;
+    top: 125px;
+  }
+
+  .hide-on-mobile {
+    display: initial;
+  }
+
+  .hide-on-desktop {
+    display: none;
+  }
 }
 
-/* Graphs are 2/3 column on big screens */
+/* For big screens: Graphs are 2/3 column */
 @media only screen and (min-width: 900px) {
   section > h1 ~ figure > .chart,
   section > h2 ~ figure > .chart {

@@ -2,6 +2,7 @@ import Link from 'next/link'
 
 import fetch from 'node-fetch'
 import { array, object, string } from 'prop-types'
+import ScrollTo from 'react-scroll-into-view'
 
 import Layout from '../components/Layout'
 import LastUpdated from '../components/LastUpdated'
@@ -22,6 +23,14 @@ const Home = ({ canadaData, regionsData, lastUpdated }) => {
           <h1>
             <span className="visuallyHidden">Vaccine recipients in </span>Canada
           </h1>
+
+          <ScrollTo selector="#by-region">
+            <p className="aside smalltext hide-on-mobile">
+              <a href="#by-region" onClick={(e) => e.preventDefault()}>
+                Percentages by region<span aria-hidden="true"> 👇</span>
+              </a>
+            </p>
+          </ScrollTo>
           <VacsVaccinesDaysChart data={canadaData} abbr={abbr}>
             <p>
               Comparing the percentage of Canadians who have received vaccines <em>vs.</em> the
@@ -57,21 +66,21 @@ const Home = ({ canadaData, regionsData, lastUpdated }) => {
         </section>
 
         <section>
-          <h2>
+          <h2 id="by-region">
             <span className="visuallyHidden">Vaccine recipients in Canada </span>By region
           </h2>
+          <p className="aside smalltext">
+            <Link href="/regions">
+              <a>
+                Pick a region<span aria-hidden="true"> 👉</span>
+              </a>
+            </Link>
+          </p>
 
           <VacsVaccinesRegionsChart data={regionsData}>
             <p>
               Percentage of Canadians who have received vaccines across all provinces and
               territories <em>vs.</em> the percentage of days passed in 2021.
-            </p>
-            <p className="smalltext">
-              (Or, choose{' '}
-              <Link href="/regions">
-                <a>a specific region in Canada</a>
-              </Link>
-              .)
             </p>
           </VacsVaccinesRegionsChart>
           <LastUpdated datetime={lastUpdated} />
