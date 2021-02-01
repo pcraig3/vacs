@@ -8,7 +8,6 @@
   - Weird JS glitch with the graph numbers
   - Add some kind of text alternative for the graphs
   - Data tables?
-  - Pan and zoom?
   - Graphs are crap on mobile
 - App versioning
   - Tag Docker containers

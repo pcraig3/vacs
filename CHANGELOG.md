@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## [1.3.0] - 2021-02-01
+
+### Added
+
+- Call data from the API now, so it's always up to date
+
+### Updated
+
+- Updated home page
+  - Added link to regions
+  - Consolidated text about vaccines
+  - Changed link to other regions
+- Added responsive graph widths
+  - It's like 20% better but they are still terrible on mobile
+
 ## [1.2.1] - 2021-01-28
 
 ### Added
