@@ -15,7 +15,7 @@ import { mergeData } from '../data'
 const abbr = 'CAN'
 
 const Home = ({ canadaData, regionsData, lastUpdated }) => {
-  canadaData = mergeData({ abbr, canadaData })
+  canadaData = mergeData({ abbr, data: canadaData })
 
   return (
     <Layout title={`Vaccine recipients in Canada`}>

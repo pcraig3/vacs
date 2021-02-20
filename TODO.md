@@ -16,6 +16,8 @@
 
 # DONE
 
+- bug: Fix number display logic so we don't show "1047k"
+- bug: pass in the actual data to the homepage
 - Vanity URL
 - Fix the front page
   - Link to regions

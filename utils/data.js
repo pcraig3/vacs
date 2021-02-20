@@ -28,8 +28,16 @@ const getPercent = ({ numerator, denominator }) => {
 /**
  * Returns numbers rounded to the nearest thousand and prepended by "k"
  * 111600 -> 112k
+ * Unless, it's over 1 million, then it will return the number of millions to 2 decimal places
+ * 1116000 -> 1.12 m
  * @param {number} number
  */
-const roundToNearestThousand = (number) => `${Math.round(number / 1000)}k`
+const roundToNearestThousand = (number) => {
+  if (number > 1000000) {
+    const ten_thousands = Math.round(number / 10000)
+    return `${ten_thousands / 100} m`
+  }
+  return `${Math.round(number / 1000)}k`
+}
 
 export { formatNumberWithCommas, getDayOfYear, getPercent, roundToNearestThousand }

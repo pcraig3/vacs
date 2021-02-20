@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## [1.3.1] - 2021-02-01
+
+### Fixed
+
+- Fix number display logic so we don't say "1047k"
+- Pass the actual numbers into the chart on the index page
+
 ## [1.3.0] - 2021-02-01
 
 ### Added
