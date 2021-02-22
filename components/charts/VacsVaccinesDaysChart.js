@@ -28,9 +28,22 @@ import { getDaysData, getFullData, getVaccinesData } from '../../data'
 class VacsVaccinesDaysChart extends React.Component {
   constructor() {
     super()
-    this.state = {}
+
+    this.getXDomain = this.getXDomain.bind(this)
+    this.getXTickValues = this.getXTickValues.bind(this)
     this.getWidth = this.getWidth.bind(this)
     this.getThemeProps = this.getThemeProps.bind(this)
+  }
+
+  getXDomain({ maxDomain }) {
+    return [0, maxDomain]
+  }
+
+  getXTickValues({ abbr, maxDomain }) {
+    if (maxDomain !== 100) {
+      return [getDaysData({ abbr })[0].y, 30, 50]
+    }
+    return [getDaysData({ abbr })[0].y, 50, 70, maxDomain]
   }
 
   getWidth({ isXs, isSm, isMd }) {
@@ -69,7 +82,8 @@ class VacsVaccinesDaysChart extends React.Component {
   }
 
   render() {
-    const { children, abbr, data } = this.props
+    const { children, abbr, data, maxDomain = 100 } = this.props
+
     return (
       <figure>
         <figcaption>{children}</figcaption>
@@ -92,8 +106,8 @@ class VacsVaccinesDaysChart extends React.Component {
             <VictoryAxis />
             <VictoryAxis
               dependentAxis
-              domain={[0, 100]}
-              tickValues={[getDaysData({ abbr })[0].y, 50, 70, 100]}
+              domain={this.getXDomain({ maxDomain })}
+              tickValues={this.getXTickValues({ abbr, maxDomain })}
               tickFormat={(t) => `${t}%`}
               orientation="bottom"
             />
@@ -127,7 +141,11 @@ class VacsVaccinesDaysChart extends React.Component {
                 labelComponent={<VacsLabel tooltipLabel={() => getFullTooltip(data)} />}
               />
             </VictoryGroup>
-            <VacsRedLine />
+            {maxDomain === 100 ? (
+              <VacsRedLine />
+            ) : (
+              <VacsRedLine y={50} labels={['Canada Day\n(July 1)']} />
+            )}
           </VictoryChart>
         </div>
       </figure>
@@ -149,6 +167,7 @@ VacsVaccinesDaysChart.propTypes = {
     total_vaccinated: number,
     total_vaccinations: number,
   }),
+  maxDomain: number,
 }
 
 // sizes are different than breakpoints because graphs are awful

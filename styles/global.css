@@ -86,7 +86,8 @@ ol li {
 }
 
 p,
-section li {
+section li,
+button {
   font-family: 'Piazzolla', serif;
   margin-bottom: 20px;
 }

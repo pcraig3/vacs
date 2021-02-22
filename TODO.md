@@ -7,6 +7,7 @@
 - Fix the graphs
   - Weird JS glitch with the graph numbers
   - Add some kind of text alternative for the graphs
+  - Move the red line down on smaller screens
   - Data tables?
   - Graphs are crap on mobile
 - App versioning
@@ -16,6 +17,8 @@
 
 # DONE
 
+- Fix the graphs
+  - Add a button to shrink the graphs
 - Fix the header for smaller screens
 - bug: Fix number display logic so we don't show "1047k"
 - bug: pass in the actual data to the homepage

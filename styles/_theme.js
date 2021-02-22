@@ -6,6 +6,7 @@ const colors = {
   veryDarkGrey: '#212121',
   lightGrey: '#e2e2e2',
   veryLightGrey: '#f0f0f0',
+  linkText: 'palevioletred',
 
   QcBlueLight: '#b9cde0',
   QcBlueDark: '#223654',
@@ -131,21 +132,6 @@ const getTheme = ({
       },
       baseProps,
     ),
-    tooltip: {
-      style: Object.assign({}, baseLabelStyles, {
-        padding: 0,
-        pointerEvents: 'none',
-      }),
-      flyoutStyle: {
-        stroke: colors.veryDarkGrey,
-        strokeWidth: 1,
-        fill: colors.veryLightGrey,
-        pointerEvents: 'none',
-      },
-      flyoutPadding: 5,
-      cornerRadius: 5,
-      pointerLength: 10,
-    },
   }
 }
 

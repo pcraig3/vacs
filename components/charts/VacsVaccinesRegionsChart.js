@@ -58,7 +58,7 @@ const VacsVaccinesRegionsChart = ({ children, data }) => {
               />
             }
           />
-          <VacsRedLine labelY={253} />
+          <VacsRedLine labelY={274} />
         </VictoryChart>
       </div>
     </figure>

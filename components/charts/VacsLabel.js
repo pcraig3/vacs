@@ -15,6 +15,7 @@ class VacsLabel extends React.Component {
           text={this.props.tooltipLabel || this.props.text}
           orientation="right"
           flyoutStyle={{ fill: '#e2e2e2' }}
+          pointerLength={6}
           constrainToVisibleArea
         />
       </>

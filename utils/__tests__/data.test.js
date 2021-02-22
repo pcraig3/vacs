@@ -37,6 +37,8 @@ describe('for formatNumberWithCommas', () => {
 const valsThousand = [
   { in: 1000, out: '1k' },
   { in: 123456, out: '123k' },
+  { in: 1234567, out: '1.23 m' },
+  { in: 2345678, out: '2.35 m' },
   { in: 500, out: '1k' },
   { in: 499, out: '0k' },
   { in: 0, out: '0k' },

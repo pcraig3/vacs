@@ -1,10 +1,10 @@
-import { number } from 'prop-types'
+import { array, number } from 'prop-types'
 
 import { VictoryLabel, VictoryLine } from 'victory'
 
 import { colors } from '../../styles/_theme'
 
-const VacsRedLine = ({ labelY = 83, ...props }) => (
+const VacsRedLine = ({ labelY = 83, y = 68, labels, ...props }) => (
   <VictoryLine
     {...props}
     style={{
@@ -15,14 +15,16 @@ const VacsRedLine = ({ labelY = 83, ...props }) => (
       },
       labels: { angle: 0, fill: colors.CanadaRed, fontSize: 8, padding: 5 },
     }}
-    labels={['September 13']}
+    labels={labels || ['Labour Day\n(Sept 6)']}
     labelComponent={<VictoryLabel y={labelY} />}
-    y={() => 70}
+    y={() => y}
   />
 )
 
 VacsRedLine.propTypes = {
+  labels: array,
   labelY: number,
+  y: number,
 }
 
 export default VacsRedLine

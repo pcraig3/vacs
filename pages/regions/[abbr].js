@@ -1,48 +1,76 @@
 import Link from 'next/link'
 
+import React from 'react'
 import { array, string } from 'prop-types'
 import fetch from 'node-fetch'
 
-import Layout from '../../components/Layout'
+import Button from '../../components/Button'
 import LastUpdated from '../../components/LastUpdated'
+import Layout from '../../components/Layout'
 import VacsVaccinesDaysChart from '../../components/charts/VacsVaccinesDaysChart'
 import MeasuringVaccinated from '../../components/MeasuringVaccinated'
 
 import { mergeData } from '../../data'
 
-const Region = ({ abbr, data = [], lastUpdated }) => {
-  // if empty array, set to empty object
-  data = data.length === 0 ? {} : data
-  const regionData = mergeData({ abbr, data })
+class Region extends React.Component {
+  constructor() {
+    super()
+    this.state = { maxDomain: 65 }
+    this.handleClick = this.handleClick.bind(this)
+  }
 
-  return (
-    <Layout title={`Vaccine recipients in ${regionData.name}`}>
-      <div>
-        <section>
-          <h1>
-            <span className="visuallyHidden">Vaccine recipients in </span>
-            {regionData.name}
-          </h1>
-          <VacsVaccinesDaysChart data={regionData}>
-            <p>
-              Comparing the percentage of {regionData.demonym} who have received vaccines vs the
-              number of days passed in 2021.
-            </p>
-            <p className="smalltext">
-              (We’re hoping for{' '}
-              <Link href="/methodology">
-                <a>~70% vaccinated by September 13</a>
-              </Link>
-              .)
-            </p>
-          </VacsVaccinesDaysChart>
-          <LastUpdated datetime={lastUpdated} />
+  handleClick() {
+    this.setState((state) => ({
+      maxDomain: state.maxDomain === 100 ? 65 : 100,
+    }))
+  }
 
-          <MeasuringVaccinated demonym={regionData.demonym} />
-        </section>
-      </div>
-    </Layout>
-  )
+  render() {
+    let { abbr, data = [], lastUpdated } = this.props
+
+    // if empty array, set to empty object
+    data = data.length === 0 ? {} : data
+    const regionData = mergeData({ abbr, data })
+
+    return (
+      <Layout title={`Vaccine recipients in ${regionData.name}`}>
+        <div>
+          <section>
+            <h1>
+              <span className="visuallyHidden">Vaccine recipients in </span>
+              {regionData.name}
+            </h1>
+            <VacsVaccinesDaysChart data={regionData} maxDomain={this.state.maxDomain}>
+              <p>
+                Comparing the percentage of {regionData.demonym} who have received vaccines{' '}
+                <em>vs.</em> the number of days passed in 2021.
+              </p>
+              <p className="smalltext">
+                (We’re hoping for{' '}
+                <Link href="/methodology">
+                  <a>
+                    {this.state.maxDomain === 100
+                      ? '~70% vaccinated by Labour Day'
+                      : '~50% vaccinated by Canada Day'}
+                  </a>
+                </Link>
+                .)
+              </p>
+            </VacsVaccinesDaysChart>
+            <div>
+              <Button onClick={this.handleClick}>
+                See until {this.state.maxDomain === 100 ? 'Canada Day' : 'the end of 2021'}
+              </Button>
+            </div>
+
+            <LastUpdated datetime={lastUpdated} />
+
+            <MeasuringVaccinated demonym={regionData.demonym} />
+          </section>
+        </div>
+      </Layout>
+    )
+  }
 }
 
 Region.propTypes = {
