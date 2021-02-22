@@ -19,13 +19,13 @@ const abbr = 'CAN'
 class Home extends React.Component {
   constructor() {
     super()
-    this.state = { maxDomain: 65 }
+    this.state = { maxDomain: 67 }
     this.handleClick = this.handleClick.bind(this)
   }
 
   handleClick() {
     this.setState((state) => ({
-      maxDomain: state.maxDomain === 100 ? 65 : 100,
+      maxDomain: state.maxDomain === 100 ? 67 : 100,
     }))
   }
 

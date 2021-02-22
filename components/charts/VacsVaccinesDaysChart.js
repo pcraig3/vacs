@@ -33,6 +33,7 @@ class VacsVaccinesDaysChart extends React.Component {
     this.getXTickValues = this.getXTickValues.bind(this)
     this.getWidth = this.getWidth.bind(this)
     this.getThemeProps = this.getThemeProps.bind(this)
+    this.getLabelProps = this.getLabelProps.bind(this)
   }
 
   getXDomain({ maxDomain }) {
@@ -58,13 +59,14 @@ class VacsVaccinesDaysChart extends React.Component {
     if (isXs)
       return {
         width: 180,
-        height: 140,
-        fontSize: 10,
+        height: 170,
+        fontSize: 9.5,
         padding: {
           top: 55,
-          left: 5,
+          left: 7,
         },
         legend: { orientation: 'vertical', x: 5 },
+        bar: { domainPadding: { x: [10, -10], y: 5 } },
       }
     if (isSm)
       return {
@@ -79,6 +81,25 @@ class VacsVaccinesDaysChart extends React.Component {
       }
     if (isMd) return { width: 260, height, fontSize: 9 }
     return { width: 280, height, fontSize: 8 }
+  }
+
+  getLabelProps({ isXs, isSm, maxDomain }) {
+    if (isXs)
+      return {
+        labelY: 135,
+        textAnchor: 'end',
+        labels: maxDomain === 100 ? ['Labour Day (Sept 6)'] : ['Canada Day (July 1)'],
+      }
+
+    if (isSm)
+      return {
+        labelY: 103,
+        labels: maxDomain === 100 ? ['Labour Day\n(Sept 6)'] : ['Canada Day\n(July 1)'],
+      }
+
+    return {
+      labels: maxDomain === 100 ? ['Labour Day\n(Sept 6)'] : ['Canada Day\n(July 1)'],
+    }
   }
 
   render() {
@@ -115,7 +136,7 @@ class VacsVaccinesDaysChart extends React.Component {
               horizontal
               offset={18}
               style={{
-                data: { width: 10 },
+                data: { width: 10, padding: { top: 50 } },
               }}
               colorScale={[colors.QcBlueLight, colors.QcOrangeAccent]}
             >
@@ -142,9 +163,9 @@ class VacsVaccinesDaysChart extends React.Component {
               />
             </VictoryGroup>
             {maxDomain === 100 ? (
-              <VacsRedLine />
+              <VacsRedLine {...this.getLabelProps(this.props)} />
             ) : (
-              <VacsRedLine y={50} labels={['Canada Day\n(July 1)']} />
+              <VacsRedLine y={50} {...this.getLabelProps(this.props)} />
             )}
           </VictoryChart>
         </div>

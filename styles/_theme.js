@@ -60,45 +60,43 @@ const getTheme = ({
   const centeredLabelStyles = Object.assign({ textAnchor: 'middle' }, baseLabelStyles)
 
   return {
-    axis: Object.assign(
-      {
-        style: {
-          axis: {
-            fill: 'transparent',
-            stroke: colors.darkGrey,
-            strokeWidth: 2,
-            strokeLinecap,
-            strokeLinejoin,
-          },
-          axisLabel: Object.assign({}, centeredLabelStyles, {
-            padding,
-            stroke: 'transparent',
-          }),
-          grid: {
-            fill: 'none',
-            stroke: colors.lightGrey,
-            strokeDasharray,
-            strokeLinecap,
-            strokeLinejoin,
-            pointerEvents: 'painted',
-          },
-          ticks: {
-            fill: 'transparent',
-            size: 3,
-            stroke: colors.darkGrey,
-            strokeWidth: 1,
-            strokeLinecap,
-            strokeLinejoin,
-          },
-          tickLabels: Object.assign({}, baseLabelStyles, {
-            fill: colors.black,
-            fontSize: 7.5,
-            padding: 3,
-          }),
+    axis: {
+      style: {
+        axis: {
+          fill: 'transparent',
+          stroke: colors.darkGrey,
+          strokeWidth: 2,
+          strokeLinecap,
+          strokeLinejoin,
         },
+        axisLabel: Object.assign({}, centeredLabelStyles, {
+          padding,
+          stroke: 'transparent',
+        }),
+        grid: {
+          fill: 'none',
+          stroke: colors.lightGrey,
+          strokeDasharray,
+          strokeLinecap,
+          strokeLinejoin,
+          pointerEvents: 'painted',
+        },
+        ticks: {
+          fill: 'transparent',
+          size: 3,
+          stroke: colors.darkGrey,
+          strokeWidth: 1,
+          strokeLinecap,
+          strokeLinejoin,
+        },
+        tickLabels: Object.assign({}, baseLabelStyles, {
+          fill: colors.black,
+          fontSize: 7.5,
+          padding: 3,
+        }),
       },
-      baseProps,
-    ),
+      ...baseProps,
+    },
     bar: {
       style: {
         data: {
