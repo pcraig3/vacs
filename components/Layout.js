@@ -14,13 +14,13 @@ function Layout({ children, title }) {
       <Header />
       <main>{children}</main>
       <footer>
-        Made with{' '}
-        <Link href="https://nextjs.org/">
-          <a target="_blank">Next.js</a>
-        </Link>{' '}
-        by{' '}
+        Made by{' '}
         <Link href="https://twitter.com/pcraig3">
           <a target="_blank">@pcraig3</a>
+        </Link>{' '}
+        using{' '}
+        <Link href="/data">
+          <a>public data</a>
         </Link>
         .
         <br />

@@ -42,18 +42,18 @@ function Links() {
         </Link>
       </li>
       <li>
-        <Link href="/about">
-          <a>About</a>
-        </Link>
-      </li>
-      <li>
         <Link href="/methodology">
           <a>Methodology</a>
         </Link>
       </li>
       <li>
-        <Link href="/sources">
-          <a>Sources</a>
+        <Link href="/data">
+          <a>Raw data</a>
+        </Link>
+      </li>
+      <li>
+        <Link href="/about">
+          <a>About</a>
         </Link>
       </li>
       <style jsx>{`

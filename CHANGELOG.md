@@ -7,14 +7,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
-## [1.3.1] - 2021-02-01
+## [1.4.0] - 2021-02-22
+
+### Added
+
+- Added a "data" page with the raw numbers I am using in a big data table
+  - Also mentioned the sources I am using on the data page
+
+### Removed
+
+- Remove "sources" page, as the data page is more useful
+- Replaced all references to the "sources" page to the new data page
+
+## [1.3.1] - 2021-02-21
 
 ### Fixed
 
 - Fix number display logic so we don't say "1047k"
 - Pass the actual numbers into the chart on the index page
 
-## [1.3.0] - 2021-02-01
+## [1.3.0] - 2021-02-20
 
 ### Added
 

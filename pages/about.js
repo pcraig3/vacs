@@ -54,7 +54,7 @@ export default function About() {
             <a target="_blank">Next.js</a>
           </Link>{' '}
           website using{' '}
-          <Link href="/sources">
+          <Link href="/data">
             <a>publicly-available data</a>
           </Link>{' '}
           about COVID vaccine distribution in Canada.{' '}

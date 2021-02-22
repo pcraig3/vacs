@@ -1,9 +1,10 @@
 # TODO
 
-- Create a "data" page
+- Update the methodology with latest news
 - Province pages
   - Are there some province specific commitments?
   - Province selector
+  - How provinces are doing against each other
 - Fix the graphs
   - Weird JS glitch with the graph numbers
   - Add some kind of text alternative for the graphs
@@ -16,6 +17,8 @@
 
 # DONE
 
+- Create a "data" page
+  - Remove "sources" page
 - Fix the graphs
   - Add a button to shrink the graphs
   - Move the red line down on smaller screens
