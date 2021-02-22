@@ -51,19 +51,20 @@ class Region extends React.Component {
                   <a>
                     {this.state.maxDomain === 100
                       ? '~70% vaccinated by Labour Day'
-                      : '~50% vaccinated by Canada Day'}
+                      : '~45-55% vaccinated by Canada Day'}
                   </a>
                 </Link>
                 .)
               </p>
             </VacsVaccinesDaysChart>
+
+            <LastUpdated datetime={lastUpdated} />
+
             <div>
               <Button onClick={this.handleClick}>
                 See until {this.state.maxDomain === 100 ? 'Canada Day' : 'the end of 2021'}
               </Button>
             </div>
-
-            <LastUpdated datetime={lastUpdated} />
 
             <MeasuringVaccinated demonym={regionData.demonym} />
           </section>

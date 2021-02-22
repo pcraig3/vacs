@@ -125,6 +125,47 @@ section {
   position: relative;
 }
 
+/* details / summary */
+main summary {
+  font-family: 'Piazzolla', serif;
+}
+
+/* tables */
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  border: 2px solid #2e2e2e;
+  border-collapse: collapse;
+  font-size: 80%;
+}
+
+table caption {
+  text-align: left;
+  font-weight: 600;
+}
+
+tr:nth-child(odd) {
+  background-color: #f0f0f0;
+}
+
+td,
+th {
+  border-bottom: 2px solid #2e2e2e;
+  border-collapse: separate;
+  padding: 5px;
+}
+
+th {
+  text-align: left;
+  font-weight: 500;
+}
+
+td {
+  text-align: right;
+}
+
 /* for small screens */
 @media only screen and (max-width: 600px) {
   section > h1 ~ figure > .chart,

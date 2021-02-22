@@ -8,7 +8,7 @@ import LastUpdated from '../components/LastUpdated'
 
 import { mergeData } from '../data'
 import { formatNumberWithCommas } from '../utils/data'
-import { colors, space } from '../styles/_theme'
+import { space } from '../styles/_theme'
 
 const abbr = 'CAN'
 
@@ -92,10 +92,6 @@ const Data = ({ canadaData, regionsData, lastUpdated }) => {
           display: none;
         }
 
-        .table-container {
-          overflow-x: auto;
-        }
-
         @media only screen and (max-width: 1000px) {
           .table-container {
             width: 100%;
@@ -112,34 +108,8 @@ const Data = ({ canadaData, regionsData, lastUpdated }) => {
           }
         }
 
-        table {
-          border: 2px solid ${colors.darkGrey};
-          border-collapse: collapse;
-          font-size: 80%;
-        }
-
         table caption {
           visibility: hidden;
-        }
-
-        tr:nth-child(odd) {
-          background-color: ${colors.veryLightGrey};
-        }
-
-        td,
-        th {
-          border-bottom: 2px solid ${colors.darkGrey};
-          border-collapse: separate;
-          padding: 5px;
-        }
-
-        th {
-          text-align: left;
-          font-weight: 500;
-        }
-
-        td {
-          text-align: right;
         }
 
         h2 {

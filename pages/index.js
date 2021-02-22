@@ -59,7 +59,7 @@ class Home extends React.Component {
                   <a>
                     {this.state.maxDomain === 100
                       ? '~70% vaccinated by Labour Day'
-                      : '~50% vaccinated by Canada Day'}
+                      : '~45-55% vaccinated by Canada Day'}
                   </a>
                 </Link>
                 .)
