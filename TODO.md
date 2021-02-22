@@ -16,6 +16,7 @@
 
 # DONE
 
+- Fix the header for smaller screens
 - bug: Fix number display logic so we don't show "1047k"
 - bug: pass in the actual data to the homepage
 - Vanity URL

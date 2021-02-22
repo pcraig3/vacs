@@ -58,6 +58,7 @@ function Links() {
       </li>
       <style jsx>{`
         list-style-type: none;
+        margin-bottom: 0;
 
         li {
           margin-bottom: ${space.xs};
@@ -151,6 +152,10 @@ function Header() {
         }
 
         @media only screen and (max-width: 380px) {
+          .logo {
+            margin-bottom: ${space.sm};
+          }
+
           header {
             flex-direction: column;
           }
