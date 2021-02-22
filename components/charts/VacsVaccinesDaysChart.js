@@ -23,7 +23,7 @@ import {
   getRegionTooltip,
 } from '../../utils/charts'
 
-import ChartDetails from '../ChartDetails'
+import DaysChartDetails from '../DaysChartDetails'
 
 import { getDaysData, getFullData, getVaccinesData } from '../../data'
 
@@ -171,7 +171,7 @@ class VacsVaccinesDaysChart extends React.Component {
             )}
           </VictoryChart>
         </div>
-        <ChartDetails regionData={data} />
+        <DaysChartDetails regionData={data} />
       </figure>
     )
   }

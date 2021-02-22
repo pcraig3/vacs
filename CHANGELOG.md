@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Added
+
+- Added accessible chart descriptions under graphs
+  - All of our graphs now have a details element with an explanation sentence and a data table so that the data in the viz can be browsed by other modalities
+
+### Removed
+
+- Removed the button I spent so much time on
+  - Basically the interface was too cluttered so I took it away
+  - The logic is still in place to update the graphs but there isn't a way to control that anymore
+
 ## [1.4.0] - 2021-02-22
 
 ### Added

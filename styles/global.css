@@ -126,8 +126,40 @@ section {
 }
 
 /* details / summary */
+main details {
+  border: 2px solid #e2e2e2;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
 main summary {
   font-family: 'Piazzolla', serif;
+  cursor: pointer;
+  background: #f0f0f0;
+  padding: 10px;
+  border-radius: 3px;
+  border-bottom: 2px solid transparent;
+  outline-color: palevioletred;
+}
+
+main details[open] summary {
+  border-bottom: 2px solid #e2e2e2;
+}
+
+main details .details-container {
+  padding: 15px 10px;
+}
+
+main details table {
+  width: 100%;
+}
+
+main details th[scope='col'] {
+  text-align: right;
+}
+
+main details th[scope='row'] {
+  max-width: 25%;
 }
 
 /* tables */

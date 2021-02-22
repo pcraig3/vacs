@@ -1,10 +1,8 @@
 import { object } from 'prop-types'
 
-import { colors, space } from '../styles/_theme'
-
 import { formatNumberWithCommas, getDayOfYear, getPercent } from '../utils/data'
 
-function ChartDetails({ regionData }) {
+function DaysChartDetails({ regionData }) {
   return (
     <details>
       <summary>Figure 1 — Vaccine data for {regionData.name}</summary>
@@ -62,48 +60,12 @@ function ChartDetails({ regionData }) {
           </table>
         </div>
       </div>
-      <style jsx>{`
-        details {
-          border: 2px solid ${colors.lightGrey};
-          border-radius: 3px;
-          margin-bottom: ${space.md};
-        }
-
-        summary {
-          cursor: pointer;
-          background: ${colors.veryLightGrey};
-          padding: ${space.xs};
-          border-radius: 3px;
-          border-bottom: 2px solid transparent;
-          outline-color: ${colors.linkText};
-        }
-
-        details[open] summary {
-          border-bottom: 2px solid ${colors.lightGrey};
-        }
-
-        .details-container {
-          padding: ${space.sm} ${space.xs};
-        }
-
-        table {
-          width: 100%;
-        }
-
-        th[scope='col'] {
-          text-align: right;
-        }
-
-        th[scope='row'] {
-          max-width: 25%;
-        }
-      `}</style>
     </details>
   )
 }
 
-ChartDetails.propTypes = {
+DaysChartDetails.propTypes = {
   regionData: object.isRequired,
 }
 
-export default ChartDetails
+export default DaysChartDetails

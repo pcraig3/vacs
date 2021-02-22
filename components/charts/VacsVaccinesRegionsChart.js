@@ -7,6 +7,8 @@ import VacsLabel from './VacsLabel'
 import { animateBar, colors, getTheme } from '../../styles/_theme'
 import { getRegionTooltip } from '../../utils/charts'
 
+import RegionsChartDetails from '../RegionsChartDetails'
+
 import { getDaysData, getRegionVaccines } from '../../data'
 
 const VacsVaccinesRegionsChart = ({ children, data }) => {
@@ -61,6 +63,8 @@ const VacsVaccinesRegionsChart = ({ children, data }) => {
           <VacsRedLine labelY={274} />
         </VictoryChart>
       </div>
+
+      <RegionsChartDetails regionsData={data} sortedData={getRegionVaccines({ data })} />
     </figure>
   )
 }

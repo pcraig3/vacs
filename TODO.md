@@ -7,9 +7,7 @@
   - How provinces are doing against each other
 - Fix the graphs
   - Weird JS glitch with the graph numbers
-  - Add some kind of text alternative for the graphs
-  - Data tables?
-  - Graphs are crap on mobile
+  - Graphs will always be crap on mobile
 - App versioning
   - Tag Docker containers
 - Everything accessibility
@@ -22,6 +20,8 @@
 - Fix the graphs
   - Add a button to shrink the graphs
   - Move the red line down on smaller screens
+  - Add some kind of text alternative for the graphs
+  - Data tables ✅
 - Fix the header for smaller screens
 - bug: Fix number display logic so we don't show "1047k"
 - bug: pass in the actual data to the homepage
