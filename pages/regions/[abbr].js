@@ -4,7 +4,6 @@ import React from 'react'
 import { array, string } from 'prop-types'
 import fetch from 'node-fetch'
 
-import Button from '../../components/Button'
 import LastUpdated from '../../components/LastUpdated'
 import Layout from '../../components/Layout'
 import VacsVaccinesDaysChart from '../../components/charts/VacsVaccinesDaysChart'
@@ -16,13 +15,6 @@ class Region extends React.Component {
   constructor() {
     super()
     this.state = { maxDomain: 67 }
-    this.handleClick = this.handleClick.bind(this)
-  }
-
-  handleClick() {
-    this.setState((state) => ({
-      maxDomain: state.maxDomain === 100 ? 67 : 100,
-    }))
   }
 
   render() {
@@ -59,12 +51,6 @@ class Region extends React.Component {
             </VacsVaccinesDaysChart>
 
             <LastUpdated datetime={lastUpdated} />
-
-            <div>
-              <Button onClick={this.handleClick}>
-                See until {this.state.maxDomain === 100 ? 'Canada Day' : 'the end of 2021'}
-              </Button>
-            </div>
 
             <MeasuringVaccinated demonym={regionData.demonym} />
           </section>

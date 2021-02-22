@@ -5,7 +5,6 @@ import fetch from 'node-fetch'
 import { array, object, string } from 'prop-types'
 import ScrollTo from 'react-scroll-into-view'
 
-import Button from '../components/Button'
 import LastUpdated from '../components/LastUpdated'
 import Layout from '../components/Layout'
 import MeasuringVaccinated from '../components/MeasuringVaccinated'
@@ -20,13 +19,6 @@ class Home extends React.Component {
   constructor() {
     super()
     this.state = { maxDomain: 67 }
-    this.handleClick = this.handleClick.bind(this)
-  }
-
-  handleClick() {
-    this.setState((state) => ({
-      maxDomain: state.maxDomain === 100 ? 67 : 100,
-    }))
   }
 
   render() {
@@ -65,12 +57,6 @@ class Home extends React.Component {
                 .)
               </p>
             </VacsVaccinesDaysChart>
-            <div>
-              <Button onClick={this.handleClick}>
-                See until {this.state.maxDomain === 100 ? 'Canada Day' : 'the end of 2021'}
-              </Button>
-            </div>
-
             <LastUpdated datetime={lastUpdated} />
 
             <ScrollTo selector="#measuring-vaccinated">
