@@ -80,7 +80,7 @@ class Home extends React.Component {
               </Link>
             </p>
 
-            <VacsVaccinesRegionsChart data={regionsData}>
+            <VacsVaccinesRegionsChart data={regionsData} maxDomain={this.state.maxDomain}>
               <p>
                 Percentage of Canadians who have received vaccines across all provinces and
                 territories <em>vs.</em> the percentage of days passed in 2021.

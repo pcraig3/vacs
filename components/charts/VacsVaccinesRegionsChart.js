@@ -1,4 +1,4 @@
-import { array, object, oneOfType } from 'prop-types'
+import { array, object, oneOfType, number } from 'prop-types'
 
 import { VictoryAxis, VictoryBar, VictoryChart, VictoryContainer, VictoryLegend } from 'victory'
 
@@ -11,7 +11,7 @@ import RegionsChartDetails from '../RegionsChartDetails'
 
 import { getDaysData, getRegionVaccines } from '../../data'
 
-const VacsVaccinesRegionsChart = ({ children, data }) => {
+const VacsVaccinesRegionsChart = ({ children, maxDomain = 100, data }) => {
   return (
     <figure>
       <figcaption>{children}</figcaption>
@@ -37,8 +37,8 @@ const VacsVaccinesRegionsChart = ({ children, data }) => {
           <VictoryAxis fixLabelOverlap={true} />
           <VictoryAxis
             dependentAxis
-            domain={[0, 100]}
-            tickValues={[getDaysData('CAN')[0].y, 50, 70, 100]}
+            domain={[0, maxDomain]}
+            tickValues={[getDaysData('CAN')[0].y, 30, 50]}
             tickFormat={(t) => `${t}%`}
             orientation="bottom"
           />
@@ -60,7 +60,7 @@ const VacsVaccinesRegionsChart = ({ children, data }) => {
               />
             }
           />
-          <VacsRedLine labelY={274} />
+          <VacsRedLine y={50} labelY={274} labels={['Canada Day\n(July 1)']} />
         </VictoryChart>
       </div>
 
@@ -72,6 +72,7 @@ const VacsVaccinesRegionsChart = ({ children, data }) => {
 VacsVaccinesRegionsChart.propTypes = {
   children: oneOfType([array, object]).isRequired,
   data: array,
+  maxDomain: number,
 }
 
 export default VacsVaccinesRegionsChart
