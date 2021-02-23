@@ -22,7 +22,7 @@ function Layout({ children, title }) {
         <Link href="https://twitter.com/pcraig3">
           <a target="_blank">@pcraig3</a>
         </Link>{' '}
-        in frigid Ottawa,{' '}
+        in icy Ottawa,{'\u00A0'}
         <Link href="/regions/ON">
           <a>Ontario</a>
         </Link>
@@ -43,12 +43,18 @@ function Layout({ children, title }) {
         }
 
         footer {
-          font-size: 1.1rem;
+          font-size: 1rem;
           color: ${colors.darkGrey};
           padding: ${space.xs} ${space.md};
           background: ${colors.veryLightGrey};
           text-align: right;
           flex-shrink: 0;
+        }
+
+        @media only screen and (min-width: 600px) {
+          footer {
+            font-size: 1.1rem;
+          }
         }
       `}</style>
     </div>

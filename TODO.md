@@ -2,7 +2,6 @@
 
 - Make a nice meta tag
 - Make a nice images
-- Fix the footer thing
 - Province pages
   - Are there some province specific commitments?
   - Province selector
@@ -16,6 +15,7 @@
 
 # DONE
 
+- bug: fix "Ontario" orphan in footer
 - Update the methodology with latest news
 - Create a "data" page
   - Remove "sources" page
