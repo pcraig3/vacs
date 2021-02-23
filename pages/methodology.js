@@ -8,30 +8,40 @@ export default function Methodology() {
       <section>
         <h1>Methodology</h1>
         <p>
-          Justin Trudeau announced that “
+          “The federal government has released an updated COVID-19 vaccination timeline, showing
+          that at least 14.5 million Canadians will be able to be immunized by the end of June,”{' '}
           <Link href="https://www.thestar.com/politics/federal/2021/01/12/justin-trudeau-says-that-canada-will-have-enough-covid-19-vaccines-for-everyone-by-the-end-of-september.html">
-            <a target="blank">every Canadian who wants a vaccine [will] receive one by September</a>
+            <a target="blank">according to CTV News</a>
           </Link>
-          .”
+          . “The timeline [also] shows that up to 24.5 million Canadians <em>could be</em> fully
+          vaccinated by the end of June,” they continue (emphasis mine).
+        </p>
+        <ul>
+          <li>19 million is halfway between those estimates, which is ~50% of the population</li>
+          <li>Canada Day — July 1st — is 50% of the way through the year</li>
+        </ul>
+        <p>
+          Basically, we want to be approaching about 50% of the population vaccinated by Canada Day.
+          If we miss the mark, we still want to be around 40% by July 1st.
         </p>
         <p>
-          The <abbr title="World Health Organization">WHO</abbr> has also estimated that a “
+          The <abbr title="World Health Organization">WHO</abbr> has estimated that a “
           <Link href="https://www.reuters.com/article/us-health-coronavirus-immunity-analysis-idUSKBN27Y124">
             <a target="blank">
               65-70% vaccine coverage rate [is] a way to reach population immunity
             </a>
           </Link>
-          .”
+          ,” so if we’re at 50% by Canada Day, we’re in good shape to be close to 70% by Labour Day.
         </p>
         <p>
-          September 13 is ~70% of the way through a year, which lines up pretty well with when
-          Trudeau said vaccines should be generally available. It seems to me that we would be in
-          really good shape if around 70% of Canadians were vaccinated by mid-September.
+          The idea here is to provide an easy-to-read progress indicator as we continue to ramp up
+          vaccine distribution in Canada.
         </p>
+
         <h2>People vs doses</h2>
         <p>
           “Canadians who have received the vaccine” is a lower number than “Vaccine doses
-          administered.” It is more useful to track how many <em>people</em> have received at least
+          administered.” It’s more useful to track how many <em>people</em> have received at least
           one vaccine than to just track the total number of spent vaccines.
         </p>
         <p>

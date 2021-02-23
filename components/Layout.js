@@ -14,13 +14,17 @@ function Layout({ children, title }) {
       <Header />
       <main>{children}</main>
       <footer>
-        Made by{' '}
+        Made with{' '}
+        <span role="img" aria-label="spaghetti">
+          🍝
+        </span>{' '}
+        by{' '}
         <Link href="https://twitter.com/pcraig3">
           <a target="_blank">@pcraig3</a>
         </Link>{' '}
-        using{' '}
-        <Link href="/data">
-          <a>public data</a>
+        in frigid Ottawa,{' '}
+        <Link href="/regions/ON">
+          <a>Ontario</a>
         </Link>
         .
         <br />

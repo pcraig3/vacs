@@ -9,14 +9,14 @@ export default function About() {
         <h1>About</h1>
         <p>
           <Link href="/">
-            <a>Canada-Vaccine-Tracker dot CA</a>
+            <a>canada-vaccine-tracker dot CA</a>
           </Link>{' '}
           is a little hobby project built by{' '}
           <Link href="https://pcraig3.ca">
             <a target="_blank">Paul Craig</a>
           </Link>{' '}
-          basically over four and a half nights until 4:30 am. As such, it’s likely rife with bugs
-          and at present pretty limited in functionality. Keeping it small is the intention though:{' '}
+          over a few weeks mostly by staying up past his bedtime. As such, got a few rough edges for
+          its not-that-many-pages. Keeping it small is kind of the point though:{' '}
           <Link href="https://covid19tracker.ca/vaccinationtracker.html">
             <a target="blank">other</a>
           </Link>{' '}
@@ -34,12 +34,13 @@ export default function About() {
           <Link href="/methodology">
             <a>The basic idea</a>
           </Link>{' '}
-          is that it would be really good if ~70% of the population received vaccines by September
-          13th (~70% of the way through the year).
+          is that it would be really good if ~50% of the population received a vaccines by Canada
+          Day (~50% of the way through the year), and so let’s make it easy to see at a glance how
+          it’s going.
         </p>
         <p>
-          It would be cool to incorporate progress over time, (eg, are we ramping up?) so probably
-          that will show up eventually.
+          It would be cool to incorporate progress over time, (eg, are we ramping up?) so that might
+          show up as well.
         </p>
         <p>
           <Link href="https://pcraig3.ca/contact">
