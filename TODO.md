@@ -13,6 +13,12 @@
 - Everything accessibility
 - Logging
 
+# WIP
+
+- Update the methodology with latest news
+- Province pages
+  - How provinces are doing against each other
+
 # DONE
 
 - Create a "data" page

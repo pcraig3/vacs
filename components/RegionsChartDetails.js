@@ -26,34 +26,31 @@ function RegionsChartDetails({ regionsData, sortedData }) {
               <th scope="col">Raw data</th>
               <th scope="col">Percent</th>
             </tr>
-            {sortedData
-              .filter((region) => region.x !== 'Days in 2021')
-              .reverse()
-              .map((data) => {
-                const { x: province } = data
+            {sortedData.map((data) => {
+              const { x: province } = data
 
-                let regionData = mergeData({
-                  abbr: province,
-                  data: regionsData.find((region) => region.province === province),
-                })
+              let regionData = mergeData({
+                abbr: province,
+                data: regionsData.find((region) => region.province === province),
+              })
 
-                return (
-                  <tr key={regionData.province}>
-                    <th scope="row">{regionData.name}</th>
-                    <td>
-                      {formatNumberWithCommas(regionData.total_received_vaccine)} /{' '}
-                      {formatNumberWithCommas(regionData.population)}
-                    </td>
-                    <td>
-                      {getPercent({
-                        numerator: regionData.total_received_vaccine,
-                        denominator: regionData.population,
-                      })}
-                      %
-                    </td>
-                  </tr>
-                )
-              })}
+              return (
+                <tr key={regionData.province}>
+                  <th scope="row">{regionData.name}</th>
+                  <td>
+                    {formatNumberWithCommas(regionData.total_received_vaccine)} /{' '}
+                    {formatNumberWithCommas(regionData.population)}
+                  </td>
+                  <td>
+                    {getPercent({
+                      numerator: regionData.total_received_vaccine,
+                      denominator: regionData.population,
+                    })}
+                    %
+                  </td>
+                </tr>
+              )
+            })}
             <tr>
               <th scope="row">Days passed in 2021</th>
               <td>{getDayOfYear()} / 365</td>

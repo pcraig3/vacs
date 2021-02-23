@@ -8,8 +8,9 @@ import LastUpdated from '../../components/LastUpdated'
 import Layout from '../../components/Layout'
 import VacsVaccinesDaysChart from '../../components/charts/VacsVaccinesDaysChart'
 import MeasuringVaccinated from '../../components/MeasuringVaccinated'
+import RelativePosition from '../../components/RelativePosition'
 
-import { mergeData } from '../../data'
+import { mergeData, getRegionVaccines } from '../../data'
 
 class Region extends React.Component {
   constructor() {
@@ -49,8 +50,13 @@ class Region extends React.Component {
                 .)
               </p>
             </VacsVaccinesDaysChart>
-
             <LastUpdated datetime={lastUpdated} />
+
+            <RelativePosition
+              data={regionData}
+              sortedData={getRegionVaccines({ data, withDays: false })}
+              regionsData={data}
+            />
 
             <MeasuringVaccinated demonym={regionData.demonym} />
           </section>
