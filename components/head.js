@@ -6,7 +6,7 @@ import { GA_TRACKING_ID } from '../config/gtag'
 const defaultDescription =
   'Canada Vaccine Tracker charts the progress of vaccinations in Canada over the course of 2021.'
 const defaultOGURL = 'https://canada-vaccine-tracker.ca'
-const defaultOGImage = 'https://canada-vaccine-tracker.ca/android-chrome-512x512.png'
+const defaultOGImage = 'https://canada-vaccine-tracker.ca/vacs-can.png'
 
 const Head = (props) => (
   <NextHead>
@@ -30,10 +30,11 @@ const Head = (props) => (
     <meta property="og:description" content={props.description || defaultDescription} />
     <meta name="twitter:site" content={props.url || defaultOGURL} />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@pcraig3" />
     <meta name="twitter:image" content={props.ogImage || defaultOGImage} />
     <meta property="og:image" content={props.ogImage || defaultOGImage} />
     <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    <meta property="og:image:height" content="628" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
