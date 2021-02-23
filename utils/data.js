@@ -40,4 +40,10 @@ const roundToNearestThousand = (number) => {
   return `${Math.round(number / 1000)}k`
 }
 
-export { formatNumberWithCommas, getDayOfYear, getPercent, roundToNearestThousand }
+const sortByKey = ({ data, key, sortBy = 'descending' }) => {
+  return data.sort(function (a, b) {
+    return sortBy === 'ascending' ? a[key] - b[key] : b[key] - a[key]
+  })
+}
+
+export { formatNumberWithCommas, getDayOfYear, getPercent, roundToNearestThousand, sortByKey }

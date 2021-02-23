@@ -64,10 +64,7 @@ const VacsVaccinesRegionsChart = ({ children, maxDomain = 100, data }) => {
         </VictoryChart>
       </div>
 
-      <RegionsChartDetails
-        regionsData={data}
-        sortedData={getRegionVaccines({ data, sortBy: 'ascending', withDays: false })}
-      />
+      <RegionsChartDetails regionsData={data} />
     </figure>
   )
 }

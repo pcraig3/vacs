@@ -1,4 +1,4 @@
-import { getPercent, getDayOfYear } from '../utils/data'
+import { getPercent, getDayOfYear, sortByKey } from '../utils/data'
 
 const mergeData = ({ abbr = 'CAN', data }) => {
   const regions = require('./_regions.json')
@@ -93,11 +93,7 @@ const getRegionVaccines = ({ data, withDays = true, sortBy = 'descending' }) => 
     })
   }
 
-  regionsData.sort(function (a, b) {
-    return sortBy === 'ascending' ? a.y - b.y : b.y - a.y
-  })
-
-  return regionsData
+  return sortByKey({ data: regionsData, key: 'y', sortBy })
 }
 
 export { getDaysData, getFullData, getVaccinesData, getRegionVaccines, mergeData }

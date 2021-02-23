@@ -1,9 +1,17 @@
 import { array } from 'prop-types'
 
 import { mergeData } from '../data'
-import { formatNumberWithCommas, getDayOfYear, getPercent } from '../utils/data'
+import { formatNumberWithCommas, getDayOfYear, getPercent, sortByKey } from '../utils/data'
 
-function RegionsChartDetails({ regionsData, sortedData }) {
+function RegionsChartDetails({ regionsData }) {
+  regionsData = regionsData.map((region) =>
+    mergeData({
+      abbr: region.province,
+      data: region,
+    }),
+  )
+  sortByKey({ data: regionsData, key: 'percentage_received_vaccine', sortBy: 'ascending' })
+
   return (
     <details>
       <summary>Figure 2 — Vaccine rollout data by region</summary>
@@ -26,14 +34,7 @@ function RegionsChartDetails({ regionsData, sortedData }) {
               <th scope="col">Raw data</th>
               <th scope="col">Percent</th>
             </tr>
-            {sortedData.map((data) => {
-              const { x: province } = data
-
-              let regionData = mergeData({
-                abbr: province,
-                data: regionsData.find((region) => region.province === province),
-              })
-
+            {regionsData.map((regionData) => {
               return (
                 <tr key={regionData.province}>
                   <th scope="row">{regionData.name}</th>
@@ -41,13 +42,7 @@ function RegionsChartDetails({ regionsData, sortedData }) {
                     {formatNumberWithCommas(regionData.total_received_vaccine)} /{' '}
                     {formatNumberWithCommas(regionData.population)}
                   </td>
-                  <td>
-                    {getPercent({
-                      numerator: regionData.total_received_vaccine,
-                      denominator: regionData.population,
-                    })}
-                    %
-                  </td>
+                  <td>{regionData.percentage_received_vaccine}%</td>
                 </tr>
               )
             })}

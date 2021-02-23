@@ -1,20 +1,15 @@
-import { object } from 'prop-types'
+import { object, string } from 'prop-types'
 
 const _territories = ['NT', 'NU', 'YT']
 
 import { mergeData } from '../data'
-import { formatNumberWithCommas } from '../utils/data'
+import { formatNumberWithCommas, sortByKey } from '../utils/data'
 
-const isProvince = (region = {}) => {
-  return region.province ? !_territories.includes(region.province) : false
+const isProvince = (abbr) => {
+  return abbr ? !_territories.includes(abbr) : false
 }
 
-const getProvinceBySorted = ({ abbr, regionsData }) => {
-  let region = regionsData.find((r) => r.province === abbr)
-  return mergeData({ abbr, data: region })
-}
-
-const getPosition = (position) => {
+const readPosition = (position) => {
   position += 1
 
   switch (position) {
@@ -29,23 +24,29 @@ const getPosition = (position) => {
   }
 }
 
-function RelativePosition({ data: region, sortedData, regionsData }) {
+function RelativePosition({ abbr, regionsData }) {
+  regionsData = regionsData.map((region) =>
+    mergeData({
+      abbr: region.province,
+      data: region,
+    }),
+  )
+
   let percentDifference
 
-  sortedData = isProvince(region)
-    ? sortedData.filter((r) => !_territories.includes(r.x))
-    : sortedData.filter((r) => _territories.includes(r.x))
+  regionsData = isProvince(abbr)
+    ? regionsData.filter((r) => !_territories.includes(r.abbr))
+    : regionsData.filter((r) => _territories.includes(r.abbr))
 
-  const sortedPosition = sortedData.findIndex((r) => r.x === region.province)
+  sortByKey({ data: regionsData, key: 'percentage_received_vaccine' })
 
-  const regionAhead =
-    sortedPosition > 0
-      ? getProvinceBySorted({ abbr: sortedData[sortedPosition - 1].x, regionsData })
-      : false
+  const sortedPosition = regionsData.findIndex((r) => r.abbr === abbr)
+
+  const regionAhead = sortedPosition > 0 ? regionsData[sortedPosition - 1] : false
   const regionBehind =
-    sortedPosition !== sortedData.length - 1
-      ? getProvinceBySorted({ abbr: sortedData[sortedPosition + 1].x, regionsData })
-      : false
+    sortedPosition !== regionsData.length - 1 ? regionsData[sortedPosition + 1] : false
+
+  const region = regionsData[sortedPosition]
 
   if (regionAhead) {
     percentDifference =
@@ -59,19 +60,19 @@ function RelativePosition({ data: region, sortedData, regionsData }) {
       <h2>Summary</h2>
       <p>
         {region.percentage_received_vaccine}% of {region.demonym} have received at least one dose of
-        the vaccine, which is {getPosition(sortedPosition)} overall for Canada’s{' '}
-        {sortedData.length === 3 ? '3 territories' : '10 provinces'}.
+        the vaccine, which is {readPosition(sortedPosition)} overall for Canada’s{' '}
+        {regionsData.length === 3 ? '3 territories' : '10 provinces'}.
       </p>
       <ul>
         {regionAhead && (
           <li>
-            {regionAhead.name} is {getPosition(sortedPosition - 1)}, with{' '}
+            {regionAhead.name} is {readPosition(sortedPosition - 1)}, with{' '}
             {regionAhead.percentage_received_vaccine}% of its population vaccinated.
           </li>
         )}
         {regionBehind && (
           <li>
-            {regionBehind.name} is {getPosition(sortedPosition + 1)}, with{' '}
+            {regionBehind.name} is {readPosition(sortedPosition + 1)}, with{' '}
             {regionBehind.percentage_received_vaccine}% of its population vaccinated.
           </li>
         )}
@@ -88,8 +89,7 @@ function RelativePosition({ data: region, sortedData, regionsData }) {
 }
 
 RelativePosition.propTypes = {
-  data: object.isRequired,
-  sortedData: object.isRequired,
+  abbr: string.isRequired,
   regionsData: object.isRequired,
 }
 
