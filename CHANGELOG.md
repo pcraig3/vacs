@@ -7,10 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## [1.5.0] - 2021-02-22
+
+### Updated
+
+- Updated the "regions" chart on the home page to care about Canada Day, not Labour Day
+- Updated the "methodology" and "about" pages to talk about the new estimates: 15-24 million by Canada Day (🤞)
+
 ### Added
 
 - Added accessible chart descriptions under graphs
   - All of our graphs now have a details element with an explanation sentence and a data table so that the data in the viz can be browsed by other modalities
+- On the region pages, I've put a blurb about how that province/territory is doing in relation to other provinces or territories
+  - note that I separated provinces and territories because the numbers are so different between them
 
 ### Removed
 

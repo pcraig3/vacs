@@ -1,6 +1,5 @@
 # TODO
 
-- Update the methodology with latest news
 - Province pages
   - Are there some province specific commitments?
   - Province selector
@@ -10,17 +9,11 @@
   - Graphs will always be crap on mobile
 - App versioning
   - Tag Docker containers
-- Everything accessibility
 - Logging
-
-# WIP
-
-- Update the methodology with latest news
-- Province pages
-  - How provinces are doing against each other
 
 # DONE
 
+- Update the methodology with latest news
 - Create a "data" page
   - Remove "sources" page
 - Fix the graphs
@@ -58,6 +51,7 @@
   - Update the text
   - Last updated
   - Actual province selection page
+  - How provinces are doing against each other
 - Webmaster / search console
 - Update data for Jan 23
 - Province pages
