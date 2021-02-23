@@ -65,7 +65,6 @@ function RegionsChartDetails({ regionsData }) {
 
 RegionsChartDetails.propTypes = {
   regionsData: array.isRequired,
-  sortedData: array.isRequired,
 }
 
 export default RegionsChartDetails

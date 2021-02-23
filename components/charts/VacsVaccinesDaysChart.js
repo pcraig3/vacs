@@ -36,6 +36,27 @@ class VacsVaccinesDaysChart extends React.Component {
     this.getWidth = this.getWidth.bind(this)
     this.getThemeProps = this.getThemeProps.bind(this)
     this.getLabelProps = this.getLabelProps.bind(this)
+
+    this.state = {
+      renderFromState: true,
+      themeProps: this.getThemeProps({ isMd: true }),
+      labelProps: this.getLabelProps({ isMd: true }),
+    }
+  }
+
+  componentDidMount() {
+    if (typeof window !== 'undefined' && this.state.renderFromState) {
+      let width = window.innerWidth
+      const isXs = width > 1 && width < 350
+      const isSm = width >= 350 && width < 550
+      const isMd = width >= 550 && width < 800
+
+      this.setState({
+        renderFromState: false,
+        themeProps: this.getThemeProps({ isXs, isSm, isMd }),
+        labelProps: this.getLabelProps({ isXs, isSm, isMd, maxDomain: 67 }),
+      })
+    }
   }
 
   getXDomain({ maxDomain }) {
@@ -107,12 +128,20 @@ class VacsVaccinesDaysChart extends React.Component {
   render() {
     const { children, abbr, data, maxDomain = 100 } = this.props
 
+    const themeProps = this.state.renderFromState
+      ? this.state.themeProps
+      : this.getThemeProps(this.props)
+
+    const labelProps = this.state.renderFromState
+      ? this.state.labelProps
+      : this.getLabelProps(this.props)
+
     return (
       <figure>
         <figcaption>{children}</figcaption>
         <div className="chart">
           <VictoryChart
-            theme={getTheme(this.getThemeProps(this.props))}
+            theme={getTheme(themeProps)}
             containerComponent={
               <VictoryContainer
                 style={{
@@ -165,9 +194,9 @@ class VacsVaccinesDaysChart extends React.Component {
               />
             </VictoryGroup>
             {maxDomain === 100 ? (
-              <VacsRedLine {...this.getLabelProps(this.props)} />
+              <VacsRedLine {...labelProps} />
             ) : (
-              <VacsRedLine y={50} {...this.getLabelProps(this.props)} />
+              <VacsRedLine y={50} {...labelProps} />
             )}
           </VictoryChart>
         </div>

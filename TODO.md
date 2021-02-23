@@ -1,5 +1,8 @@
 # TODO
 
+- Make a nice meta tag
+- Make a nice images
+- Fix the footer thing
 - Province pages
   - Are there some province specific commitments?
   - Province selector
@@ -17,6 +20,7 @@
 - Create a "data" page
   - Remove "sources" page
 - Fix the graphs
+  - Small graph loads all weird
   - Add a button to shrink the graphs
   - Move the red line down on smaller screens
   - Add some kind of text alternative for the graphs
