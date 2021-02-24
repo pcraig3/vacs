@@ -148,6 +148,7 @@ class VacsVaccinesDaysChart extends React.Component {
                   userSelect: 'auto',
                   touchAction: 'auto',
                 }}
+                aria-describedby="days-chart-text-description"
               />
             }
           >
@@ -200,7 +201,7 @@ class VacsVaccinesDaysChart extends React.Component {
             )}
           </VictoryChart>
         </div>
-        <DaysChartDetails regionData={data} />
+        <DaysChartDetails regionData={data} id="days-chart-text-description" />
       </figure>
     )
   }

@@ -14,6 +14,9 @@
 
 # DONE
 
+- Add lang="en" to body
+- Focus on body when navigating between pages
+- Link to the other provinces from province pages
 - Make a nice image
 - bug: fix "Ontario" orphan in footer
 - Update the methodology with latest news
@@ -25,6 +28,7 @@
   - Move the red line down on smaller screens
   - Add some kind of text alternative for the graphs
   - Data tables ✅
+  - Aria-describedby for charts
 - Fix the header for smaller screens
 - bug: Fix number display logic so we don't show "1047k"
 - bug: pass in the actual data to the homepage

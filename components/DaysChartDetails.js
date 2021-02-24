@@ -2,9 +2,9 @@ import { object } from 'prop-types'
 
 import { formatNumberWithCommas, getDayOfYear, getPercent } from '../utils/data'
 
-function DaysChartDetails({ regionData }) {
+function DaysChartDetails({ regionData, ...props }) {
   return (
-    <details>
+    <details {...props}>
       <summary>Figure 1 — Vaccine data for {regionData.name}</summary>
       <div className="details-container">
         <p>
@@ -19,44 +19,46 @@ function DaysChartDetails({ regionData }) {
             <caption>
               Vaccinations in {regionData.name} <em>vs.</em> days in 2021
             </caption>
-            <tr>
-              <th scope="col"></th>
-              <th scope="col">Raw data</th>
-              <th scope="col">Percent</th>
-            </tr>
-            <tr>
-              <th scope="row">{regionData.demonym} fully vaccinated</th>
-              <td>
-                {formatNumberWithCommas(regionData.total_vaccinated)} /{' '}
-                {formatNumberWithCommas(regionData.population)}
-              </td>
-              <td>
-                {getPercent({
-                  numerator: regionData.total_vaccinated,
-                  denominator: regionData.population,
-                })}
-                %
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">{regionData.demonym} who have recevied a vaccine</th>
-              <td>
-                {formatNumberWithCommas(regionData.total_received_vaccine)} /{' '}
-                {formatNumberWithCommas(regionData.population)}
-              </td>
-              <td>
-                {getPercent({
-                  numerator: regionData.total_received_vaccine,
-                  denominator: regionData.population,
-                })}
-                %
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">Days passed in 2021</th>
-              <td>{getDayOfYear()} / 365</td>
-              <td>{getPercent({ numerator: getDayOfYear(), denominator: 365 })}%</td>
-            </tr>
+            <tbody>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">Raw data</th>
+                <th scope="col">Percent</th>
+              </tr>
+              <tr>
+                <th scope="row">{regionData.demonym} fully vaccinated</th>
+                <td>
+                  {formatNumberWithCommas(regionData.total_vaccinated)} /{' '}
+                  {formatNumberWithCommas(regionData.population)}
+                </td>
+                <td>
+                  {getPercent({
+                    numerator: regionData.total_vaccinated,
+                    denominator: regionData.population,
+                  })}
+                  %
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">{regionData.demonym} who have recevied a vaccine</th>
+                <td>
+                  {formatNumberWithCommas(regionData.total_received_vaccine)} /{' '}
+                  {formatNumberWithCommas(regionData.population)}
+                </td>
+                <td>
+                  {getPercent({
+                    numerator: regionData.total_received_vaccine,
+                    denominator: regionData.population,
+                  })}
+                  %
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">Days passed in 2021</th>
+                <td>{getDayOfYear()} / 365</td>
+                <td>{getPercent({ numerator: getDayOfYear(), denominator: 365 })}%</td>
+              </tr>
+            </tbody>
           </table>
         </div>
       </div>

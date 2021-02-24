@@ -27,6 +27,7 @@ const VacsVaccinesRegionsChart = ({ children, maxDomain = 100, data }) => {
                 userSelect: 'auto',
                 touchAction: 'auto',
               }}
+              aria-describedby="regions-chart-text-description"
             />
           }
         >
@@ -64,7 +65,7 @@ const VacsVaccinesRegionsChart = ({ children, maxDomain = 100, data }) => {
         </VictoryChart>
       </div>
 
-      <RegionsChartDetails regionsData={data} />
+      <RegionsChartDetails regionsData={data} id="regions-chart-text-description" />
     </figure>
   )
 }
