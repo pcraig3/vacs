@@ -10,7 +10,7 @@ export default function Methodology() {
         <p>
           “The federal government has released an updated COVID-19 vaccination timeline, showing
           that at least 14.5 million Canadians will be able to be immunized by the end of June,”{' '}
-          <Link href="https://www.thestar.com/politics/federal/2021/01/12/justin-trudeau-says-that-canada-will-have-enough-covid-19-vaccines-for-everyone-by-the-end-of-september.html">
+          <Link href="https://www.ctvnews.ca/health/coronavirus/14-5m-canadians-to-be-immunized-by-june-updated-vaccination-timeline-shows-1.5314048">
             <a target="blank">according to CTV News</a>
           </Link>
           . “The timeline [also] shows that up to 24.5 million Canadians <em>could be</em> fully
