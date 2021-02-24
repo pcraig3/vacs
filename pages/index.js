@@ -25,8 +25,12 @@ class Home extends React.Component {
     let { canadaData, regionsData, lastUpdated } = this.props
     canadaData = mergeData({ abbr, data: canadaData })
 
+    const metaDescription = `As of ${LastUpdated.getMonthDay(lastUpdated)}, ${
+      canadaData.percentage_received_vaccine
+    }% of Canadians have received at least one dose of the vaccine. Track vaccine distribution across all regions in Canada in 2021.`
+
     return (
-      <Layout title={`Vaccine recipients in Canada`}>
+      <Layout title={`Vaccine recipients in Canada`} metaDescription={metaDescription}>
         <div>
           <section>
             <h1>

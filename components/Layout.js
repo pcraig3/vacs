@@ -6,10 +6,13 @@ import HTMLHead from '../components/head'
 import Header from '../components/Header'
 import { colors, space } from '../styles/_theme'
 
-function Layout({ children, title }) {
+function Layout({ children, title, metaDescription }) {
   return (
     <div className="container">
-      <HTMLHead title={title ? `${title} — Canada Vaccine Tracker` : 'Canada Vaccine Tracker'} />
+      <HTMLHead
+        title={title ? `${title} — Canada Vaccine Tracker` : 'Canada Vaccine Tracker'}
+        description={metaDescription}
+      />
 
       <Header />
       <main>{children}</main>
@@ -63,6 +66,7 @@ function Layout({ children, title }) {
 
 Layout.propTypes = {
   children: oneOfType([array, object]).isRequired,
+  metaDescription: string,
   title: string,
 }
 

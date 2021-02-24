@@ -3,8 +3,7 @@ import NextHead from 'next/head'
 import { string } from 'prop-types'
 import { GA_TRACKING_ID } from '../config/gtag'
 
-const defaultDescription =
-  'Canada Vaccine Tracker charts the progress of vaccinations in Canada over the course of 2021.'
+const defaultDescription = 'Track vaccine distribution across all regions in Canada in 2021.'
 const defaultOGURL = 'https://canada-vaccine-tracker.ca'
 const defaultOGImage = 'https://canada-vaccine-tracker.ca/vacs-can.png'
 
@@ -25,9 +24,13 @@ const Head = (props) => (
     <link rel="icon" href="/favicon.ico" />
     <link rel="manifest" href="/site.webmanifest"></link>
 
+    <meta property="og:type" content="website" />
     <meta property="og:url" content={props.url || defaultOGURL} />
     <meta property="og:title" content={props.title || ''} />
-    <meta property="og:description" content={props.description || defaultDescription} />
+    <meta
+      property="og:description"
+      content={(props.description && `${props.description.split('. ')[0]}.`) || defaultDescription}
+    />
     <meta name="twitter:site" content={props.url || defaultOGURL} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:creator" content="@pcraig3" />

@@ -25,8 +25,16 @@ class Region extends React.Component {
     data = data.length === 0 ? {} : data
     const regionData = mergeData({ abbr, data })
 
+    const metaDescription = `As of ${LastUpdated.getMonthDay(lastUpdated)}, ${
+      regionData.percentage_received_vaccine
+    }% of ${
+      regionData.demonym
+    } have received at least one dose of the vaccine. Track vaccine distribution in ${
+      regionData.name
+    } and across Canada in 2021.`
+
     return (
-      <Layout title={`Vaccine recipients in ${regionData.name}`}>
+      <Layout title={`Vaccine recipients in ${regionData.name}`} metaDescription={metaDescription}>
         <div>
           <section>
             <h1>

@@ -1,6 +1,5 @@
 # TODO
 
-- Make a nice meta tag
 - Province pages
   - Are there some province specific commitments?
   - Province selector
@@ -13,6 +12,7 @@
 
 # DONE
 
+- Make a nice meta tag
 - Add lang="en" to body
 - Focus on body when navigating between pages
 - Link to the other provinces from province pages

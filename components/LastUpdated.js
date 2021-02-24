@@ -1,3 +1,5 @@
+import React from 'react'
+
 import { string } from 'prop-types'
 import { format } from 'date-fns'
 
@@ -9,31 +11,36 @@ const getTimeZone = () => {
   return d.toLocaleString('en', { timeZoneName: 'short' }).split(' ').pop()
 }
 
-const LastUpdated = ({ datetime = lastUpdated }) => {
-  const datetimeFormat = "EEEE, MMM d 'at' h:mm bbbb"
-  const timeFormat = 'EEEE, MMMM d'
+class LastUpdated extends React.Component {
+  static getMonthDay = (datetime) => format(new Date(datetime.split(' ')[0]), 'EEEE, MMMM d')
 
-  let formatString = datetimeFormat
-  if (datetime.length === 10) {
-    datetime = `${datetime}T12:00:00Z`
-    formatString = timeFormat
-  } else {
-    // eg "2021-01-31 23:35:49"
-    const [_d, _t] = datetime.split(' ')
-    datetime = `${_d}T${_t}-0600`
+  render() {
+    let { datetime = lastUpdated } = this.props
+    const datetimeFormat = "EEEE, MMM d 'at' h:mm bbbb"
+    const timeFormat = 'EEEE, MMMM d'
+
+    let formatString = datetimeFormat
+    if (datetime.length === 10) {
+      datetime = `${datetime}T12:00:00Z`
+      formatString = timeFormat
+    } else {
+      // eg "2021-01-31 23:35:49"
+      const [_d, _t] = datetime.split(' ')
+      datetime = `${_d}T${_t}-0600`
+    }
+
+    return (
+      <p>
+        Last updated:{' '}
+        <time dateTime={datetime}>
+          {format(new Date(datetime), formatString)} {formatString !== timeFormat && getTimeZone()}
+        </time>
+        <style jsx>{`
+          z-index: 1;
+        `}</style>
+      </p>
+    )
   }
-
-  return (
-    <p>
-      Last updated:{' '}
-      <time dateTime={datetime}>
-        {format(new Date(datetime), formatString)} {formatString !== timeFormat && getTimeZone()}
-      </time>
-      <style jsx>{`
-        z-index: 1;
-      `}</style>
-    </p>
-  )
 }
 
 LastUpdated.propTypes = {
