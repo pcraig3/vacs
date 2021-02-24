@@ -1,4 +1,6 @@
-import { object, string } from 'prop-types'
+import Link from 'next/link'
+
+import { array, string } from 'prop-types'
 
 const _territories = ['NT', 'NU', 'YT']
 
@@ -66,14 +68,20 @@ function RelativePosition({ abbr, regionsData }) {
       <ul>
         {regionAhead && (
           <li>
-            {regionAhead.name} is {readPosition(sortedPosition - 1)}, with{' '}
-            {regionAhead.percentage_received_vaccine}% of its population vaccinated.
+            <Link href={`/regions/${regionAhead.abbr}`}>
+              <a>{regionAhead.name}</a>
+            </Link>{' '}
+            is {readPosition(sortedPosition - 1)}, with {regionAhead.percentage_received_vaccine}%
+            of its population vaccinated.
           </li>
         )}
         {regionBehind && (
           <li>
-            {regionBehind.name} is {readPosition(sortedPosition + 1)}, with{' '}
-            {regionBehind.percentage_received_vaccine}% of its population vaccinated.
+            <Link href={`/regions/${regionBehind.abbr}`}>
+              <a>{regionBehind.name}</a>
+            </Link>{' '}
+            is {readPosition(sortedPosition + 1)}, with {regionBehind.percentage_received_vaccine}%
+            of its population vaccinated.
           </li>
         )}
       </ul>
@@ -90,7 +98,7 @@ function RelativePosition({ abbr, regionsData }) {
 
 RelativePosition.propTypes = {
   abbr: string.isRequired,
-  regionsData: object.isRequired,
+  regionsData: array.isRequired,
 }
 
 export default RelativePosition

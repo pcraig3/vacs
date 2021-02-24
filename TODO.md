@@ -4,7 +4,6 @@
 - Province pages
   - Are there some province specific commitments?
   - Province selector
-  - How provinces are doing against each other
 - Fix the graphs
   - Weird JS glitch with the graph numbers
   - Graphs will always be crap on mobile
