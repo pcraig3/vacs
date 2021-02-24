@@ -52,7 +52,7 @@ class Region extends React.Component {
                   <a>
                     {this.state.maxDomain === 100
                       ? '~70% vaccinated by Labour Day'
-                      : '~38-50% vaccinated by Canada Day'}
+                      : '~40-50% vaccinated by Canada Day'}
                   </a>
                 </Link>
                 .)

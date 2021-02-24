@@ -34,9 +34,12 @@ export default function About() {
           <Link href="/methodology">
             <a>The basic idea</a>
           </Link>{' '}
-          is that it would be really good if ~50% of the population received a vaccines by Canada
-          Day (~50% of the way through the year), and so let’s make it easy to see at a glance how
-          it’s going.
+          is that it would be really good if{' '}
+          <Link href="https://www.ctvnews.ca/health/coronavirus/14-5m-canadians-to-be-immunized-by-june-updated-vaccination-timeline-shows-1.5314048">
+            <a target="blank">~40-50% of the population</a>
+          </Link>{' '}
+          received a vaccine by Canada Day (~50% of the way through the year), and so let’s make it
+          easy to see at a glance how it’s going.
         </p>
         <p>
           It would be cool to incorporate progress over time, (eg, are we ramping up?) so that might
