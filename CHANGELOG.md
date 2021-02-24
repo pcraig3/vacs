@@ -7,6 +7,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## [1.5.1] - 2021-02-24
+
+### Updated
+
+- Added extra margin to the bottom of the site on small screens (rounded corners, you know)
+- Add aria-desribedby to charts (point at the details element)
+- Create dynamic meta tag for provinces and homepage
+
+### Added
+
+- Added a nice header image for social sharing
+- Link to other provinces from the province pages
+
+### Fixed
+
+- Focus returns to `<body>` after route changes
+- Added lang="en" attribute to `<head>`
+- Smaller footer text and nonbreaking space between "Ontario" and "Canada" to prevent awkward layouts
+- Fixed bug whereby the charts would look terrible on their initial load on a small screen
+
 ## [1.5.0] - 2021-02-22
 
 ### Updated
