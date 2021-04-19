@@ -54,7 +54,7 @@ class VacsVaccinesDaysChart extends React.Component {
       this.setState({
         renderFromState: false,
         themeProps: this.getThemeProps({ isXs, isSm, isMd }),
-        labelProps: this.getLabelProps({ isXs, isSm, isMd, maxDomain: 67 }),
+        labelProps: this.getLabelProps({ isXs, isSm, isMd, maxDomain: 75 }),
       })
     }
   }
@@ -65,7 +65,7 @@ class VacsVaccinesDaysChart extends React.Component {
 
   getXTickValues({ abbr, maxDomain }) {
     if (maxDomain !== 100) {
-      return [getDaysData({ abbr })[0].y, 30, 50]
+      return [getDaysData({ abbr })[0].y, 50]
     }
     return [getDaysData({ abbr })[0].y, 50, 70, maxDomain]
   }

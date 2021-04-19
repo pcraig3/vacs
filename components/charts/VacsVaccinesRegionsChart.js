@@ -39,7 +39,7 @@ const VacsVaccinesRegionsChart = ({ children, maxDomain = 100, data }) => {
           <VictoryAxis
             dependentAxis
             domain={[0, maxDomain]}
-            tickValues={[getDaysData('CAN')[0].y, 30, 50]}
+            tickValues={[getDaysData('CAN')[0].y, 50]}
             tickFormat={(t) => `${t}%`}
             orientation="bottom"
           />
