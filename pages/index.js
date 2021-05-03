@@ -18,7 +18,7 @@ const abbr = 'CAN'
 class Home extends React.Component {
   constructor() {
     super()
-    this.state = { maxDomain: 75 }
+    this.state = { maxDomain: 80 }
   }
 
   render() {

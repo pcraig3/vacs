@@ -10,7 +10,7 @@ const getDaysLabel = ({ datum }) => `${getDayOfYear()} days (${datum.y}%)`
 
 const getVaccinesLabel = ({ total_received_vaccine }) => {
   return ({ datum }) =>
-    `${roundToNearestThousand(total_received_vaccine)} received vaccine (${datum.y}%)`
+    `${roundToNearestThousand(total_received_vaccine)} vaccinated (${datum.y}%)`
 }
 
 const getFullLabel = ({ total_vaccinated }) => {
@@ -27,7 +27,7 @@ const getFullLabel = ({ total_vaccinated }) => {
 const _getVaccinesTooltip = ({ population, total_received_vaccine = 0 }) => {
   return `${formatNumberWithCommas(
     total_received_vaccine,
-  )} received vaccine / ${formatNumberWithCommas(population)} people`
+  )} vaccinated / ${formatNumberWithCommas(population)} people`
 }
 
 const getFullTooltip = ({ population, total_vaccinated }) => {

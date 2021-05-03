@@ -61,7 +61,7 @@ const VacsVaccinesRegionsChart = ({ children, maxDomain = 100, data }) => {
               />
             }
           />
-          <VacsRedLine y={50} labelY={274} labels={['Canada Day\n(July 1)']} />
+          <VacsRedLine y={50} labelY={45} labels={['Canada Day (July 1)']} />
         </VictoryChart>
       </div>
 

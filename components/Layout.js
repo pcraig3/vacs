@@ -25,7 +25,7 @@ function Layout({ children, title, metaDescription }) {
         <Link href="https://twitter.com/pcraig3">
           <a target="_blank">@pcraig3</a>
         </Link>{' '}
-        in icy Ottawa,{'\u00A0'}
+        in overcast Ottawa,{'\u00A0'}
         <Link href="/regions/ON">
           <a>Ontario</a>
         </Link>

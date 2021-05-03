@@ -54,7 +54,7 @@ class VacsVaccinesDaysChart extends React.Component {
       this.setState({
         renderFromState: false,
         themeProps: this.getThemeProps({ isXs, isSm, isMd }),
-        labelProps: this.getLabelProps({ isXs, isSm, isMd, maxDomain: 75 }),
+        labelProps: this.getLabelProps({ isXs, isSm, isMd, maxDomain: 80 }),
       })
     }
   }
@@ -78,11 +78,11 @@ class VacsVaccinesDaysChart extends React.Component {
   }
 
   getThemeProps({ isXs, isSm, isMd }) {
-    const height = 120
+    const height = 135
     if (isXs)
       return {
         width: 180,
-        height: 170,
+        height: 175,
         fontSize: 9.5,
         padding: {
           top: 55,
@@ -94,7 +94,7 @@ class VacsVaccinesDaysChart extends React.Component {
     if (isSm)
       return {
         width: 220,
-        height: 140,
+        height: 175,
         fontSize: 9,
         padding: {
           top: 55,
@@ -103,25 +103,31 @@ class VacsVaccinesDaysChart extends React.Component {
         legend: { orientation: 'vertical', x: 5 },
       }
     if (isMd) return { width: 260, height, fontSize: 9 }
-    return { width: 280, height, fontSize: 8 }
+    return { width: 280, height, fontSize: 8, padding: {
+      top: 35,
+    }}
   }
 
   getLabelProps({ isXs, isSm, maxDomain }) {
     if (isXs)
       return {
-        labelY: 135,
+        labelY: 140,
         textAnchor: 'end',
+        fontSize: 9,
         labels: maxDomain === 100 ? ['Labour Day (Sept 6)'] : ['Canada Day (July 1)'],
       }
 
     if (isSm)
       return {
-        labelY: 103,
-        labels: maxDomain === 100 ? ['Labour Day\n(Sept 6)'] : ['Canada Day\n(July 1)'],
+        labelY: 140,
+        textAnchor: 'end',
+        fontSize: 9,
+        labels: maxDomain === 100 ? ['Labour Day (Sept 6)'] : ['Canada Day (July 1)'],
       }
 
     return {
-      labels: maxDomain === 100 ? ['Labour Day\n(Sept 6)'] : ['Canada Day\n(July 1)'],
+      labelY: 55,
+      labels: maxDomain === 100 ? ['Labour Day (Sept 6)'] : ['Canada Day (July 1)'],
     }
   }
 

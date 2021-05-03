@@ -18,7 +18,7 @@ describe('test getVaccinesLabel', () => {
   test('returns current vaccines for Canada and a y value', () => {
     expect(
       getVaccinesLabel({ total_received_vaccine: 123456 })({ datum: { x: 'CAN', y: '10' } }),
-    ).toEqual('123k received vaccine (10%)')
+    ).toEqual('123k vaccinated (10%)')
   })
 })
 
@@ -48,7 +48,7 @@ describe('test getDaysTooltip', () => {
 describe('test _getVaccinesTooltip', () => {
   test('returns vaccines for Canada', () => {
     expect(_getVaccinesTooltip({ population: 100000, total_received_vaccine: 1234 })).toEqual(
-      '1,234 received vaccine / 100,000 people',
+      '1,234 vaccinated / 100,000 people',
     )
   })
 })

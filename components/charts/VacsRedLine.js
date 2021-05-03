@@ -4,7 +4,7 @@ import { VictoryLabel, VictoryLine } from 'victory'
 
 import { colors } from '../../styles/_theme'
 
-const VacsRedLine = ({ labelY = 83, y = 70, labels, textAnchor = 'start', ...props }) => (
+const VacsRedLine = ({ labelY = 83, y = 70, textAnchor = 'start', fontSize = 8, labels, ...props }) => (
   <VictoryLine
     {...props}
     style={{
@@ -16,7 +16,7 @@ const VacsRedLine = ({ labelY = 83, y = 70, labels, textAnchor = 'start', ...pro
       labels: {
         angle: 0,
         fill: colors.CanadaRed,
-        fontSize: 8,
+        fontSize: fontSize,
         padding: textAnchor === 'start' ? 5 : 28.5,
       },
     }}

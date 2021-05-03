@@ -19,8 +19,8 @@ function MeasuringVaccinated({ demonym = 'Canadians' }) {
           effective, and indicates how quickly we are dispensing vaccines.
         </p>
         <ul>
-          <li>The smaller number tracks {demonym} who have received both doses.</li>
           <li>The larger number tracks {demonym} who have received at least 1 dose.</li>
+          <li>The smaller number tracks {demonym} who have received both doses.</li>
         </ul>
         <p>
           For a more thorough write-up, check out the{' '}
